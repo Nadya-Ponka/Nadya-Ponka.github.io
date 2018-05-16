@@ -1,0 +1,21 @@
+.battel {
+	display:none;
+	background-image: url('../Images/4689288.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-attachment: fixed;
+	width: 100%;
+	position: absolute;
+	min-height: 100%;
+}
+
+.field {
+	width:1200px;
+	height:800px;
+	background-color:#fff;
+	border:solid rgb(28, 107, 114) 2px;
+	border-radius:20px;
+	margin:2% auto;
+	
+}
