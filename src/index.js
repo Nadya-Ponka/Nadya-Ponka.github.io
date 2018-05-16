@@ -1,6 +1,5 @@
 document.querySelector('.buttonStart').addEventListener('click', function () {
-        document.querySelector('.landing').style.display = 'none';
-        document.querySelector('.battel').style.display = 'block';
+        location.href = 'battlescreen/index.html';
 
 		startMath();
     }, false);	 

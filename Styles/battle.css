@@ -1,21 +1,24 @@
-.battel {
-	display:none;
+.battle {
+	display:block;
 	background-image: url('../Images/4689288.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top left;
 	background-attachment: fixed;
 	width: 100%;
-	position: absolute;
 	min-height: 100%;
+	padding:2% 0;
 }
 
 .field {
 	width:1200px;
 	height:800px;
-	background-color:#fff;
-	border:solid rgb(28, 107, 114) 2px;
+
+	background-image: url('../Images/landscape.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	border:solid rgb(28, 107, 114) 4px;
 	border-radius:20px;
-	margin:2% auto;
-	
+	margin:0 auto;
 }
