@@ -13,7 +13,9 @@
 .field {
 	width:1200px;
 	height:800px;
-
+	display:grid;
+	grid-template-columns:repeat(2,50%);
+	grid-template-rows:repeat(2,50%);
 	background-image: url('../Images/landscape.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -21,4 +23,31 @@
 	border:solid rgb(28, 107, 114) 4px;
 	border-radius:20px;
 	margin:0 auto;
+	padding:50px 100px 150px;
+}
+
+.hero, .monster {
+	display:grid;
+	justify-content:center;
+	grid-template-columns: max-content;
+	align-self:end;
+	position:relative;
+}
+
+.head {
+	justify-self:center;
+}
+
+.monster div.head, .hero div.head {
+	position:absolute;
+	bottom:20px;
+}
+
+.aboutPlayer, .aboutMonster {
+	justify-self:start;
+}
+
+.aboutMonster {
+	justify-self:end;
+	text-align:right;
 }

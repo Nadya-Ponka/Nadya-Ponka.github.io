@@ -1,11 +1,96 @@
 document.querySelector('.buttonStart').addEventListener('click', function () {
-        location.href = 'battlescreen/index.html';
+        /*document.location.href = 'battlescreen/index.html';*/
+		document.querySelector('.landing').style.display = 'none';
+        document.querySelector('.battle').style.display = 'block';
+		loadFight();
 
-		startMath();
     }, false);	 
-
 	
-	function startMath() {
+	class Person {
+		constructor(name, score) {
+			this.name = name;
+			this.score = score;
+		 }
+	}
+
+	let player = new Person("Крош", "100");
+	let monster = new Person(generatedNameMonster(), "100");
+	
+	let playerField = document.querySelector('.aboutPlayer'); 
+	let monsterField = document.querySelector('.aboutMonster');
+	console.log(playerField);
+	console.log(monsterField);
+	console.log(monsterField.lastElementChild);
+
+	playerField.firstElementChild.appendChild(createNode('span', {}, player.name));
+	monsterField.firstElementChild.appendChild(createNode('span', {}, monster.name));
+	
+	playerField.lastElementChild.appendChild(createNode('span', {}, player.score));
+	monsterField.lastElementChild.appendChild(createNode('span', {}, monster.score));
+	
+
+	function loadFight() {
+		
+		let mainField = document.querySelector('.field');
+        let mainHero = document.createElement('div');
+        mainHero.className = 'hero';
+		buildPerson(mainHero, 1);
+		
+        let mainMonster = document.createElement('div');
+        mainMonster.className = 'monster';
+		buildPerson(mainMonster, 2);
+		
+
+		let movement = document.querySelectorAll(".head");
+
+		/*var move = function() {
+			
+			setInterval(function() {
+					movement.forEach(elem => {	elem.style.bottom += 5 + 'px'; });
+
+			}, 500);
+		}
+		move();*/
+		function myMove() {
+			var pos = 5;
+			var id = setInterval(frame, 200);
+			function frame() {
+				pos*=-1; 
+				movement.forEach(elem => {	elem.style.bottom = pos + 'px'; });
+			}
+		}
+myMove();
+	
+		function buildPerson(element, number) {                  
+			var frag = '<div class="head" id=""><img src="Images/' + number+'-head.png" alt="" /></div><div class="body"><img src="Images/' + number+'-foot.png" alt="" /></div>';
+			element.innerHTML = frag;
+			return mainField.appendChild(element);
+		}
+	}
+	
+	function generatedNameMonster() {
+		let name = 'AAA';
+		return name;
+	}
+	
+	function createNode(tag, props, ...children) {
+        const element = document.createElement(tag);
+
+        Object.keys(props).forEach(key => element[key] = props[key]);
+
+        children.forEach(child => {
+            if (typeof child === 'string') {
+                child = document.createTextNode(child);
+            }
+
+            element.appendChild(child);
+        });
+
+        return element;
+    }
+	
+    
+/*	function startMath() {
 		let firstFactor = getRandomArbitrary(1,9);
 		let secondFactor = getRandomArbitrary(1,9);
 		console.log(firstFactor);
