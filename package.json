@@ -9,6 +9,16 @@
   "author": "Nadya Ponkratova",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.8.3"
-  }
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nadya-Ponka/Nadya-Ponka.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nadya-Ponka/Nadya-Ponka.github.io/issues"
+  },
+  "homepage": "https://github.com/Nadya-Ponka/Nadya-Ponka.github.io#readme"
 }

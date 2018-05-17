@@ -53,7 +53,7 @@ document.querySelector('.buttonStart').addEventListener('click', function () {
 		move();*/
 		function myMove() {
 			var pos = 5;
-			var id = setInterval(frame, 200);
+			var id = setInterval(frame, 300);
 			function frame() {
 				pos*=-1; 
 				movement.forEach(elem => {	elem.style.bottom = pos + 'px'; });
