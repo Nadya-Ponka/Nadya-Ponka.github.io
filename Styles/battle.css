@@ -11,8 +11,8 @@
 }
 
 .field {
-	width:1200px;
-	height:800px;
+	width:1366px;
+	height:768px;
 	display:grid;
 	grid-template-columns:repeat(2,50%);
 	grid-template-rows:repeat(2,50%);
@@ -23,7 +23,8 @@
 	border:solid rgb(28, 107, 114) 4px;
 	border-radius:20px;
 	margin:0 auto;
-	padding:50px 100px 150px;
+	padding:50px 80px 150px;
+	line-height:1.5;
 }
 
 .hero, .monster {
@@ -45,9 +46,18 @@
 
 .aboutPlayer, .aboutMonster {
 	justify-self:start;
+		font-size:22px;
+
 }
 
 .aboutMonster {
 	justify-self:end;
 	text-align:right;
+}
+
+.life {
+	height:35px;
+	background-color:red;
+	border-radius:15px;
+	border: #fff solid 2px;
 }
