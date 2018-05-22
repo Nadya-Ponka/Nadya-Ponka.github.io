@@ -1,6 +1,6 @@
 .battle {
 	display:block;
-	background-image: url('../Images/4689288.jpg');
+	background-image: url('../Images/background-image.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top left;
@@ -14,7 +14,7 @@
 	width:1366px;
 	height:768px;
 	display:grid;
-	grid-template-columns:repeat(2,50%);
+	grid-template-columns:repeat(3,auto);
 	grid-template-rows:repeat(2,50%);
 	background-image: url('../Images/landscape.jpg');
 	background-size: cover;
@@ -35,8 +35,12 @@
 	position:relative;
 }
 
-.head {
+.head, .weapon {
 	justify-self:center;
+}
+
+.weapon {
+	z-index:13;
 }
 
 .monster div.head, .hero div.head {
@@ -44,9 +48,13 @@
 	bottom:20px;
 }
 
+.weapon div.weapon {
+	position:absolute;
+}
+
 .aboutPlayer, .aboutMonster {
 	justify-self:start;
-		font-size:22px;
+	font-size:22px;
 
 }
 
@@ -58,6 +66,6 @@
 .life {
 	height:35px;
 	background-color:red;
-	border-radius:15px;
+	border-radius:25px;
 	border: #fff solid 2px;
 }
