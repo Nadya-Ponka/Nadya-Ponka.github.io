@@ -1,0 +1,99 @@
+* {
+	margin: 0;
+	padding: 0;
+  text-decoration: none;
+ }
+ 
+ @font-face {
+  font-family: Adigiana-2; 
+  src: url(../Fonts/Adigiana-2.ttf); 
+ }
+
+ body {
+  max-width: 1366px;
+  max-height: 768px;
+  background-image: url("../Images/Fone-math.jpg");
+ }
+.greeting {
+  width: 600px;
+  margin: 120px auto 0;
+}
+
+.greeting p {
+  text-align: center;
+  font-family: Adigiana-2, sans-serif;
+  font-size: 30px;
+  color: #D51414;
+
+}
+
+.math {
+  width: 320px;
+  margin: 40px 0 0 550px;
+
+
+}
+.argument-one, .operator, .argument-two, .equally {
+  /* display: inline-block; */
+  font-size: 60px;
+  font-family: Adigiana-2, sans-serif;
+  margin: 0 10px;
+  /* text-align: center; */
+}
+.argument-one {
+  color: yellow;
+}
+
+.operator {
+  color: red;
+}
+.argument-two {
+  color: blue;
+}
+
+.equally {
+  color: black;
+}
+.result {
+  position:relative;
+  margin: -56px 0 0 320px;
+}
+
+input {
+  width: 80px;
+  height: 40px;
+  font-size: 30px;
+  border-radius: 5px;
+}
+
+.button {
+  background-color: #0FB5B7;
+  width: 120px;
+  height: 60px;
+  border-radius: 20px;
+  margin: 50px auto;
+}
+
+.button p {
+  text-align: center;
+  font-size: 25px;
+  color:blue;
+  font-family: Adigiana-2, sans-serif;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: red;
+}
+
+.grate {
+  width: 385px;
+  height: 70px;
+  background-color: yellowgreen;
+  border-radius: 10px;
+  text-align: center;
+  font-family: Adigiana-2, sans-serif;
+  font-size: 30px;
+  color: #86561E;
+  margin: 250px auto 0;
+}

@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="../Styles/main.css" type="text/css">
 	<link rel="shortcut icon" href="../Images/favicon.png" type="image/png">
 	<!--<script src="https://js.cx/libs/animate.js"></script>-->
+	<link rel="stylesheet" href="../Styles/мodal-dialog.css">
+  <script src="../src/мodal-dialog.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
 
@@ -39,7 +41,19 @@
 			</div>
 			
 			<div>
-			<p >Hello World</p> 
+				<div class="modal-dialog">
+					<p class="close" onclick="closeScore()">&#215;</p>
+					<p>Выберите заклинание</p>
+					<div class="spell">
+						<img src="../Images/Atack.png" alt="" onclick='location.href="../task-screen/index-task-screen.html"'>
+						<p>Атаковать соперника</p>
+						<img src="../Images/Health.png" alt="" onclick='location.href="../task-screen/index-task-screen.html"'>
+						<p>Лечить себя</p>
+					</div>
+				</div>
+				<div class="button-dialog" onclick="dialog()">
+					<p>Открыть диалог</p>
+				</div>
 			</div>
 			
 			<div id="container" class="container">
