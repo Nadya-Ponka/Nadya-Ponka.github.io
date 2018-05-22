@@ -1,4 +1,4 @@
-( function() {
+function load() {
 	
 	class Person {
     constructor(name, score) {
@@ -32,7 +32,7 @@
 		
 		let mainHero = document.createElement('div');
 		mainHero.className = 'hero';
-		buildPerson(mainHero, 1, 1);
+		buildPerson(mainHero, 1, 1, 1);
 
 		let modalWindov = document.createElement('div');
 		modalWindov.className = '!!!!!!!!!!!!!!!!Вставить класс для модального окна';
@@ -40,25 +40,27 @@
 		
 		let mainMonster = document.createElement('div');
 		mainMonster.className = 'monster';
-		buildPerson(mainMonster, getRandomArbitrary(2, 4), getRandomArbitrary(2, 4));
-				
-		let movement = document.querySelectorAll(".head");
-		personMove();
+		buildPerson(mainMonster, getRandomArbitrary(2, 4), getRandomArbitrary(2, 4), getRandomArbitrary(2, 4));
 
-		function buildPerson(element, number1, number2) {
-			var frag = '<div class="weapon" id=""><img src="../Images/' + number1 + '-weapon.png" alt="" /></div><div class="head" id=""><img src="../Images/' + number1 + '-head.png" alt="" /></div><div class="body"><img src="../Images/' + number2 + '-foot.png" alt="" /></div>';
+		let movement = document.querySelectorAll(".head");
+		personMove(movement, 5);
+		personMove(document.querySelectorAll(".weapon"), 75);
+		
+
+		function buildPerson(element, number1, number2, number3) {
+			var frag = '<div class="weapon" id=""><img src="../Images/' + number3 + '-weapon.png" alt="" /></div><div class="head" id=""><img src="../Images/' + number1 + '-head.png" alt="" /></div><div class="body"><img src="../Images/' + number2 + '-foot.png" alt="" /></div>';
 			element.innerHTML = frag;
 			return mainField.appendChild(element);
 		}
 
-		function personMove() {
+		function personMove(array, y0) {
 			var pos = 5;
 			var id = setInterval(frame, 300);
 
 			function frame() {
 				pos *= -1;
-				movement.forEach(elem => {
-					elem.style.bottom = 25 + pos + 'px';
+				array.forEach(elem => {
+					elem.style.bottom = y0 + pos + 'px';
 				});
 			}
 		}
@@ -89,4 +91,3 @@
 		return n;
 	}
 }
-)();
