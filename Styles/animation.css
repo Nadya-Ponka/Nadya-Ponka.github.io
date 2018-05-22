@@ -1,0 +1,12 @@
+.container {
+  box-shadow: inset 0 1px 0 #444, 0 -1px 0 #000;
+  height: 240px;
+  justify-self:center;
+  width: 220px;
+  z-index:15;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+}

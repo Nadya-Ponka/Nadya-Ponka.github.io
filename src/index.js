@@ -43,7 +43,7 @@ function load() {
 		buildPerson(mainMonster, getRandomArbitrary(2, 4), getRandomArbitrary(2, 4), getRandomArbitrary(2, 4));
 
 		let movement = document.querySelectorAll(".head");
-		personMove(movement, 5);
+		personMove(movement, 25);
 		personMove(document.querySelectorAll(".weapon"), 75);
 		
 
@@ -90,4 +90,8 @@ function load() {
 		document.querySelector(`#${personId}`).style.width = `${n*3+'px'}`;
 		return n;
 	}
+	
+
+         
+
 }

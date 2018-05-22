@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="../Styles/main.css" type="text/css">
 	<link rel="shortcut icon" href="../Images/favicon.png" type="image/png">
 	<!--<script src="https://js.cx/libs/animate.js"></script>-->
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
 
 <body onload="load()">
@@ -18,18 +18,33 @@
 	<section class="battle">
 	
 		<div class="field">
-			<!--<div class="infoAboutPerson">-->
+			<!--<div class="lightning flashit">-->
 			
-			<div class="aboutPlayer">
+			<div class="aboutPlayer" >
 				<div id="player"></div>
 				<div id="playerLife" class="life"></div>
 			</div>
 			
-			<div></div>
+			<div class="flashing">
+			<p >Hello World</p> 
+			</div>
 			
 			<div class="aboutMonster">
 				<div id="monster"></div>
 				<div id="monsterLife" class="life"></div>
+			</div>
+			
+			<div>
+			<p >Hello World</p> 
+			</div>
+			
+			<div>
+			<p >Hello World</p> 
+			</div>
+			
+			<div id="container" class="container">
+				<canvas id="waterfall">
+				<canvas> 
 			</div>
 			
 			<!--</div>-->
@@ -37,12 +52,16 @@
 		
 	</section>
 
+	
+
 	<!--<footer>
 		<p>Designed by Nadya Ponkratova</p>
 	</footer>-->
 
 
 	<script src="../src/index.js"></script>
+	<script src="../src/waterfall.js"></script>
+
 
 </body>
 

@@ -7,15 +7,15 @@
 	background-attachment: fixed;
 	width: 100%;
 	min-height: 100%;
-	padding:2% 0;
+	padding:5% 0;
 }
 
 .field {
-	width:1366px;
-	height:768px;
+	width:1266px;
+	height:668px;
 	display:grid;
 	grid-template-columns:repeat(3,auto);
-	grid-template-rows:repeat(2,50%);
+	grid-template-rows:repeat(3,auto);
 	background-image: url('../Images/landscape.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -23,7 +23,7 @@
 	border:solid rgb(28, 107, 114) 4px;
 	border-radius:20px;
 	margin:0 auto;
-	padding:50px 80px 150px;
+	padding:50px 80px 50px;
 	line-height:1.5;
 }
 
