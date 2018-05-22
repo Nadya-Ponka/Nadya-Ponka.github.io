@@ -9,8 +9,7 @@
   "author": "Nadya Ponkratova",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.8.3",
-    "webpack-cli": "^2.1.3"
+    "webpack": "^4.8.3"
   },
   "main": "index.js",
   "repository": {
