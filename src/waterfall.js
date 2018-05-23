@@ -148,7 +148,7 @@ var waterfallCanvas = function(c, cw, ch){
     };          
     
     if(isCanvasSupported()){
-            var c = document.getElementById('waterfall');
+            var c = document.getElementById('magic');
             var cw = c.width = 220;
             var ch = c.height = 430;    
             var waterfall = new waterfallCanvas(c, cw, ch);           

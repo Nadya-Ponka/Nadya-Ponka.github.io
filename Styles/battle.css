@@ -71,3 +71,8 @@ div.weapon {
 	border-radius:25px;
 	border: #fff solid 2px;
 }
+
+canvas {
+	width:220px;
+	height:430px;
+}

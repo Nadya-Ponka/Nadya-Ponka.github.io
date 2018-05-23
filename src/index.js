@@ -34,9 +34,20 @@ function load() {
 		mainHero.className = 'hero';
 		buildPerson(mainHero, 1, 1, 1);
 
-		let modalWindov = document.createElement('div');
-		modalWindov.className = '!!!!!!!!!!!!!!!!Вставить класс для модального окна';
-		mainField.appendChild(modalWindov);
+		let modalWindow = document.createElement('div');
+		//modalWindow.className = 'modal-dialog';
+		modalWindow.innerHTML = '<div class="modal-dialog"><p class=\"close\" onclick=\"closeScore()\">&#215;</p>\
+					<p>Выберите заклинание:</p>\
+					<div class=\"spell\">\
+						<img src=\"../Images/Atack.png\" alt=\"\" onclick=\'location.href=\"../task-screen/index-task-screen.html\"\'>\
+						<p>Атаковать соперника</p>\
+						<img src=\"../Images/Health.png\" alt=\"\" onclick=\'location.href=\"../task-screen/index-task-screen.html\"\'>\
+						<p>Лечить себя</p>\
+					</div>\
+				</div>\
+				<button class=\"buttonStart\" onclick=\"dialog()\" style="	margin:0 auto;">Выберите магию</button>';
+					console.log(modalWindow);
+		mainField.appendChild(modalWindow);
 		
 		let mainMonster = document.createElement('div');
 		mainMonster.className = 'monster';

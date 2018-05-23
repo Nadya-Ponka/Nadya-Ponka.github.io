@@ -59,7 +59,7 @@
   transform: scale(1.4);  
 }
 
-.button-dialog {
+/*.button-dialog {
   position: absolute;
   margin: 256px 0  0 74px;
   width: 75px;
@@ -77,4 +77,4 @@
 .button-dialog:hover {
   background-color: #7D7D06;
   cursor: pointer;  
-}
+}*/

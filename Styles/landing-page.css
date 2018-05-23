@@ -73,7 +73,8 @@ body {
 
 .buttonStart, .highScoreTable {
 	display: block;
-	width: 200px;
+	min-width: 200px;
+	padding: 0 20px;
 	height: 100px;
 	line-height: 50px;
 	font-size: 1.5em;
