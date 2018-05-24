@@ -3,10 +3,11 @@
   height: 240px;
   justify-self:center;
   width: 220px;
-  z-index:15;
+  z-index:10;
+  position:relative;
 }
 
-canvas {
-  display: block;
-  margin: 0 auto;
+.container img {
+	position:absolute;
+	top:-120px;
 }

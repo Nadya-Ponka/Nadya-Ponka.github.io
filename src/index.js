@@ -35,6 +35,8 @@ function load() {
 		buildPerson(mainHero, 1, 1, 1);
 
 		let modalWindow = document.createElement('div');
+		modalWindow.style.alignSelf = 'end';
+		modalWindow.style.justifySelf = 'center';
 		//modalWindow.className = 'modal-dialog';
 		modalWindow.innerHTML = '<div class="modal-dialog"><p class=\"close\" onclick=\"closeScore()\">&#215;</p>\
 					<p>Выберите заклинание:</p>\
@@ -45,7 +47,7 @@ function load() {
 						<p>Лечить себя</p>\
 					</div>\
 				</div>\
-				<button class=\"buttonStart\" onclick=\"dialog()\" style="	margin:0 auto;">Выберите магию</button>';
+				<button class=\"buttonStart\" onclick=\"dialog()\">Выберите магию</button>';
 					console.log(modalWindow);
 		mainField.appendChild(modalWindow);
 		

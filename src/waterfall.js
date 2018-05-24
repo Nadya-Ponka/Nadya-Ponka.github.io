@@ -150,7 +150,7 @@ var waterfallCanvas = function(c, cw, ch){
     if(isCanvasSupported()){
             var c = document.getElementById('magic');
             var cw = c.width = 220;
-            var ch = c.height = 430;    
+            var ch = c.height = 500;    
             var waterfall = new waterfallCanvas(c, cw, ch);           
             setupRAF();
             waterfall.init();

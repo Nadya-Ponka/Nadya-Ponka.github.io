@@ -1,17 +1,35 @@
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+
+html {
+	font-family: "YesevaOne", serif;
+	height: 100%;
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .battle {
 	display:block;
 	background-image: url('../Images/background-image.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: top left;
+	background-position: bottom center;
 	background-attachment: fixed;
 	width: 100%;
 	min-height: 100%;
 	padding:5% 0;
 }
-
+	
 .field {
-	width:1266px;
+	max-width:1266px;
 	height:668px;
 	display:grid;
 	grid-template-columns:repeat(3,auto);
@@ -23,7 +41,7 @@
 	border:solid rgb(28, 107, 114) 4px;
 	border-radius:20px;
 	margin:0 auto;
-	padding:50px 80px 50px;
+	padding:45px 80px 50px;
 	line-height:1.5;
 }
 
@@ -46,7 +64,7 @@
 
 div.weapon {
 	position:absolute;
-	right:16%;
+	right:6%;
 	bottom:70px;
 }
 
@@ -57,12 +75,19 @@ div.weapon {
 .aboutPlayer, .aboutMonster {
 	justify-self:start;
 	font-size:22px;
-
 }
 
 .aboutMonster {
 	justify-self:end;
 	text-align:right;
+	z-index:11;
+}
+
+img.aboutMonster {
+	width:250px;
+	position:abcolute;
+	top:-50px;
+	justify-self:center;
 }
 
 .life {
@@ -74,5 +99,5 @@ div.weapon {
 
 canvas {
 	width:220px;
-	height:430px;
+	height:450px;
 }

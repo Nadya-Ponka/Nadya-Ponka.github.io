@@ -11,6 +11,7 @@ function soundClickGreat() {
   audio.src = '../sound/great.mp3'; // Указываем путь к звуку "клика"
   audio.autoplay = true; // Автоматически запускаем
 }
+
 window.onload = function () {
   let argumentOne, argumentTwo, result;
   let numOperator = randomInteger(0, 3);
