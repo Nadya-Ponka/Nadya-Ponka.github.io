@@ -1,0 +1,100 @@
+var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d"),
+    interval = 1000/60,
+    now,
+    then = Date.now(),
+    delta,
+    stars = [];
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Star Variables
+function randomXPos() {
+  return Math.floor(Math.random() * canvas.width);
+}
+
+function randomYPos() {
+  return Math.floor(Math.random() * canvas.height);
+}
+
+function randomRadius() {
+  return Math.ceil(Math.random() * 6);
+}
+
+function randomColor() {
+  return 'rgba(' + Math.floor(Math.random() * 255) + ', ' + Math.floor(Math.random() * 255) + ', ' + Math.floor(Math.random() * 255) + ', x)';
+}
+
+function randomSpeed() {
+  return Math.random() * 0.015;
+}
+
+// Star Class
+function Star(x, y, radius, color, speed) {
+  this.x = x;
+  this.y = y - 200;
+  this.speed = speed;
+  this.radius = 0;
+  this.color = color;
+  this.timeToFade = false;
+  this.radians = 0;
+  
+  this.draw = function() {
+    ctx.beginPath();
+    ctx.fillStyle = this.color.replace('x', 1);
+    ctx.shadowBlur = Math.floor(Math.random() * 20) + 10;
+    ctx.shadowColor = this.color.replace('x', 0.35);
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.closePath();
+  }
+  
+  this.update = function() {
+    
+    // this.radians += 0.125 * this.speed;
+    // this.x = x + Math.cos(this.radians) * (canvas.width / 2);
+    // this.y = y + Math.sin(this.radians) * (canvas.width / 2);
+    
+    if(this.radius < radius) {
+      this.radius += this.speed;
+    }
+    
+    this.draw();
+  }
+}
+
+// Temporary
+var spawnInterval = setInterval(function() {
+  if(stars.length < 500) {
+    stars.push(
+      new Star(
+        randomXPos(),
+        randomYPos(),
+        randomRadius(),
+        randomColor(),
+        randomSpeed()
+      )
+    );
+  } else {
+    clearInterval(spawnInterval);
+  }
+}, 100);
+
+function animate() {
+  requestAnimationFrame(animate);
+  now = Date.now();
+  delta = now - then;
+
+  if (delta > interval) {
+    then = now - (delta % interval);
+    // ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.rotate(0.001);
+    
+    for(var i=0; i < stars.length; i++) {
+      stars[i].update();
+    }
+  }
+}
+
+animate();
