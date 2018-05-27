@@ -71,7 +71,7 @@ body {
 	text-align:left;
 }
 
-.buttonStart, .highScoreTable {
+.buttonStart {
 	display: block;
 	min-width: 200px;
 	padding: 0 20px;
@@ -93,20 +93,13 @@ body {
 	justify-self:start;
 }
 
-.buttonStart:hover, .highScoreTable:hover {
+.buttonStart:hover {
 	color: rgb(0, 59, 66);
 	cursor: pointer;
 }
 
-.buttonStart:active, .highScoreTable:active {
+.buttonStart:active {
 	padding-bottom: 1px;
 	box-shadow: inset rgba(0, 0, 0, 1) 0 1px 3px, inset rgba(0, 0, 0, .6) 0 -2px 5px, inset rgba(252, 255, 255, .7) 0 2px 5px, 0 1px rgba(255, 255, 255, .08);
 	color: rgb(128, 207, 214);
-}
-
-footer {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	color:#fff;
 }

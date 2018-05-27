@@ -92,10 +92,11 @@ function showTask() {
       document.querySelector('.task').removeChild(document.querySelector('.grate'));
       document.querySelector('.task').style.display = 'none'; 
       closeScore();
-      document.querySelector('.field').style.display = 'grid';
       document.querySelector('.task-window').style.display = 'block';
       document.querySelector('input').value='';
       document.querySelector('.button').removeEventListener('click', Task);
+      document.querySelector('.field').style.display = 'grid';
+
     }, 1000);
   }
 }
