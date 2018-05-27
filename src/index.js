@@ -1,12 +1,9 @@
-function load() {
-	
-	class Person {
-    constructor(name, score) {
-        this.name = name;
-        this.score = score;
-		}
-	}
+import Person from './personClass';
+import waterfallCanvas from './waterfall';
+//import canvasLightning from './lightning';
 
+(function load() {
+	
 	let nameAdjectiveMonster = ["Ужасный", "Злобный", "Сопливый"];
 	let whichMonster = ["Огр", "Гном", "Гоблин"];
 	let nameMonster = ["Том", "Макс", "Дима"];
@@ -48,7 +45,6 @@ function load() {
 					</div>\
 				</div>\
 				<button class=\"buttonStart\" onclick=\"dialog()\">Выберите магию</button>';
-					// console.log(modalWindow);
 		mainField.appendChild(modalWindow);
 		
 		let mainMonster = document.createElement('div');
@@ -107,4 +103,4 @@ function load() {
 
          
 
-}
+})();

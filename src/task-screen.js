@@ -1,5 +1,7 @@
 function showTask() {
   document.querySelector('.task').style.display = 'block';
+  document.querySelector('.field').style.display = 'none';
+
   let arrayOperators = ['+', '-', ':', '*'];
 
   function randomInteger(min, max) {
@@ -73,11 +75,13 @@ function showTask() {
     } 
     else  if (resultForm == result) {
         document.querySelector('.task-window').style.display = 'none';
+
         document.querySelector('.task').appendChild(grate);
         grate.classList.add('grate');
         soundClickGreat();
         grate.innerHTML = '<p>Ура! Вы правильно решили - магия применилась!</p>';
         closeTask();
+
     } 
   }
 
@@ -88,7 +92,7 @@ function showTask() {
       document.querySelector('.task').removeChild(document.querySelector('.grate'));
       document.querySelector('.task').style.display = 'none'; 
       closeScore();
-      document.querySelector('.battle').style.display = 'block';
+      document.querySelector('.field').style.display = 'grid';
       document.querySelector('.task-window').style.display = 'block';
       document.querySelector('input').value='';
       document.querySelector('.button').removeEventListener('click', Task);

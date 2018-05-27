@@ -10,6 +10,7 @@
 }
 
 .modal-dialog {
+  padding:5px 20px;
   position: absolute;
   margin: -270px -84px;
   display: none;
@@ -30,8 +31,7 @@
 }
 
 .close {
-  position: relative;
-  margin-left: 370px;
+	text-align:right;
   font-size: 35px;
 }
 

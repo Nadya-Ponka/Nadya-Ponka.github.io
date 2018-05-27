@@ -1,8 +1,8 @@
 .container {
   box-shadow: inset 0 1px 0 #444, 0 -1px 0 #000;
   height: 240px;
-  justify-self:center;
   width: 220px;
+  justify-self:center;
   z-index:10;
   position:relative;
 }
@@ -39,6 +39,7 @@
     }
 }
 
+/* Falling Hearts animation */
 .fallingHearts {
 	position:relative;
 	width:100px;
@@ -55,16 +56,10 @@
 	opacity:0;
 }
 
-.fallingHearts i:nth-of-type(n)   { -webkit-animation-delay: 0.9s;}
-.fallingHearts i:nth-of-type(2n)  { -webkit-animation-delay: 0.9s;}
+.fallingHearts i:nth-of-type(n)   { -webkit-animation-delay: 0.4s;}
+.fallingHearts i:nth-of-type(2n)  { -webkit-animation-delay: 0.2s;}
 .fallingHearts i:nth-of-type(3n)  { -webkit-animation-delay: 0.3s;}
-.fallingHearts i:nth-of-type(4n)  { -webkit-animation-delay: 0.4s;}
-.fallingHearts i:nth-of-type(5n)  { -webkit-animation-delay: 0s;  }
-.fallingHearts i:nth-of-type(6n)  { -webkit-animation-delay: 0.5s;}
-.fallingHearts i:nth-of-type(7n)  { -webkit-animation-delay: 0.8s;}
-.fallingHearts i:nth-of-type(8n)  { -webkit-animation-delay: 0.5s;}
-.fallingHearts i:nth-of-type(9n)  { -webkit-animation-delay: 0.3s;}
-.fallingHearts i:nth-of-type(10n) { -webkit-animation-delay: 0.5s;}
+
 
 @-webkit-keyframes falling {
     0% {

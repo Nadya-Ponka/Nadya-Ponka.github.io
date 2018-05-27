@@ -1,4 +1,4 @@
-var waterfallCanvas = function(c, cw, ch){
+export var waterfallCanvas = function(c, cw, ch){
             
             var _this = this;
             this.c = c;

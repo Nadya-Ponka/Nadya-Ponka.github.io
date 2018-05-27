@@ -16,7 +16,7 @@ html {
   user-select: none;
 }
 
-.battle {
+.base-surfase {
 	display:block;
 	background-image: url('../Images/background-image.jpg');
 	background-size: cover;
@@ -29,6 +29,7 @@ html {
 }
 	
 .field {
+	display:none;
 	max-width:1266px;
 	height:668px;
 	display:grid;

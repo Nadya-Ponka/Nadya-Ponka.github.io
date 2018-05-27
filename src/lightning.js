@@ -1,4 +1,4 @@
-var canvasLightning = function(c, cw, ch){
+export var canvasLightning = function(c, cw, ch){
   
 /*=============================================================================*/  
 /* Initialize

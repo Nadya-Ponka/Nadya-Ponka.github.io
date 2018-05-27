@@ -9,23 +9,16 @@
 
 	<link rel="stylesheet" href="../Styles/main.css" type="text/css">
 	<link rel="shortcut icon" href="../Images/favicon.png" type="image/png">
-	<!--<script src="https://js.cx/libs/animate.js"></script>-->
-	<<link rel="stylesheet" href="../Styles/мodal-dialog.css">
-	<script src="../src/мodal-dialog.js"></script>
 	
-	<link rel="stylesheet" href="../Styles/task-screen.css">
-  <script src="../src/task-screen.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
 
-<body onload="load()">
+<body > <!--onload="load()"--> 
 
-	<section class="battle">
-	
-		<div class="field">
-			<!--<div class="lightning flashit">-->
-			
-			<div class="aboutPlayer" >
+	<main class="base-surfase">
+	<section class="field">
+
+		<div class="aboutPlayer" >
 				<div id="player"></div>
 				<div id="playerLife" class="life"></div>
 			</div>
@@ -52,13 +45,7 @@
 					<i>&#x2665;</i>
 					<i>&#x2665;</i>
 				</div>
-				<div class="heart"><p>&#x2665;</p></div>
-
-				<!--<div class="health">
-					<div class="p p-1"></div>
-					<div class="p p-2"></div>
-					<div class="p p-3"></div>
-				</div>-->
+				<div class="heart"><p>&#x2665;</p></div>					
 			</div>
 			
 			<div>
@@ -83,17 +70,26 @@
 			
 			<div id="container" class="container">
 							<img src="../Images/cloud.png" alt="" />
-
+				<div id="leaves" class="smiles">
+					<i>&#x263B;</i>
+					<i>&#x263B;</i>
+					<i>&#x263B;</i>
+					<i>&#x263B;</i>
+					<i>&#x263B;</i>
+					<i>&#x263B;</i>
+					<i>&#x263B;</i>
+					<i>&#x263B;</i>
+					<i>&#x263B;</i>
+					<i>&#x263B;</i>
+				</div>
 				<canvas id="magic">
-				<canvas> 
+				</canvas> 
 			</div>
 			
 			<!--</div>-->
-		</div>
+		</section>
 		
-	</section>
-
-	 <section class="task">
+		<section class="task">
 		<div class="task-window">
 				<div class="greeting">
 						<p>Мой друг, для успешного применения магии тебе необходимо ввести правильный ответ</p>
@@ -111,20 +107,14 @@
 					<p>Применить магию</p>
 				</div>   
 		</div>
-    
-  </section>
-
-	<!--<footer>
-		<p>Designed by Nadya Ponkratova</p>
-	</footer>-->
-
-
-	<script src="../src/index.js"></script>
-	<!--<script src="../src/waterfall.js"></script>-->
-	<script src="../src/lightning.js"></script>
-
-
-
+	
+	</section>
+</main>
+		
+	<script src="../dist/main.js"></script>
+	<!--<script async src="../src/lightning.js"></script>-->
+	<script async src="../src/мodal-dialog.js"></script>
+	<script async src="../src/task-screen.js"></script>
 
 </body>
 

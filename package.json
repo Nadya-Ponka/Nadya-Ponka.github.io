@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Count and win. The Rolling scope school. Stage 2",
   "scripts": {
-    "build": "webpack"
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "Nadya Ponkratova",
