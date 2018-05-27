@@ -9,10 +9,15 @@
   src: url(../Fonts/Adigiana-2.ttf); 
  }
 
- body {
-  max-width: 1366px;
-  max-height: 768px;
+ .task {
+  margin: -580px 0 0 310px; 
+  position: absolute;
+  display: none;
+  width: 700px;
+  height: 500px;
   background-image: url("../Images/Fone-math.jpg");
+  border-radius: 10px;
+  border: 10px solid red;
  }
 .greeting {
   width: 600px;
@@ -29,7 +34,7 @@
 
 .math {
   width: 320px;
-  margin: 40px 0 0 550px;
+  margin: 40px 0 0 180px;
 
 
 }

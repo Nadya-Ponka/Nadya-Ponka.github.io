@@ -41,14 +41,14 @@ function load() {
 		modalWindow.innerHTML = '<div class="modal-dialog"><p class=\"close\" onclick=\"closeScore()\">&#215;</p>\
 					<p>Выберите заклинание:</p>\
 					<div class=\"spell\">\
-						<img src=\"../Images/Atack.png\" alt=\"\" onclick=\'location.href=\"../task-screen/index-task-screen.html\"\'>\
+						<img src=\"../Images/Atack.png\" alt=\"\" onclick=\"showTask()\">\
 						<p>Атаковать соперника</p>\
-						<img src=\"../Images/Health.png\" alt=\"\" onclick=\'location.href=\"../task-screen/index-task-screen.html\"\'>\
+						<img src=\"../Images/Health.png\" alt=\"\" onclick=\"showTask()\">\
 						<p>Лечить себя</p>\
 					</div>\
 				</div>\
 				<button class=\"buttonStart\" onclick=\"dialog()\">Выберите магию</button>';
-					console.log(modalWindow);
+					// console.log(modalWindow);
 		mainField.appendChild(modalWindow);
 		
 		let mainMonster = document.createElement('div');
