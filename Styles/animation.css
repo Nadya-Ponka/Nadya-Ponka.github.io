@@ -1,15 +1,25 @@
-.container {
-  box-shadow: inset 0 1px 0 #444, 0 -1px 0 #000;
+.monsters-container {
+ /* box-shadow: inset 0 1px 0 #444, 0 -1px 0 #000;*/
   height: 240px;
   width: 220px;
   justify-self:center;
   z-index:10;
   position:relative;
+  opacity:1;
 }
 
-.container img {
+.magic img {
 	position:absolute;
 	top:-120px;
+}
+
+.health {
+	display:none;
+}
+
+.magic {
+	display:none;
+	position:relative;
 }
 
 .heart {
@@ -75,4 +85,44 @@
         rotate(90deg);
 		opacity: 0;
     }
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  	visibility:visible;
+  }
+
+  to {
+    opacity: 0;
+	visibility:hidden;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  	visibility:visible;
+  }
+
+  to {
+    opacity: 0;
+	visibility:hidden;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
 }

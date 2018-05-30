@@ -1,4 +1,4 @@
-export var waterfallCanvas = function(c, cw, ch){
+var waterfallCanvas = function(c, cw, ch){
             
             var _this = this;
             this.c = c;
@@ -116,7 +116,10 @@ export var waterfallCanvas = function(c, cw, ch){
             };
         
         };
-        
+		
+export default function createWaterFall() {
+	//document.querySelector('.container').firstChild.style.opacity = 1;
+
     var isCanvasSupported = function(){
         var elem = document.createElement('canvas');
         return !!(elem.getContext && elem.getContext('2d'));
@@ -148,10 +151,23 @@ export var waterfallCanvas = function(c, cw, ch){
     };          
     
     if(isCanvasSupported()){
-            var c = document.getElementById('magic');
+			document.querySelector('.monsters-container .magic').style.display = 'block';
+            var c = document.getElementById('monsters-magic');
+			//console.log(c);
+			var ctx = c.getContext("2d");
             var cw = c.width = 220;
             var ch = c.height = 500;    
             var waterfall = new waterfallCanvas(c, cw, ch);           
             setupRAF();
             waterfall.init();
+			//setTimeout(function() { ctx.clearRect(0, 0, cw, ch); return;}, 5000);
+			setTimeout(function() { 
+				//ctx.clearRect(0,0,220,500);
+				//waterfall = null;
+				document.querySelector('.monsters-container .magic').style.display = 'none';
+				},
+			5000);
     }
+}; 
+
+//createWaterFall();

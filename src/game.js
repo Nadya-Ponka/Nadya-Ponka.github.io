@@ -1,4 +1,9 @@
 import Person from './personClass';
+//import canvasLightning from './lightning';
+import showTask from './task-screen';
+//import {closeScore, dialog} from './modalDialog';
+import {getRandomArbitrary, drawLife} from './utils';
+
 
 export default function Game() {
 	
@@ -6,12 +11,29 @@ export default function Game() {
 	let whichMonster = ["Огр", "Гном", "Гоблин"];
 	let nameMonster = ["Том", "Макс", "Дима"];
 
-	let player = new Person("Крош", String(drawLife("player", 100)));
-	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), String(drawLife("monster", 100)));
+	let player = new Person("Крош", drawLife("player", 100));
+	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), drawLife("monster", 100));
+	document.querySelector('#playerLife').title = player.score;
+	document.querySelector('#monsterLife').title = monster.score;
 
+	let boxScore = document.createElement('div');
+	boxScore.innerHTML = player.score;
+	document.querySelector('.aboutPlayer').appendChild(boxScore);
+
+	boxScore = document.createElement('div');
+	boxScore.innerHTML = monster.score;
+	document.querySelector('.aboutMonster').appendChild(boxScore);
+	
+	console.log(player);
+	console.log(monster);
+
+	
 	let playerField = document.querySelector('.aboutPlayer');
 	let monsterField = document.querySelector('.aboutMonster');
 
+	let magicChoice;
+	//let wasSolutionTrueOrFalse;
+	
 	playerField.firstElementChild.appendChild(createNode('span', {}, player.name));
 	monsterField.firstElementChild.appendChild(createNode('span', {}, monster.name));
 
@@ -19,6 +41,32 @@ export default function Game() {
 	monsterField.lastElementChild.appendChild(createNode('span', {}, monster.score));*/
 	
 	loadFight();
+	document.querySelector('.buttonStart').addEventListener('click', function() {
+		dialog();
+		document.querySelector('.spell').addEventListener('click', selectMagic, false);
+
+
+		//console.log("Конец = "+wasSolutionTrueOrFalse);
+	},false);
+
+		
+	function selectMagic(elem) {
+
+			console.log(elem.target.id);
+			console.log(elem.target);
+
+            if (elem.target.id == "1") {
+				showTask(1, player, monster);
+            } else if (event.target.id == "2") {
+				showTask(2, player, monster);
+            } else {
+				showTask(3, player, monster);
+            }
+			
+			document.querySelector('.spell').removeEventListener('click', selectMagic);
+    }
+	
+	
 	
 	function loadFight() {
 
@@ -35,13 +83,15 @@ export default function Game() {
 		modalWindow.innerHTML = '<div class="modal-dialog"><p class=\"close\" onclick=\"closeScore()\">&#215;</p>\
 					<p>Выберите заклинание:</p>\
 					<div class=\"spell\">\
-						<img src=\"../Images/Atack.png\" alt=\"\" onclick=\"showTask()\">\
-						<p>Атаковать соперника</p>\
-						<img src=\"../Images/Health.png\" alt=\"\" onclick=\"showTask()\">\
+						<img id=\"1\" src=\"../Images/Atack.png\" alt=\"\">\
+						<p>Магия воды</p>\
+						<img id=\"2\" src=\"../Images/Atack.png\" alt=\"\">\
+						<p>Магия молнии</p>\
+						<img id=\"3\" src=\"../Images/Health.png\" alt=\"\">\
 						<p>Лечить себя</p>\
 					</div>\
 				</div>\
-				<button class=\"buttonStart\" onclick=\"dialog()\">Выберите магию</button>';
+				<button class=\"buttonStart\" >Выберите магию</button>';
 		mainField.appendChild(modalWindow);
 		
 		let mainMonster = document.createElement('div');
@@ -88,13 +138,4 @@ export default function Game() {
 		return element;
 	}
 
-	function getRandomArbitrary(min, max) {
-		return Math.round(Math.random() * (max - min) + min);
-	}
-
-	function drawLife(personId, n) {
-		document.querySelector(`#${personId}`).style.width = `${n*3+'px'}`;
-		return n;
-	}
-
-}
+};

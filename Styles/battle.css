@@ -79,9 +79,12 @@ div.weapon {
 }
 
 .aboutMonster {
-	justify-self:end;
-	text-align:right;
 	z-index:11;
+	justify-self: end;
+    align-content: baseline;
+    z-index: 11;
+    display: grid;
+    text-align: right;
 }
 
 img.aboutMonster {
@@ -101,4 +104,30 @@ img.aboutMonster {
 canvas {
 	width:220px;
 	height:450px;
+}
+
+.points {
+	font-family: "YesevaOne", serif;
+	font-weight:bold;
+	color: #fff;
+	font-size:25px;
+	opacity:0;
+	text-align:center;
+	align-self:center;
+	text-shadow: 2px 2px 2px #000;
+	
+}
+
+.appear {
+	opacity:1;
+	-moz-transition: opacity 0.8s 0.1s ease;
+	transition: opacity 0.5s 0.5s ease;
+	-webkit-transition: opacity 0.8s 0.1s ease;
+}
+
+.disappear {
+	opacity:0;
+	-moz-transition: opacity 0.8s 0.1s ease;
+	transition: opacity 1s 1s ease;
+	-webkit-transition: opacity 0.8s 0.1s ease;
 }

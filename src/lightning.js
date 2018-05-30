@@ -1,4 +1,4 @@
-export var canvasLightning = function(c, cw, ch){
+var Lightning = function(c, cw, ch){
   
 /*=============================================================================*/  
 /* Initialize
@@ -175,6 +175,7 @@ $(window).on('resize', function(){
   
 };
 
+export default function canvasLightning() {
 /*=============================================================================*/	
 /* Check Canvas Support
 /*=============================================================================*/
@@ -214,14 +215,20 @@ var setupRAF = function(){
 /*=============================================================================*/	
 /* Define Canvas and Initialize
 /*=============================================================================*/
-$(window).load(function(){	
   if(isCanvasSupported){
-    var c = document.getElementById('magic');
+	document.querySelector('.monsters-container .magic').style.display = 'block';
+    var c = document.getElementById('monsters-magic');
     var cw = c.width = window.innerWidth;
     var ch = c.height = window.innerHeight;	
-    var cl = new canvasLightning(c, cw, ch);				
+    var cl = new Lightning(c, cw, ch);				
     
     setupRAF();
     cl.init();
-  }
-});
+	setTimeout(function() { 
+				//ctx.clearRect(0,0,220,500);
+				//waterfall = null;
+				document.querySelector('.monsters-container .magic').style.display = 'none';
+				},
+	5000);
+  };
+};
