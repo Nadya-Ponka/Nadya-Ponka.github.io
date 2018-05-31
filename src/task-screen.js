@@ -40,10 +40,19 @@ export default function showTask(param, player1, player2) {
       argumentOne = randomInteger(10, 100);
       argumentTwo = randomInteger(2, 50);
     }
-  } else {
-    argumentOne = randomInteger(1, 100);
-    argumentTwo = randomInteger(1, 100);
-  }
+
+  } else if (operator == "-") {
+      argumentOne = randomInteger(1, 100);
+      argumentTwo = randomInteger(1, argumentOne);
+
+    } else if (operator == "*") {
+        argumentOne = randomInteger(1, 10);
+        argumentTwo = randomInteger(1, 10);
+
+      } else {
+          argumentOne = randomInteger(1, 100);
+          argumentTwo = randomInteger(1, 100);
+        }
 
   document.querySelector('.argument-one').innerHTML = argumentOne;
   document.querySelector('.argument-two').innerHTML = argumentTwo;

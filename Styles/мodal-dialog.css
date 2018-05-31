@@ -12,11 +12,11 @@
 .modal-dialog {
   padding:5px 20px;
   position: absolute;
-  margin: -270px -84px;
+  margin: -330px -84px;
   display: none;
   background-color: #5ABE1A;
   width: 400px;
-  height: 400px;
+  height: 420px;
   border: 5px solid #D5D424;
   border-radius: 15px;
   font-family: Adigiana-2, sans-serif;

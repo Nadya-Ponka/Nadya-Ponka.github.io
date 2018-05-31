@@ -10,7 +10,8 @@
   "author": "Nadya Ponkratova",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.8.3"
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.4"
   },
   "main": "index.js",
   "repository": {
@@ -22,12 +23,10 @@
   },
   "homepage": "https://github.com/Nadya-Ponka/Nadya-Ponka.github.io#readme",
   "dependencies": {
-    
     "cli-table": "^0.3.1",
     "cli-spinners": "^0.1.2",
     "clone": "^1.0.4",
     "cli-width": "^2.2.0",
-    
     "parse-glob": "^3.0.4",
     "parse-json": "^4.0.0",
     "parse-passwd": "^1.0.0",
