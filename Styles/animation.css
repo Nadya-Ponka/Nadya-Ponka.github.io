@@ -1,4 +1,4 @@
-.monsters-container {
+.monsters-container, .player-container {
  /* box-shadow: inset 0 1px 0 #444, 0 -1px 0 #000;*/
   height: 240px;
   width: 220px;

@@ -175,7 +175,7 @@ $(window).on('resize', function(){
   
 };
 
-export default function canvasLightning() {
+export default function canvasLightning(div1, div2) {
 /*=============================================================================*/	
 /* Check Canvas Support
 /*=============================================================================*/
@@ -216,8 +216,8 @@ var setupRAF = function(){
 /* Define Canvas and Initialize
 /*=============================================================================*/
   if(isCanvasSupported){
-	document.querySelector('.monsters-container .magic').style.display = 'block';
-    var c = document.getElementById('monsters-magic');
+	document.querySelector(`${div1}`).style.display = 'block';
+    var c = document.getElementById(`${div2}`);
     var cw = c.width = window.innerWidth;
     var ch = c.height = window.innerHeight;	
     var cl = new Lightning(c, cw, ch);				

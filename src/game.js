@@ -12,7 +12,11 @@ export default function Game() {
 	let nameMonster = ["Том", "Макс", "Дима"];
 
 	let player = new Person("Крош", drawLife("player", 100));
+	document.querySelector('#playerLife').style.width = `${player.score*2.5+'px'}`;
+
 	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), drawLife("monster", 100));
+	document.querySelector('#monsterLife').style.width = `${monster.score*2.5+'px'}`;
+
 	document.querySelector('#playerLife').title = player.score;
 	document.querySelector('#monsterLife').title = monster.score;
 
@@ -32,38 +36,32 @@ export default function Game() {
 	let monsterField = document.querySelector('.aboutMonster');
 
 	let magicChoice;
-	//let wasSolutionTrueOrFalse;
 	
 	playerField.firstElementChild.appendChild(createNode('span', {}, player.name));
 	monsterField.firstElementChild.appendChild(createNode('span', {}, monster.name));
 
-	/*playerField.lastElementChild.appendChild(createNode('span', {}, player.score));
-	monsterField.lastElementChild.appendChild(createNode('span', {}, monster.score));*/
-	
 	loadFight();
 	document.querySelector('.buttonStart').addEventListener('click', function() {
 		dialog();
 		document.querySelector('.spell').addEventListener('click', selectMagic, false);
-
-
-		//console.log("Конец = "+wasSolutionTrueOrFalse);
 	},false);
 
 		
 	function selectMagic(elem) {
 
-			console.log(elem.target.id);
-			console.log(elem.target);
-
-            if (elem.target.id == "1") {
+		switch (elem.target.id) {
+			case '1':
 				showTask(1, player, monster);
-            } else if (event.target.id == "2") {
+				break;
+			case '2':
 				showTask(2, player, monster);
-            } else {
+				break;  
+			case '3' :
 				showTask(3, player, monster);
-            }
+				break;
+		}
 			
-			document.querySelector('.spell').removeEventListener('click', selectMagic);
+		document.querySelector('.spell').removeEventListener('click', selectMagic);
     }
 	
 	

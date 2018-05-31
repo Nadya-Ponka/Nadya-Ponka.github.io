@@ -117,7 +117,7 @@ var waterfallCanvas = function(c, cw, ch){
         
         };
 		
-export default function createWaterFall() {
+export default function createWaterFall(div1, div2) {
 	//document.querySelector('.container').firstChild.style.opacity = 1;
 
     var isCanvasSupported = function(){
@@ -151,8 +151,8 @@ export default function createWaterFall() {
     };          
     
     if(isCanvasSupported()){
-			document.querySelector('.monsters-container .magic').style.display = 'block';
-            var c = document.getElementById('monsters-magic');
+			document.querySelector(`${div1}`).style.display = 'block';
+            var c = document.getElementById(`${div2}`);
 			//console.log(c);
 			var ctx = c.getContext("2d");
             var cw = c.width = 220;
