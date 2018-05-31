@@ -1,4 +1,4 @@
-var waterfallCanvas = function(c, cw, ch){
+var waterfallCanvas = function(c, cw, ch) {
             
             var _this = this;
             this.c = c;
@@ -112,7 +112,7 @@ var waterfallCanvas = function(c, cw, ch){
                         _this.renderParticles();    
                         _this.removeParticles();
                 };
-                loopIt();                   
+                loopIt();    
             };
         
         };
@@ -151,6 +151,9 @@ export default function createWaterFall(div1, div2) {
     };          
     
     if(isCanvasSupported()){
+		document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
+					<canvas id='+`${div2}`+'>\
+					</canvas>';
 			document.querySelector(`${div1}`).style.display = 'block';
             var c = document.getElementById(`${div2}`);
 			//console.log(c);
@@ -161,13 +164,11 @@ export default function createWaterFall(div1, div2) {
             setupRAF();
             waterfall.init();
 			//setTimeout(function() { ctx.clearRect(0, 0, cw, ch); return;}, 5000);
-			setTimeout(function() { 
-				//ctx.clearRect(0,0,220,500);
-				//waterfall = null;
-				document.querySelector('.monsters-container .magic').style.display = 'none';
-				},
-			5000);
+			setTimeout(function() { document.querySelector(`${div1}`).innerHTML = ''; }, 5000);
+
     }
+	
+			
 }; 
 
 //createWaterFall();

@@ -99,7 +99,6 @@ export default function showTask(param, player1, player2) {
         soundClickGreat();
         grate.innerHTML = '<p>Ура! Вы правильно решили - магия применилась!</p>';
 		closeTask();
-		//console.log("End "+temp);
 		points = getRandomArbitrary(10,20);
 		
 		setTimeout(function() { 

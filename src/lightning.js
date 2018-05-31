@@ -216,6 +216,9 @@ var setupRAF = function(){
 /* Define Canvas and Initialize
 /*=============================================================================*/
   if(isCanvasSupported){
+	  document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
+					<canvas id='+`${div2}`+'>\
+					</canvas>';
 	document.querySelector(`${div1}`).style.display = 'block';
     var c = document.getElementById(`${div2}`);
     var cw = c.width = window.innerWidth;
@@ -224,11 +227,7 @@ var setupRAF = function(){
     
     setupRAF();
     cl.init();
-	setTimeout(function() { 
-				//ctx.clearRect(0,0,220,500);
-				//waterfall = null;
-				document.querySelector('.monsters-container .magic').style.display = 'none';
-				},
-	5000);
+	setTimeout(function() { document.querySelector(`${div1}`).innerHTML = ''; }, 5000);
+
   };
 };
