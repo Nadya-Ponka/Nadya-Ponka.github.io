@@ -33,7 +33,7 @@ html {
 	max-width:1266px;
 	height:668px;
 	display:grid;
-	grid-template-columns:auto 320px auto;
+	grid-template-columns:380px 320px auto;
 	grid-template-rows:repeat(3,auto);
 	background-image: url('../Images/landscape.jpg');
 	background-size: cover;

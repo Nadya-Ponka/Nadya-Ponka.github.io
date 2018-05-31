@@ -150,9 +150,12 @@ function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLif
 				
 				if(magic == 3) {
 					player1['score'] = player1['score'] + points;
-					if(player1['score'] > 130) player1['score'] = 130;
+					temp.innerHTML = `${whoMakeTurn}`+' прибавил<br />к своему здоровью<br />'+points+' пунктов!';
+					if(player1['score'] > 130) { 
+						player1['score'] = 130; 
+						temp.innerHTML = `${whoMakeTurn}`+' уже очень здоров! :) <br />Пора ходить!';
+					}
 					document.querySelector(`${classAboutPlayer}`).lastChild.innerHTML = player1.score;
-					temp.innerHTML = `${whoMakeTurn}`+' прибавил<br />к своему здоровью<br />'+points+' пунктов!'; 
 					temp.className += ' appear';
 					document.querySelector(`${idPlayerLife}`).style.width = `${player1.score*2.5+'px'}`;
 					document.querySelector(`${idPlayerLife}`).style.transition = `width 0.7s ease-in-out`; 
