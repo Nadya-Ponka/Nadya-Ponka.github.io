@@ -9,8 +9,8 @@
   src: url(../Fonts/Adigiana-2.ttf); 
  }
 
- .task {
- 	max-width:1266px;
+ .task-picture {
+  max-width:1266px;
 	height:668px;
 	margin:0 auto;
 	padding:45px 80px 50px;
@@ -18,7 +18,7 @@
   display: none;
   /*width: 700px;
   height: 500px;*/
-  background-image: url("../Images/Fone-math.jpg");
+  
   /*border-radius: 10px;
   border: 10px solid red;*/
   	background-size: cover;
@@ -28,14 +28,22 @@
 	border:solid red 4px;
 	border-radius:20px;
 	z-index:20;
+  background-image: url("../Images/fone-picture.jpg");
+  
+ } 
+
+ .animal-picture img {
+   width: 300px;
+   height: 200px;
+   border-radius: 20px;
+   border: 3px solid chartreuse;
  }
- 
-.greeting {
+.greeting-picture {
   width: 800px;
-  margin: 120px auto 0;
+  margin: 28px auto 20px;
 }
 
-.greeting p {
+.greeting-picture p {
   text-align: center;
   font-family: Adigiana-2, sans-serif;
   font-size: 42px;
@@ -43,70 +51,65 @@
   text-shadow: 1px 1px 2px black;
 }
 
-.math {
-  width: 320px;
-  margin: 40px 0 0 300px;
+.forma-picture p {
+  display: inline-block;
+}
+.forma-picture {
+  text-align: center;
+}
+.answer-picture {
+  display: inline-block;
+  /* width: 320px;
+  margin: 40px 0 0 180px; */
 
 
 }
-.argument-one, .operator, .argument-two, .equally {
+.animal-picture {
   /* display: inline-block; */
   font-size: 60px;
   font-family: Adigiana-2, sans-serif;
   margin: 0 10px;
-  /* text-align: center; */
-}
-.argument-one {
-  color: yellow;
-  text-shadow: 1px 1px 2px black;
+ 
+ 
 }
 
-.operator {
-  color: red;
-  text-shadow: 1px 1px 2px black;
-}
-.argument-two {
-  color: blue;
-  text-shadow: 1px 1px 2px black;
-}
-
-.equally {
+/* .equally {
   color: black;
-  text-shadow: 1px 1px 2px black;
 }
 .result {
   position:relative;
-  margin: -56px 0 0 285px;
-}
+  margin: -56px 0 0 320px;
+} */
 
-input {
-  width: 130px;
+.input-picture {
+  width: 300px;
   height: 40px;
   font-size: 30px;
   border-radius: 5px;
+  
 }
 
-.button {
+.button-picture {
   background-color: #0FB5B7;
   width: 120px;
   height: 60px;
   border-radius: 20px;
-  margin: 50px auto;
+  margin: 15px auto;
 }
 
-.button p {
+.button-picture p {
   text-align: center;
   font-size: 25px;
   color:blue;
   font-family: Adigiana-2, sans-serif;
 }
 
-.button:hover {
+.button-picture:hover {
   cursor: pointer;
   background: red;
 }
 
-.grate {
+.grate-picture {
   width: 385px;
   height: 100px;
   background-color: yellowgreen;

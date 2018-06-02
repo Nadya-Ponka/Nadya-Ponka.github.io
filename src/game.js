@@ -3,7 +3,9 @@ import Person from './personClass';
 import showTask from './task-screen';
 //import {closeScore, dialog} from './modalDialog';
 import {getRandomArbitrary, drawLife} from './utils';
-
+import showTaskTranslation from './task-translate';
+import showTaskPicture from './task-picture';
+import showTaskAudio from './task-audio';
 
 export default function Game() {
 	
@@ -54,10 +56,13 @@ export default function Game() {
 				showTask(1, player, monster);
 				break;
 			case '2':
-				showTask(2, player, monster);
+			  showTaskTranslation(2, player, monster);
 				break;  
 			case '3' :
-				showTask(3, player, monster);
+			  showTaskPicture(3, player, monster);
+				break;
+			case '4' :
+				showTaskAudio(4, player, monster);
 				break;
 		}
 			
@@ -78,17 +83,19 @@ export default function Game() {
 		modalWindow.style.alignSelf = 'end';
 		modalWindow.style.justifySelf = 'center';
 		modalWindow.innerHTML = '<div class="modal-dialog"><p class=\"close\" onclick=\"closeScore()\">&#215;</p>\
-					<p>Выберите заклинание:</p>\
-					<div class=\"spell\">\
-						<img id=\"1\" src=\"../Images/Atack.png\" alt=\"\">\
-						<p>Магия воды</p>\
-						<img id=\"2\" src=\"../Images/Atack.png\" alt=\"\">\
-						<p>Магия молнии</p>\
-						<img id=\"3\" src=\"../Images/Health.png\" alt=\"\">\
-						<p>Лечить себя</p>\
-					</div>\
-				</div>\
-				<button class=\"buttonStart\" >Выберите магию</button>';
+		<p>Выберите заклинание:</p>\
+		<div class=\"spell\">\
+			<img id=\"1\" src=\"../Images/Atack.png\" alt=\"\">\
+			<p>Магия воды</p>\
+			<img id=\"2\" src=\"../Images/Lightning.png\" alt=\"\">\
+			<p>Магия молнии</p>\
+			<img id=\"3\" src=\"../Images/Health.png\" alt=\"\">\
+			<p>Лечить себя</p>\
+			<img id=\"4\" src=\"../Images/Question.png\" alt=\"\">\
+			<p>Комбо атака</p>\
+		</div>\
+	</div>\
+	<button class=\"buttonStart\" >Выберите магию</button>';
 		mainField.appendChild(modalWindow);
 		
 		let mainMonster = document.createElement('div');
