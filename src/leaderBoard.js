@@ -1,0 +1,123 @@
+import {totalScore, showtask} from './task-screen';
+import {getRandomArbitrary, drawLife, createNode} from './utils';
+
+
+export function saveInLocalStorage() {
+
+        return {
+            saveData: function () {
+
+                const date = new Date();
+                const userData = {
+                    name: document.querySelector('#firstName').value,
+                    lastName: document.querySelector('#lastName').value,
+                    email: document.querySelector('#email').value,
+                    date: date,
+                    score: totalScore,
+                    tab: 1
+                };
+
+                let serialObj = JSON.stringify(userData);
+                localStorage.setItem(date.toLocaleString(), serialObj);
+            },
+
+            getData: function (field, value) {
+                const keysLocalStorage = Object.keys(localStorage);
+                let dataBase = [];
+
+                keysLocalStorage.forEach(key => {
+                    let returnedObj;
+
+                    try {
+                        returnedObj = JSON.parse(localStorage.getItem(`${key}`), (key, value) => {
+                            if (key === 'date') return new Date(value);
+                            return value;
+                        });
+
+                        if (!returnedObj.name && !returnedObj.date && !returnedObj.score && !returnedObj.tab)
+                            return;
+                    } catch (err) {
+                        return;
+                    }
+
+                    dataBase.push(returnedObj);
+                });
+                return filterByField(dataBase, field, value);
+            }
+        };
+    };
+
+ //leaderBoard
+ export  function leaderBoard() {
+
+        const valueSelectSize = ['Открыть таблицу рекордов'];;
+        let listGridSize = document.querySelector('.leaderBoard-tabs');
+        if (!listGridSize.firstElementChild) {
+            for (let i = 0; i < valueSelectSize.length; i++) {
+                const tab = createNode('a', {
+                    className: `tab ${i}`
+                }, `${valueSelectSize[i]}`);
+                tab.addEventListener('click', clickTab);
+                listGridSize.appendChild(tab);
+            }
+        }
+    };
+	
+export	 function filterByField(arr, field, value) {
+        return arr.filter(elem => {
+            if (elem[field] === value) {
+                return elem;
+            }
+        });
+    };
+
+export  function sortByField(arr, field) {
+        function byField(a, b) {
+            if (a[field] > b[field]) return 1;
+            if (a[field] < b[field]) return -1;
+        }
+        return arr.sort(byField);
+    };
+
+ export   function displayResult(arr, number = arr.length) {
+        return arr.slice(0, number);
+    };
+	
+	function clickTab(e) {
+        const listTabs = [...e.target.classList];
+        listTabs.shift();
+
+        let localStorageDB = saveInLocalStorage().getData('tab', parseInt(listTabs, 10));
+
+        let sorted = sortByField(localStorageDB, 'score');
+
+        let displayed = displayResult(sorted);
+
+        const resultsTableContainer = document.querySelector('.leaderBoard-results-table');
+        let resultsTable = [...resultsTableContainer.firstElementChild.children];
+
+        for (let i = 1; i < resultsTable.length; i++) {
+            resultsTable[i].remove();
+        }
+
+        if (displayed.length === 0) {
+            const result = createNode('p', {}, 'Будь первым!');
+            resultsTableContainer.firstElementChild.appendChild(result);
+        }
+
+        for (let i = 0; i < displayed.length && i < 10; i++) {
+            const name = displayed[i].name;
+            const date = (displayed[i].date).toLocaleDateString();
+            const score = secondsInTimeFormat(displayed[i].score);
+
+            const td1 = createNode('td', {
+                className: 'table-name'
+            }, `${name}`);
+            const td2 = createNode('td', {}, `${date}`);
+            const td3 = createNode('td', {}, `${score}`);
+
+            const tr = createNode('tr', {}, td1, td2, td3);
+            resultsTableContainer.firstElementChild.appendChild(tr);
+        }
+
+    }

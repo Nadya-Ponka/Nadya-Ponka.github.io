@@ -39,6 +39,7 @@ body {
 	width: 100%;
 	min-height: 100%;
 	text-align:	center;
+	padding-top:50px;
 }
 
 .title {
@@ -71,7 +72,7 @@ body {
 	text-align:left;
 }
 
-.buttonStart {
+.buttonStart, .startNewGame {
 	display: block;
 	min-width: 200px;
 	padding: 0 20px;

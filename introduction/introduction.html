@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+	<title>Game of skills by Nadya Ponkratova</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="../Styles/main.css" type="text/css">
+	<link rel="shortcut icon" href="../Images/favicon.png" type="image/png">
+
+</head>
+
+<body>
+
+	<section class="landing">
+		<div class="win">
+			<h1>Давай познакомимся:</h1>
+			<FORM method="post" action="../dist/main.js" name="formMain" class="form-fields introduction">
+				<div>
+					<label for="firstName">Твое имя:<br /></label>
+					<input type="text" maxlength="30" id="firstName" placeholder="Имя *" required="required">
+				</div>
+				<div>
+					<label for="lastName">Твоя фамилия:<br /></label>
+					<input type="text" maxlength="30" id="lastName" placeholder="Фамилия *" required="required">
+				</div>
+				<div>
+					<label for="email">Email:<br /></label>
+					<input type="email" id="email" required="required" placeholder="Твой email *">
+				</div>
+			</FORM>
+			<button class="buttonStart" onclick='location.href="../battlescreen/index.html"'>Старт</button>
+
+		</div>
+	</section>
+
+	<!--<footer>
+		<p>Designed by Nadya Ponkratova</p>
+	</footer>-->
+	<script src="../dist/main.js"></script>
+
+</body>
+
+</html>

@@ -1,22 +1,41 @@
-.win {
-	justify-items: center;
+.win,  .gameOver {
 	width: 1000px;
 	height: 500px;
 	background-color: #fff;
 	padding: 15px;
 	border-radius: 15px;
-	border: 14px solid paleturquoise;
-	margin-top:30px;
-	position:absolute;
+	border: 14px solid rgb(28, 107, 114);
+	margin:0 auto;
+	background: linear-gradient( 90deg,
+      rgba(255, 225, 132, .7) 25%, rgba(255,255,255, 0) 25%),
+    linear-gradient( 90deg,
+      rgba(32, 113, 120, .3) 25%, rgba(255,255,255, 0) 25%),
+    linear-gradient( 90deg,
+      rgba(255, 150, 102, .3) 25%, rgba(255,255,255, 0) 25%),
+    linear-gradient( 90deg,
+      rgba(23, 76, 79, .1) 25%, rgba(255,255,255, 0) 25%);
+  background-size: 7em 7em, 5em 5em, 3em 3em, 1em 1em;
+  background-color: #F5E9BE;
 }
 
-.win .winner {
+.gameOver {
+	width: 1266px;
+	height: 668px;
+	padding: 50px 100px;
+}
+
+.gameOver .winner {
 	font-size: 50px;
+	text-shadow: white 2px 2px;
 	text-align: center;
-	font-family: "YesevaOne", serif;
+	//font-family: "YesevaOne", serif;
 	font-weight: bold;
 	color: rgb(28, 107, 114);
 	line-height: 1.5;
+}
+
+.startNewGame {
+	margin: 20px auto;
 }
 
 .leaderBoard {

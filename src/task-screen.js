@@ -1,11 +1,13 @@
 //import {closeScore, dialog} from './modalDialog';
-//export let temp;
 import createWaterfall from './waterfall';
 import canvasLightning from './lightning';
 import health from './health-animation';
-import {getRandomArbitrary, drawLife} from './utils';
+import {getRandomArbitrary, drawLife, createNode} from './utils';
+import {saveInLocalStorage, leaderBoard, filterByField, sortByField, displayResult} from './leaderBoard';
 
-export default function showTask(param, player1, player2) {
+
+export let totalScore;
+export function showTask(param, player1, player2) {
   
   document.querySelector('.task').style.display = 'block';
   document.querySelector('.field').style.display = 'none';
@@ -77,11 +79,10 @@ export default function showTask(param, player1, player2) {
 
     if(document.querySelector('.grate')) {
       document.querySelector('.task').removeChild(document.querySelector('.grate'));
-	  //document.querySelector('.grate').style.display = 'none';
     }
 
     let grate = document.createElement('div');
-    let resultForm = document.querySelector('input').value;
+    let resultForm = document.querySelector('#input').value;
 
     if(resultForm.length == 0) {
       alert ('Вы не ввели свое решение в форму!')
@@ -127,7 +128,7 @@ export default function showTask(param, player1, player2) {
       document.querySelector('.task').style.display = 'none'; 
       closeScore();
       document.querySelector('.task-window').style.display = 'block';
-      document.querySelector('input').value='';
+      document.querySelector('#input').value='';
       document.querySelector('.button').removeEventListener('click', Task);
       document.querySelector('.field').style.display = 'grid';
 
@@ -171,16 +172,36 @@ function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLif
 					setTimeout(function() {temp.className += ' animated fadeOutDown'}, 5000);
 				} else {			
 					player2['score'] = player2['score'] - points;
+					
+					if(player2['score'] <= 0) {
+						if(player2['name'] == 'Крош') {
+							
+						} else {
+							/*document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = 0;
+							//temp.innerHTML = 'Ура! '+`${whoMakeTurn}`+' победил!'; 
+							//temp.className += ' appear';
+							document.querySelector(`${idMonsterLife}`).style.width = '0';
+							document.querySelector(`${idMonsterLife}`).style.transition = `width 0.7s ease-in-out`;
+							document.querySelector(`${idMonsterLife}`).title = 0;
+							//setTimeout(function() {temp.className += ' animated fadeOutDown'}, 5000);*/
+							//closeTask();
+							totalScore = player1['score'];
+                            saveInLocalStorage().saveData();
+                            leaderBoard();
+							
+						}
+					} else {
+					
 					document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = player2.score;
 					temp.innerHTML = `${whoMakeTurn}`+' нанес <br />сокрушительный урон<br />в '+points+' пунктов!'; 
 					temp.className += ' appear';
 					document.querySelector(`${idMonsterLife}`).style.width = `${player2.score*2.5+'px'}`;
 					document.querySelector(`${idMonsterLife}`).style.transition = `width 0.7s ease-in-out`;
-					//document.querySelector(`${idMonsterLife}`).style.justifySelf = 'end';
 					document.querySelector(`${idMonsterLife}`).title = player2.score;
 					setTimeout(function() {temp.className += ' animated fadeOutDown'}, 5000);
+				//	}
 				}
-			}, 2000);
+}}, 2000);
 			
 			temp.innerHTML = '';
 }

@@ -17,7 +17,7 @@ html {
 }
 
 .base-surfase {
-	display:block;
+	display:none;
 	background-image: url('../Images/background-image.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -33,7 +33,7 @@ html {
 	max-width:1266px;
 	height:668px;
 	display:grid;
-	grid-template-columns:380px 320px auto;
+	grid-template-columns:380px auto 360px;
 	grid-template-rows:repeat(3,auto);
 	background-image: url('../Images/landscape.jpg');
 	background-size: cover;

@@ -1,13 +1,22 @@
 import Person from './personClass';
-//import canvasLightning from './lightning';
-import showTask from './task-screen';
-//import {closeScore, dialog} from './modalDialog';
+import {totalScore, showTask} from './task-screen';
 import {getRandomArbitrary, drawLife} from './utils';
 import showTaskTranslation from './task-translate';
 import showTaskPicture from './task-picture';
 import showTaskAudio from './task-audio';
 
+
 export default function Game() {
+	
+	document.querySelector('#go').addEventListener('click', startGame, false);
+
+	function startGame() {
+		document.querySelector('.landing').style.display = 'none';
+		document.querySelector('.gameOver').style.display = 'none';				
+		document.querySelector('.base-surfase').style.display = 'block';
+		//document.querySelector('#go').removeEventListener('click', startGame, false);
+	}
+
 	
 	let nameAdjectiveMonster = ["Ужасный", "Злобный", "Сопливый"];
 	let whichMonster = ["Огр", "Гном", "Гоблин"];
@@ -16,7 +25,7 @@ export default function Game() {
 	let player = new Person("Крош", drawLife("player", 100));
 	document.querySelector('#playerLife').style.width = `${player.score*2.5+'px'}`;
 
-	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), drawLife("monster", 100));
+	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), drawLife("monster", 35));
 	document.querySelector('#monsterLife').style.width = `${monster.score*2.5+'px'}`;
 
 	document.querySelector('#playerLife').title = player.score;
@@ -41,9 +50,10 @@ export default function Game() {
 	
 	playerField.firstElementChild.appendChild(createNode('span', {}, player.name));
 	monsterField.firstElementChild.appendChild(createNode('span', {}, monster.name));
+	monsterField.firstElementChild.style.width = '300px';
 
 	loadFight();
-	document.querySelector('.buttonStart').addEventListener('click', function() {
+	document.querySelector('#start').addEventListener('click', function() {
 		dialog();
 		document.querySelector('.spell').addEventListener('click', selectMagic, false);
 	},false);
@@ -95,7 +105,7 @@ export default function Game() {
 			<p>Комбо атака</p>\
 		</div>\
 	</div>\
-	<button class=\"buttonStart\" >Выберите магию</button>';
+	<button class=\"buttonStart\" id=\"start\">Выберите магию</button>';
 		mainField.appendChild(modalWindow);
 		
 		let mainMonster = document.createElement('div');
@@ -141,5 +151,4 @@ export default function Game() {
 
 		return element;
 	}
-
 };

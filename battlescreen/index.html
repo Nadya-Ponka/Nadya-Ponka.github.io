@@ -14,7 +14,30 @@
 </head>
 
 <body > <!--onload="load()"--> 
+	
+	<section class="landing">
+		<div class="win">
+			<h1>Давай познакомимся:</h1>
+			<FORM method="post" action="" class="form-fields introduction">
+				<div>
+					<label for="firstName">Твое имя:<br /></label>
+					<input type="text" maxlength="30" id="firstName" placeholder="Имя *" required="required">
+				</div>
+				<div>
+					<label for="lastName">Твоя фамилия:<br /></label>
+					<input type="text" maxlength="30" id="lastName" placeholder="Фамилия *" required="required">
+				</div>
+				<div>
+					<label for="email">Email:<br /></label>
+					<input type="email" id="email" required="required" placeholder="Твой email *">
+				</div>
 
+			</FORM>
+		<button class="buttonStart" id="go" name="go" type="submit">Старт</button>
+
+		</div>
+	</section>
+	
 	<main class="base-surfase">
 	<section class="field">
 
@@ -97,7 +120,7 @@
 						<span class="argument-two"></span>
 						<span class="equally">=</span>
 					</p>
-				  <div class="result"><input type="text"></div>
+				  <div class="result"><input id ='input' type="text"></div>
 				</div>
 				<div class="button">
 					<p>Применить магию</p>
@@ -115,7 +138,7 @@
 					<p> 
 						<span class="english-word-translation"></span>
 					</p>
-				    <div class="answer-translation"><input class="input-translation" type="text"></div>
+				    <div class="answer-translation"><input id ='input' class="input-translation" type="text"></div>
 				</div>
 				<div class="button-translation">
 					<p>Применить магию</p>
@@ -133,7 +156,7 @@
 				    <div class="animal-picture">
 							<!-- <img src="img/img-animals/alligator.jpg"> -->
 						</div>
-				    <div class="answer-picture"><input class="input-picture" type="text"></div>
+				    <div class="answer-picture"><input id ='input' class="input-picture" type="text"></div>
 				</div>
 				<div class="button-picture">
 					<p>Применить магию</p>
@@ -151,13 +174,36 @@
 				    <div class="audio">
 							<p>Прослушать &#9658;</p>
 						</div>
-				    <div class="answer-audio"><input class="input-audio" type="text"></div>
+				    <div class="answer-audio"><input id ='input' class="input-audio" type="text"></div>
 				</div>
 				<div class="button-audio">
 					<p>Применить магию</p>
 				</div>   
 		</div>
     
+  </section>
+  
+  <section class="gameOver">
+		<p class="winner">Ура! Ты победил!
+					<!--<br />Твои очки:
+					<span id="score" class="timer"></span>-->
+				</p>
+
+				<div class="leaderBoard">
+					<h1>Таблица рекордов:</h1>
+					<div class="leaderBoard-tabs"></div>
+					<div class="leaderBoard-results">
+						<table class="leaderBoard-results-table">
+							<tr>
+								<th class="table-name">Имя</th>
+								<th>Дата</th>
+								<th>Очки</th>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<button class="startNewGame">Играть еще</button>
   </section>
 </main>
 		
