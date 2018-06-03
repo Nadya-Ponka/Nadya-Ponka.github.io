@@ -118,7 +118,6 @@ var waterfallCanvas = function(c, cw, ch) {
         };
 		
 export default function createWaterFall(div1, div2) {
-	//document.querySelector('.container').firstChild.style.opacity = 1;
 
     var isCanvasSupported = function(){
         var elem = document.createElement('canvas');

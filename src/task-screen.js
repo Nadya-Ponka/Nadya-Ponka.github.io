@@ -1,6 +1,7 @@
 //import {closeScore, dialog} from './modalDialog';
 import createWaterfall from './waterfall';
 import canvasLightning from './lightning';
+import explosion from './explosion';
 import health from './health-animation';
 import {getRandomArbitrary, drawLife, createNode} from './utils';
 import {saveInLocalStorage, leaderBoard} from './leaderBoard';
@@ -147,6 +148,9 @@ function makeMagic(n, div1, div2, div3, div4) {
 			break;  
 		case 3:
 			health(div3, div4);
+			break;
+		case 4:
+			explosion(div1, div2);
 			break;
 	}
 }
