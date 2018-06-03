@@ -171,10 +171,27 @@ function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLif
 					document.querySelector(`${idPlayerLife}`).title = player1.score;
 					setTimeout(function() {temp.className += ' animated fadeOutDown'}, 5000);
 				} else {			
+					
 					player2['score'] = player2['score'] - points;
 					
 					if(player2['score'] <= 0) {
+						
 						if(player2['name'] == 'Крош') {
+							
+							document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = 0;
+							temp.innerHTML = `${whoMakeTurn}`+' нанес <br />сокрушительный урон<br />в '+points+' пунктов!'; 
+							temp.className += ' appear';
+							document.querySelector(`${idMonsterLife}`).style.width = '0';
+							document.querySelector(`${idMonsterLife}`).style.transition = `width 0.7s ease-in-out`;
+							document.querySelector(`${idMonsterLife}`).title = 0;
+							setTimeout(function() {
+								temp.className += ' animated fadeOutDown';
+								totalScore = player1['score'];
+								document.querySelector('.field').style.display = 'none';
+								document.querySelector('.gameOver').style.display = 'block';	
+								saveInLocalStorage().saveData();
+								leaderBoard();
+								}, 5000);
 							
 						} else {
 							/*document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = 0;
@@ -185,9 +202,7 @@ function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLif
 							document.querySelector(`${idMonsterLife}`).title = 0;
 							//setTimeout(function() {temp.className += ' animated fadeOutDown'}, 5000);*/
 							//closeTask();
-							totalScore = player1['score'];
-                            saveInLocalStorage().saveData();
-                            leaderBoard();
+							
 							
 						}
 					} else {

@@ -1,6 +1,6 @@
 import Person from './personClass';
 import {totalScore, showTask} from './task-screen';
-import {getRandomArbitrary, drawLife} from './utils';
+import {getRandomArbitrary, drawLife, createNode} from './utils';
 import showTaskTranslation from './task-translate';
 import showTaskPicture from './task-picture';
 import showTaskAudio from './task-audio';
@@ -14,7 +14,6 @@ export default function Game() {
 		document.querySelector('.landing').style.display = 'none';
 		document.querySelector('.gameOver').style.display = 'none';				
 		document.querySelector('.base-surfase').style.display = 'block';
-		//document.querySelector('#go').removeEventListener('click', startGame, false);
 	}
 
 	
@@ -22,10 +21,10 @@ export default function Game() {
 	let whichMonster = ["Огр", "Гном", "Гоблин"];
 	let nameMonster = ["Том", "Макс", "Дима"];
 
-	let player = new Person("Крош", drawLife("player", 100));
+	let player = new Person("Крош", drawLife("player", 10));
 	document.querySelector('#playerLife').style.width = `${player.score*2.5+'px'}`;
 
-	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), drawLife("monster", 35));
+	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), drawLife("monster", 100));
 	document.querySelector('#monsterLife').style.width = `${monster.score*2.5+'px'}`;
 
 	document.querySelector('#playerLife').title = player.score;
@@ -51,6 +50,8 @@ export default function Game() {
 	playerField.firstElementChild.appendChild(createNode('span', {}, player.name));
 	monsterField.firstElementChild.appendChild(createNode('span', {}, monster.name));
 	monsterField.firstElementChild.style.width = '300px';
+	playerField.firstElementChild.style.width = '300px';
+
 
 	loadFight();
 	document.querySelector('#start').addEventListener('click', function() {
@@ -136,19 +137,5 @@ export default function Game() {
 		}
 	}
 
-	function createNode(tag, props, ...children) {
-		const element = document.createElement(tag);
-
-		Object.keys(props).forEach(key => element[key] = props[key]);
-
-		children.forEach(child => {
-			if (typeof child === 'string') {
-				child = document.createTextNode(child);
-			}
-
-			element.appendChild(child);
-		});
-
-		return element;
-	}
+	
 };

@@ -14,7 +14,7 @@ export function saveInLocalStorage() {
                     email: document.querySelector('#email').value,
                     date: date,
                     score: totalScore,
-                    tab: 1
+                    tab: 0
                 };
 
                 let serialObj = JSON.stringify(userData);
@@ -108,7 +108,7 @@ export  function sortByField(arr, field) {
         for (let i = 0; i < displayed.length && i < 10; i++) {
             const name = displayed[i].name;
             const date = (displayed[i].date).toLocaleDateString();
-            const score = secondsInTimeFormat(displayed[i].score);
+            const score = displayed[i].score;
 
             const td1 = createNode('td', {
                 className: 'table-name'
