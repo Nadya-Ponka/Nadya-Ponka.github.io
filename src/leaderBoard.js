@@ -50,9 +50,6 @@ export function saveInLocalStorage() {
  //leaderBoard
  export  function leaderBoard() {
 
-       // const valueSelectSize = ['Открыть таблицу рекордов'];;
-       // let listGridSize = document.querySelector('.leaderBoard-tabs');
-        
         let localStorageDB = saveInLocalStorage().getData('tab', parseInt('0', 10));
 
         let sorted = sortByField(localStorageDB, 'score');
