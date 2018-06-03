@@ -3,7 +3,7 @@ import createWaterfall from './waterfall';
 import canvasLightning from './lightning';
 import health from './health-animation';
 import {getRandomArbitrary, drawLife, createNode} from './utils';
-import {saveInLocalStorage, leaderBoard, filterByField, sortByField, displayResult} from './leaderBoard';
+import {saveInLocalStorage, leaderBoard} from './leaderBoard';
 
 
 export let totalScore;

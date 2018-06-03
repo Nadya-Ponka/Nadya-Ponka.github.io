@@ -50,44 +50,10 @@ export function saveInLocalStorage() {
  //leaderBoard
  export  function leaderBoard() {
 
-        const valueSelectSize = ['Открыть таблицу рекордов'];;
-        let listGridSize = document.querySelector('.leaderBoard-tabs');
-        if (!listGridSize.firstElementChild) {
-            for (let i = 0; i < valueSelectSize.length; i++) {
-                const tab = createNode('a', {
-                    className: `tab ${i}`
-                }, `${valueSelectSize[i]}`);
-                tab.addEventListener('click', clickTab);
-                listGridSize.appendChild(tab);
-            }
-        }
-    };
-	
-export	 function filterByField(arr, field, value) {
-        return arr.filter(elem => {
-            if (elem[field] === value) {
-                return elem;
-            }
-        });
-    };
-
-export  function sortByField(arr, field) {
-        function byField(a, b) {
-            if (a[field] > b[field]) return 1;
-            if (a[field] < b[field]) return -1;
-        }
-        return arr.sort(byField);
-    };
-
- export   function displayResult(arr, number = arr.length) {
-        return arr.slice(0, number);
-    };
-	
-	function clickTab(e) {
-        const listTabs = [...e.target.classList];
-        listTabs.shift();
-
-        let localStorageDB = saveInLocalStorage().getData('tab', parseInt(listTabs, 10));
+       // const valueSelectSize = ['Открыть таблицу рекордов'];;
+       // let listGridSize = document.querySelector('.leaderBoard-tabs');
+        
+        let localStorageDB = saveInLocalStorage().getData('tab', parseInt('0', 10));
 
         let sorted = sortByField(localStorageDB, 'score');
 
@@ -119,5 +85,27 @@ export  function sortByField(arr, field) {
             const tr = createNode('tr', {}, td1, td2, td3);
             resultsTableContainer.firstElementChild.appendChild(tr);
         }
+		
+		
+    };
+	
+ function filterByField(arr, field, value) {
+        return arr.filter(elem => {
+            if (elem[field] === value) {
+                return elem;
+            }
+        });
+    };
 
-    }
+ function sortByField(arr, field) {
+        function byField(a, b) {
+            if (a[field] > b[field]) return 1;
+            if (a[field] < b[field]) return -1;
+        }
+        return arr.sort(byField);
+    };
+
+   function displayResult(arr, number = arr.length) {
+        return arr.slice(0, number);
+    };
+	
