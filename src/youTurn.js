@@ -1,5 +1,8 @@
 import {level, Game} from './game';
-
+import createWaterfall from './waterfall';
+import canvasLightning from './lightning';
+import explosion from './explosion';
+import health from './health-animation';
 export function makeMagic(n, div1, div2, div3, div4) {	
 	switch (n) {
 		case 1:

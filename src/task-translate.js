@@ -1,9 +1,16 @@
 import createWaterfall from './waterfall';
 import canvasLightning from './lightning';
+import explosion from './explosion';
 import health from './health-animation';
-import {getRandomArbitrary, drawLife} from './utils';
+import {getRandomArbitrary, drawLife, createNode} from './utils';
+import {saveInLocalStorage, leaderBoard} from './leaderBoard';
+import {level, Game} from './game';
+import {makeMagic, makeTurn} from './youTurn';
 
-export default function showTaskTranslation() {
+
+export let totalScore;
+
+export default function showTaskTranslation(param, player1, player2) {
   
   let myDictionary = require('./dictionary');
   let dictionary = myDictionary.dictionary;
@@ -40,7 +47,8 @@ export default function showTaskTranslation() {
     if (document.querySelector('.grate-translation')) {
       document.querySelector('.task-translation').removeChild(document.querySelector('.grate-translation'));
     }
-    
+
+    let points = 0;
     let coincidence = 0;
     let grate = document.createElement('div');
     let answerForm = document.querySelector('.input-translation').value.toLowerCase();
@@ -59,13 +67,13 @@ export default function showTaskTranslation() {
             grate.innerHTML = '<p>Ура! Вы правильно решили - магия применилась!</p>';
             closeTask();
             coincidence++;
-            break;
-    //         points = getRandomArbitrary(10,20);
+            points = getRandomArbitrary(10,20);
 		
-		// setTimeout(function() { 
-		// 	makeMagic(param, '.monsters-container .magic', 'monsters-magic', '.player-container .magic', '.player-container .health');
-		// 	makeTurn(param, points, player1, player2, '.aboutPlayer', '#playerLife', '.aboutMonster', '#monsterLife', 'Ты');
-		// }, 1000);
+		        setTimeout(function() { 
+		          makeMagic(param, '.monsters-container .magic', 'monsters-magic', '.player-container .magic', '.player-container .health');
+		        	makeTurn(param, points, player1, player2, '.aboutPlayer', '#playerLife', '.aboutMonster', '#monsterLife', 'Ты');
+		        }, 1000);
+            break;
           } 
         }
         if (coincidence==0) {
@@ -77,12 +85,12 @@ export default function showTaskTranslation() {
           grate.innerHTML = '<p>Результат не верен - магия не применилась!</p>\
           <p>Теперь ходит противник.</p>';     
           closeTask();
-    //       points = getRandomArbitrary(10,20);
-	  // param = getRandomArbitrary(1, 3);
-		// setTimeout(function() { 
-		// 	makeMagic(param, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
-		// 	makeTurn(param, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');
-		// }, 1000);
+          points = Math.floor(getRandomArbitrary(10,20)*level);
+          param = getRandomArbitrary(1, 3);
+          setTimeout(function() { 
+            makeMagic(param, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
+            makeTurn(param, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');
+          }, 1000);
         }
       }
   }
@@ -101,52 +109,3 @@ export default function showTaskTranslation() {
     }, 2000);
   }
 };
-
-// function makeMagic(n, div1, div2, div3, div4) {	
-// 	switch (n) {
-// 		case 1:
-// 			createWaterfall(div1, div2);
-// 			break;
-// 		case 2:
-// 			canvasLightning(div1, div2);
-// 			break;  
-// 		case 3:
-// 			health(div3, div4);
-// 			break;
-// 	}
-// }
-
-// function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLife, classAboutMonster, idMonsterLife, whoMakeTurn) {
-// 	let temp = document.querySelector('.points');
-
-// 			setTimeout(function() { 
-// 				temp.className = 'points';
-				
-// 				if(magic == 3) {
-// 					player1['score'] = player1['score'] + points;
-// 					temp.innerHTML = `${whoMakeTurn}`+' прибавил<br />к своему здоровью<br />'+points+' пунктов!';
-// 					if(player1['score'] > 130) { 
-// 						player1['score'] = 130; 
-// 						temp.innerHTML = `${whoMakeTurn}`+' уже очень здоров! :) <br />Пора ходить!';
-// 					}
-// 					document.querySelector(`${classAboutPlayer}`).lastChild.innerHTML = player1.score;
-// 					temp.className += ' appear';
-// 					document.querySelector(`${idPlayerLife}`).style.width = `${player1.score*2.5+'px'}`;
-// 					document.querySelector(`${idPlayerLife}`).style.transition = `width 0.7s ease-in-out`; 
-// 					document.querySelector(`${idPlayerLife}`).title = player1.score;
-// 					setTimeout(function() {temp.className += ' animated fadeOutDown'}, 5000);
-// 				} else {			
-// 					player2['score'] = player2['score'] - points;
-// 					document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = player2.score;
-// 					temp.innerHTML = `${whoMakeTurn}`+' нанес <br />сокрушительный урон<br />в '+points+' пунктов!'; 
-// 					temp.className += ' appear';
-// 					document.querySelector(`${idMonsterLife}`).style.width = `${player2.score*2.5+'px'}`;
-// 					document.querySelector(`${idMonsterLife}`).style.transition = `width 0.7s ease-in-out`;
-// 					//document.querySelector(`${idMonsterLife}`).style.justifySelf = 'end';
-// 					document.querySelector(`${idMonsterLife}`).title = player2.score;
-// 					setTimeout(function() {temp.className += ' animated fadeOutDown'}, 5000);
-// 				}
-// 			}, 2000);
-			
-// 			temp.innerHTML = '';
-// }
