@@ -1,4 +1,7 @@
 import {level, Game} from './game';
+import createWaterfall from './waterfall';
+import canvasLightning from './lightning';
+import explosion from './explosion';
 
 export function makeMagic(n, div1, div2, div3, div4) {	
 	switch (n) {
@@ -15,7 +18,7 @@ export function makeMagic(n, div1, div2, div3, div4) {
 			createWaterfall(div1, div2);
 			break;
 	}
-}
+};
 
 export function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLife, classAboutMonster, idMonsterLife, whoMakeTurn) {
 	let temp = document.querySelector('.points');
