@@ -108,11 +108,6 @@ img.aboutMonster, img.aboutPlayer {
 	border: #fff solid 2px;
 }
 
-canvas {
-	width:220px;
-	height:450px;
-}
-
 .points {
 	font-family: "YesevaOne", serif;
 	font-weight:bold;
@@ -137,4 +132,9 @@ canvas {
 	-moz-transition: opacity 0.8s 0.1s ease;
 	transition: opacity 1s 1s ease;
 	-webkit-transition: opacity 0.8s 0.1s ease;
+}
+
+canvas {
+	width:220px;
+	height:450px;
 }

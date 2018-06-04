@@ -5,6 +5,8 @@ import explosion from './explosion';
 import health from './health-animation';
 import {getRandomArbitrary, drawLife, createNode} from './utils';
 import {saveInLocalStorage, leaderBoard} from './leaderBoard';
+import {level, Game} from './game';
+import {makeMagic, makeTurn} from './youTurn';
 
 
 export let totalScore;
@@ -16,7 +18,7 @@ export function showTask(param, player1, player2) {
   let arrayOperators = ['+', '-', ':', '*'];
 
   function randomInteger(min, max) {
-    var rand = min - 0.5 + Math.random() * (max - min + 1)
+    let rand = min - 0.5 + Math.random() * (max - min + 1)
     rand = Math.round(rand);
     return rand;
   }
@@ -96,7 +98,7 @@ export function showTask(param, player1, player2) {
       grate.innerHTML = '<p>Результат не верен - магия не применилась!</p>\
 	  <p>Теперь ходит противник.</p>';     
       closeTask();
-	  points = getRandomArbitrary(10,20);
+	  points = Math.floor(getRandomArbitrary(10,20)*level);
 	  param = getRandomArbitrary(1, 3);
 		setTimeout(function() { 
 			makeMagic(param, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
@@ -137,91 +139,3 @@ export function showTask(param, player1, player2) {
   }
 
 };
-
-function makeMagic(n, div1, div2, div3, div4) {	
-	switch (n) {
-		case 1:
-			explosion(div1, div2);
-			break;
-		case 2:
-			canvasLightning(div1, div2);
-			break;  
-		case 3:
-			health(div3, div4);
-			break;
-		case 4:
-			createWaterfall(div1, div2);
-			break;
-	}
-}
-
-function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLife, classAboutMonster, idMonsterLife, whoMakeTurn) {
-	let temp = document.querySelector('.points');
-
-			setTimeout(function() { 
-				temp.className = 'points';
-				
-				if(magic == 3) {
-					player1['score'] = player1['score'] + points;
-					temp.innerHTML = `${whoMakeTurn}`+' прибавил<br />к своему здоровью<br />'+points+' пунктов!';
-					if(player1['score'] > 130) { 
-						player1['score'] = 130; 
-						temp.innerHTML = `${whoMakeTurn}`+' уже очень здоров! :) <br />Пора ходить!';
-					}
-					document.querySelector(`${classAboutPlayer}`).lastChild.innerHTML = player1.score;
-					temp.className += ' appear';
-					document.querySelector(`${idPlayerLife}`).style.width = `${player1.score*2.5+'px'}`;
-					document.querySelector(`${idPlayerLife}`).style.transition = `width 0.7s ease-in-out`; 
-					document.querySelector(`${idPlayerLife}`).title = player1.score;
-					setTimeout(function() {temp.className += ' animated fadeOutDown'}, 5000);
-				} else {			
-					
-					player2['score'] = player2['score'] - points;
-					
-					if(player2['score'] <= 0) {
-						
-						if(player2['name'] == 'Крош') {
-							
-							document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = 0;
-							temp.innerHTML = `${whoMakeTurn}`+' нанес <br />сокрушительный урон<br />в '+points+' пунктов!'; 
-							temp.className += ' appear';
-							document.querySelector(`${idMonsterLife}`).style.width = '0';
-							document.querySelector(`${idMonsterLife}`).style.transition = `width 0.7s ease-in-out`;
-							document.querySelector(`${idMonsterLife}`).title = 0;
-							
-							setTimeout(function() {
-								temp.className += ' animated fadeOutDown';
-								totalScore = player1['score'];
-								document.querySelector('.field').style.display = 'none';
-								document.querySelector('.gameOver').style.display = 'block';	
-								saveInLocalStorage().saveData();
-								leaderBoard();
-							}, 5000);
-							
-						} else {
-							/*document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = 0;
-							//temp.innerHTML = 'Ура! '+`${whoMakeTurn}`+' победил!'; 
-							//temp.className += ' appear';
-							document.querySelector(`${idMonsterLife}`).style.width = '0';
-							document.querySelector(`${idMonsterLife}`).style.transition = `width 0.7s ease-in-out`;
-							document.querySelector(`${idMonsterLife}`).title = 0;
-							//setTimeout(function() {temp.className += ' animated fadeOutDown'}, 5000);*/
-							//closeTask();
-							
-							
-						}
-					} else {
-					
-					document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = player2.score;
-					temp.innerHTML = `${whoMakeTurn}`+' нанес <br />сокрушительный урон<br />в '+points+' пунктов!'; 
-					temp.className += ' appear';
-					document.querySelector(`${idMonsterLife}`).style.width = `${player2.score*2.5+'px'}`;
-					document.querySelector(`${idMonsterLife}`).style.transition = `width 0.7s ease-in-out`;
-					document.querySelector(`${idMonsterLife}`).title = player2.score;
-					setTimeout(function() {temp.className += ' animated fadeOutDown'}, 5000);
-				//	}
-				}
-}}, 2000);
-			
-			temp.innerHTML = '';
-}

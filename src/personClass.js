@@ -1,6 +1,6 @@
 export default class Person {
-    constructor(name, score) {
+    constructor(name, level) {
         this.name = name;
-        this.score = score;
+        this.score = 20*level;
 		}
 };

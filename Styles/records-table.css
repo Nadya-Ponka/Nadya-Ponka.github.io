@@ -1,4 +1,4 @@
-.win,  .gameOver {
+.win,  .gameOver, .nextRaund {
 	width: 1000px;
 	height: 500px;
 	background-color: #fff;
@@ -18,13 +18,13 @@
   background-color: #F5E9BE;
 }
 
-.gameOver {
+.gameOver, .nextRaund {
 	width: 1266px;
 	height: 668px;
 	padding: 20px 100px;
 }
 
-.gameOver .winner {
+.gameOver .winner, .nextRaund .winner {
 	font-size: 50px;
 	text-shadow: white 2px 2px;
 	text-align: center;

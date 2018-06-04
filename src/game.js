@@ -5,26 +5,30 @@ import showTaskTranslation from './task-translate';
 import showTaskPicture from './task-picture';
 import showTaskAudio from './task-audio';
 
+export let level = .75;
 
-export default function Game() {
+	let nameAdjectiveMonster = ["Ужасный", "Злобный", "Сопливый"];
+	let whichMonster = ["Огр", "Гном", "Гоблин"];
+	let nameMonster = ["Том", "Макс", "Дима"];
 	
+export function Game() {
+	level += 0.25;
+	// перенести в файл index.js?
 	document.querySelector('#go').addEventListener('click', startGame, false);
 
 	function startGame() {
 		document.querySelector('.landing').style.display = 'none';
-		document.querySelector('.gameOver').style.display = 'none';				
+		document.querySelector('.gameOver').style.display = 'none';	
+		document.querySelector('.nextRaund').style.display = 'none';				
 		document.querySelector('.base-surfase').style.display = 'block';
 	}
 
-	
-	let nameAdjectiveMonster = ["Ужасный", "Злобный", "Сопливый"];
-	let whichMonster = ["Огр", "Гном", "Гоблин"];
-	let nameMonster = ["Том", "Макс", "Дима"];
-
-	let player = new Person("Крош", drawLife("player", 100));
+	let player = new Person("Крош", 1);
+	drawLife("player", player.score)
 	document.querySelector('#playerLife').style.width = `${player.score*2.5+'px'}`;
 
-	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), drawLife("monster", 100));
+	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), level);
+	drawLife("monster", monster.score)
 	document.querySelector('#monsterLife').style.width = `${monster.score*2.5+'px'}`;
 
 	document.querySelector('#playerLife').title = player.score;
@@ -38,6 +42,7 @@ export default function Game() {
 	boxScore.innerHTML = monster.score;
 	document.querySelector('.aboutMonster').appendChild(boxScore);
 	
+	console.log(level);
 	console.log(player);
 	console.log(monster);
 
