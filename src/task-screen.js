@@ -141,7 +141,7 @@ export function showTask(param, player1, player2) {
 function makeMagic(n, div1, div2, div3, div4) {	
 	switch (n) {
 		case 1:
-			createWaterfall(div1, div2);
+			explosion(div1, div2);
 			break;
 		case 2:
 			canvasLightning(div1, div2);
@@ -150,7 +150,7 @@ function makeMagic(n, div1, div2, div3, div4) {
 			health(div3, div4);
 			break;
 		case 4:
-			explosion(div1, div2);
+			createWaterfall(div1, div2);
 			break;
 	}
 }
@@ -188,6 +188,7 @@ function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLif
 							document.querySelector(`${idMonsterLife}`).style.width = '0';
 							document.querySelector(`${idMonsterLife}`).style.transition = `width 0.7s ease-in-out`;
 							document.querySelector(`${idMonsterLife}`).title = 0;
+							
 							setTimeout(function() {
 								temp.className += ' animated fadeOutDown';
 								totalScore = player1['score'];
@@ -195,7 +196,7 @@ function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLif
 								document.querySelector('.gameOver').style.display = 'block';	
 								saveInLocalStorage().saveData();
 								leaderBoard();
-								}, 5000);
+							}, 5000);
 							
 						} else {
 							/*document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = 0;

@@ -21,7 +21,7 @@ export default function Game() {
 	let whichMonster = ["Огр", "Гном", "Гоблин"];
 	let nameMonster = ["Том", "Макс", "Дима"];
 
-	let player = new Person("Крош", drawLife("player", 10));
+	let player = new Person("Крош", drawLife("player", 100));
 	document.querySelector('#playerLife').style.width = `${player.score*2.5+'px'}`;
 
 	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), drawLife("monster", 100));
@@ -97,13 +97,13 @@ export default function Game() {
 		<p>Выберите заклинание:</p>\
 		<div class=\"spell\">\
 			<img id=\"1\" src=\"../Images/Atack.png\" alt=\"\">\
-			<p>Магия воды</p>\
+			<p>Удар радуги</p>\
 			<img id=\"2\" src=\"../Images/Lightning.png\" alt=\"\">\
 			<p>Магия молнии</p>\
 			<img id=\"3\" src=\"../Images/Health.png\" alt=\"\">\
 			<p>Лечить себя</p>\
 			<img id=\"4\" src=\"../Images/Question.png\" alt=\"\">\
-			<p>Комбо атака</p>\
+			<p>Магия воды</p>\
 		</div>\
 	</div>\
 	<button class=\"buttonStart\" id=\"start\">Выберите магию</button>';
