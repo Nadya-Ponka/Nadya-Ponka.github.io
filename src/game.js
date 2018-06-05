@@ -1,104 +1,101 @@
 import Person from './personClass';
 import showTask from './task-screen';
-import {getRandomArbitrary, drawLife, createNode} from './utils';
+import {
+    getRandomArbitrary,
+    drawLife,
+    createNode
+} from './utils';
 import showTaskTranslation from './task-translate';
 import showTaskPicture from './task-picture';
 import showTaskAudio from './task-audio';
 
 export let level = .75;
 
-	let nameAdjectiveMonster = ["Ужасный", "Злобный", "Сопливый"];
-	let whichMonster = ["Огр", "Гном", "Гоблин"];
-	let nameMonster = ["Том", "Макс", "Дима"];
-	
+let nameAdjectiveMonster = ["Ужасный", "Злобный", "Сопливый"];
+let whichMonster = ["Огр", "Гном", "Гоблин"];
+let nameMonster = ["Том", "Макс", "Дима"];
+
 export function Game() {
-	level += 0.25;
-	// перенести в файл index.js?
-	document.querySelector('#go').addEventListener('click', startGame, false);
+    level += 0.25;
+    // перенести в файл index.js?
+    document.querySelector('#go').addEventListener('click', startGame, false);
 
-	function startGame() {
-		document.querySelector('.landing').style.display = 'none';
-		document.querySelector('.gameOver').style.display = 'none';	
-		document.querySelector('.nextRaund').style.display = 'none';				
-		document.querySelector('.base-surfase').style.display = 'block';
-	}
-
-	let player = new Person("Крош", 1);
-	drawLife("player", player.score)
-	document.querySelector('#playerLife').style.width = `${player.score*2.5+'px'}`;
-
-	let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), level);
-	drawLife("monster", monster.score)
-	document.querySelector('#monsterLife').style.width = `${monster.score*2.5+'px'}`;
-
-	document.querySelector('#playerLife').title = player.score;
-	document.querySelector('#monsterLife').title = monster.score;
-
-	let boxScore = document.createElement('div');
-	boxScore.innerHTML = player.score;
-	document.querySelector('.aboutPlayer').appendChild(boxScore);
-
-	boxScore = document.createElement('div');
-	boxScore.innerHTML = monster.score;
-	document.querySelector('.aboutMonster').appendChild(boxScore);
-	
-	console.log(level);
-	console.log(player);
-	console.log(monster);
-
-	
-	let playerField = document.querySelector('.aboutPlayer');
-	let monsterField = document.querySelector('.aboutMonster');
-
-	let magicChoice;
-	
-	playerField.firstElementChild.appendChild(createNode('span', {}, player.name));
-	monsterField.firstElementChild.appendChild(createNode('span', {}, monster.name));
-	monsterField.firstElementChild.style.width = '300px';
-	playerField.firstElementChild.style.width = '300px';
-
-
-	loadFight();
-	document.querySelector('#start').addEventListener('click', function() {
-		dialog();
-		document.querySelector('.spell').addEventListener('click', selectMagic, false);
-	},false);
-
-		
-	function selectMagic(elem) {
-
-		switch (elem.target.id) {
-			case '1':
-				showTask(1, player, monster);
-				break;
-			case '2':
-			  showTaskTranslation(2, player, monster);
-				break;  
-			case '3' :
-			  showTaskPicture(3, player, monster);
-				break;
-			case '4' :
-				showTaskAudio(4, player, monster);
-				break;
-		}
-			
-		document.querySelector('.spell').removeEventListener('click', selectMagic);
+    function startGame() {
+        document.querySelector('.landing').style.display = 'none';
+        document.querySelector('.gameOver').style.display = 'none';
+        document.querySelector('.nextRaund').style.display = 'none';
+        document.querySelector('.base-surfase').style.display = 'block';
     }
-	
-	
-	function loadFight() {
 
-		let mainField = document.querySelector('.field');
-		console.log(mainField);
-		
-		let mainHero = document.createElement('div');
-		mainHero.className = 'hero';
-		buildPerson(mainHero, 1, 1, 1);
+    let player = new Person("Крош", 1);
+    drawLife("player", player.score)
+    document.querySelector('#playerLife').style.width = `${player.score*2.5+'px'}`;
 
-		let modalWindow = document.createElement('div');
-		modalWindow.style.alignSelf = 'end';
-		modalWindow.style.justifySelf = 'center';
-		modalWindow.innerHTML = '<div class="modal-dialog"><p class=\"close\" onclick=\"closeScore()\">&#215;</p>\
+    let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), level);
+    drawLife("monster", monster.score)
+    document.querySelector('#monsterLife').style.width = `${monster.score*2.5+'px'}`;
+
+    document.querySelector('#playerLife').title = player.score;
+    document.querySelector('#monsterLife').title = monster.score;
+
+    let boxScore = document.createElement('div');
+    boxScore.innerHTML = player.score;
+    document.querySelector('.aboutPlayer').appendChild(boxScore);
+
+    boxScore = document.createElement('div');
+    boxScore.innerHTML = monster.score;
+    document.querySelector('.aboutMonster').appendChild(boxScore);
+
+    let playerField = document.querySelector('.aboutPlayer');
+    let monsterField = document.querySelector('.aboutMonster');
+
+    let magicChoice;
+
+    playerField.firstElementChild.appendChild(createNode('span', {}, player.name));
+    monsterField.firstElementChild.appendChild(createNode('span', {}, monster.name));
+    monsterField.firstElementChild.style.width = '300px';
+    playerField.firstElementChild.style.width = '300px';
+
+
+    loadFight();
+    document.querySelector('#start').addEventListener('click', function () {
+        dialog();
+        document.querySelector('.spell').addEventListener('click', selectMagic, false);
+    }, false);
+
+
+    function selectMagic(elem) {
+
+        switch (elem.target.id) {
+            case '1':
+                showTask(1, player, monster);
+                break;
+            case '2':
+                showTaskTranslation(2, player, monster);
+                break;
+            case '3':
+                showTaskPicture(3, player, monster);
+                break;
+            case '4':
+                showTaskAudio(4, player, monster);
+                break;
+        }
+
+        document.querySelector('.spell').removeEventListener('click', selectMagic);
+    }
+
+    function loadFight() {
+
+        let mainField = document.querySelector('.field');
+        let mainHero = document.createElement('div');
+        mainHero.className = 'hero';
+        buildPerson(mainHero, 1, 1, 1);
+
+        let modalWindow = document.createElement('div');
+        modalWindow.className = 'buttonMagic';
+        modalWindow.style.alignSelf = 'end';
+        modalWindow.style.justifySelf = 'center';
+        modalWindow.innerHTML = '<div class="modal-dialog"><p class=\"close\" onclick=\"closeScore()\">&#215;</p>\
 		<p>Выберите заклинание:</p>\
 		<div class=\"spell\">\
 			<img id=\"1\" src=\"../Images/Atack.png\" alt=\"\">\
@@ -112,35 +109,34 @@ export function Game() {
 		</div>\
 	</div>\
 	<button class=\"buttonStart\" id=\"start\">Выберите магию</button>';
-		mainField.appendChild(modalWindow);
-		
-		let mainMonster = document.createElement('div');
-		mainMonster.className = 'monster';
-		buildPerson(mainMonster, getRandomArbitrary(2, 4), getRandomArbitrary(2, 4), getRandomArbitrary(2, 4));
+        mainField.appendChild(modalWindow);
 
-		let movement = document.querySelectorAll(".head");
-		personMove(movement, 25);
-		personMove(document.querySelectorAll(".weapon"), 75);
-		
+        let mainMonster = document.createElement('div');
+        mainMonster.className = 'monster';
+        buildPerson(mainMonster, getRandomArbitrary(2, 4), getRandomArbitrary(2, 4), getRandomArbitrary(2, 4));
 
-		function buildPerson(element, number1, number2, number3) {
-			var frag = '<div class="weapon" id=""><img src="../Images/' + number3 + '-weapon.png" alt="" /></div><div class="head" id=""><img src="../Images/' + number1 + '-head.png" alt="" /></div><div class="body"><img src="../Images/' + number2 + '-foot.png" alt="" /></div>';
-			element.innerHTML = frag;
-			return mainField.appendChild(element);
-		}
+        let movement = document.querySelectorAll(".head");
+        personMove(movement, 25);
+        personMove(document.querySelectorAll(".weapon"), 75);
 
-		function personMove(array, y0) {
-			var pos = 5;
-			var id = setInterval(frame, 300);
 
-			function frame() {
-				pos *= -1;
-				array.forEach(elem => {
-					elem.style.bottom = y0 + pos + 'px';
-				});
-			}
-		}
-	}
+        function buildPerson(element, number1, number2, number3) {
+            var frag = '<div class="weapon" id=""><img src="../Images/' + number3 + '-weapon.png" alt="" /></div><div class="head" id=""><img src="../Images/' + number1 + '-head.png" alt="" /></div><div class="body"><img src="../Images/' + number2 + '-foot.png" alt="" /></div>';
+            element.innerHTML = frag;
+            return mainField.appendChild(element);
+        }
 
-	
+        function personMove(array, y0) {
+            var pos = 5;
+            var id = setInterval(frame, 300);
+
+            function frame() {
+                pos *= -1;
+                array.forEach(elem => {
+                    elem.style.bottom = y0 + pos + 'px';
+                });
+            }
+        }
+    }
+
 };

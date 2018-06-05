@@ -14,148 +14,150 @@
 <body onload="leaderBoard()">
 	<main class="landing">
 
-  <section class="gameOver">
-		
-				<div class="leaderBoard">
-					<h1>Таблица рекордов:</h1>
-					<div class="leaderBoard-tabs"></div>
-					<div class="leaderBoard-results">
-						<table class="leaderBoard-results-table">
-							<tr>
-								<th class="table-name">Имя</th>
-								<th>Дата</th>
-								<th>Очки</th>
-							</tr>
-						</table>
-					</div>
+		<section class="gameOver">
+
+			<div class="leaderBoard">
+				<h1>Таблица рекордов:</h1>
+				<div class="leaderBoard-tabs"></div>
+				<div class="leaderBoard-results">
+					<table class="leaderBoard-results-table">
+						<tr>
+							<th class="table-name">Имя</th>
+							<th>Дата</th>
+							<th>Побежденные монстры</th>
+						</tr>
+					</table>
 				</div>
+			</div>
 
-				<button class="startNewGame" onclick='location.href="../battlescreen/index.html"'>Играть</button>
-  </section>
-  </main>
-	
-	
+			<button class="startNewGame" onclick='location.href="../battlescreen/index.html"'>Играть</button>
+		</section>
+	</main>
+
+
 	<script>
-	function saveInLocalStorage() {
+		function saveInLocalStorage() {
 
-        return {
-            saveData: function () {
+			return {
+				saveData: function () {
 
-                const date = new Date();
-                const userData = {
-                    name: document.querySelector('#firstName').value,
-                    lastName: document.querySelector('#lastName').value,
-                    email: document.querySelector('#email').value,
-                    date: date,
-                    score: totalScore,
-                    tab: 0
-                };
+					const date = new Date();
+					const userData = {
+						name: document.querySelector('#firstName').value,
+						lastName: document.querySelector('#lastName').value,
+						email: document.querySelector('#email').value,
+						date: date,
+						score: totalScore,
+						tab: 0
+					};
 
-                let serialObj = JSON.stringify(userData);
-                localStorage.setItem(date.toLocaleString(), serialObj);
-            },
+					let serialObj = JSON.stringify(userData);
+					localStorage.setItem(date.toLocaleString(), serialObj);
+				},
 
-            getData: function (field, value) {
-                const keysLocalStorage = Object.keys(localStorage);
-                let dataBase = [];
+				getData: function (field, value) {
+					const keysLocalStorage = Object.keys(localStorage);
+					let dataBase = [];
 
-                keysLocalStorage.forEach(key => {
-                    let returnedObj;
+					keysLocalStorage.forEach(key => {
+						let returnedObj;
 
-                    try {
-                        returnedObj = JSON.parse(localStorage.getItem(`${key}`), (key, value) => {
-                            if (key === 'date') return new Date(value);
-                            return value;
-                        });
+						try {
+							returnedObj = JSON.parse(localStorage.getItem(`${key}`), (key, value) => {
+								if (key === 'date') return new Date(value);
+								return value;
+							});
 
-                        if (!returnedObj.name && !returnedObj.date && !returnedObj.score && !returnedObj.tab)
-                            return;
-                    } catch (err) {
-                        return;
-                    }
+							if (!returnedObj.name && !returnedObj.date && !returnedObj.score && !returnedObj.tab)
+								return;
+						} catch (err) {
+							return;
+						}
 
-                    dataBase.push(returnedObj);
-                });
-                return filterByField(dataBase, field, value);
-            }
-        };
-    };
-	
-	function leaderBoard() {
+						dataBase.push(returnedObj);
+					});
+					return filterByField(dataBase, field, value);
+				}
+			};
+		};
 
-        let localStorageDB = saveInLocalStorage().getData('tab', parseInt('0', 10));
+		function leaderBoard() {
 
-        let sorted = sortByField(localStorageDB, 'score');
+			let localStorageDB = saveInLocalStorage().getData('tab', parseInt('0', 10));
 
-        let displayed = displayResult(sorted);
+			let sorted = sortByField(localStorageDB, 'score');
 
-        const resultsTableContainer = document.querySelector('.leaderBoard-results-table');
-        let resultsTable = [...resultsTableContainer.firstElementChild.children];
+			let displayed = displayResult(sorted);
 
-        for (let i = 1; i < resultsTable.length; i++) {
-            resultsTable[i].remove();
-        }
+			const resultsTableContainer = document.querySelector('.leaderBoard-results-table');
+			let resultsTable = [...resultsTableContainer.firstElementChild.children];
 
-        if (displayed.length === 0) {
-            const result = createNode('p', {}, 'Будь первым!');
-            resultsTableContainer.firstElementChild.appendChild(result);
-        }
-
-        for (let i = 0; i < displayed.length && i < 10; i++) {
-            const name = displayed[i].name;
-            const date = (displayed[i].date).toLocaleDateString();
-            const score = displayed[i].score;
-
-            const td1 = createNode('td', {
-                className: 'table-name'
-            }, `${name}`);
-            const td2 = createNode('td', {}, `${date}`);
-            const td3 = createNode('td', {}, `${score}`);
-
-            const tr = createNode('tr', {}, td1, td2, td3);
-            resultsTableContainer.firstElementChild.appendChild(tr);
-        }
-		
-		
-    };
-	
- function filterByField(arr, field, value) {
-        return arr.filter(elem => {
-            if (elem[field] === value) {
-                return elem;
-            }
-        });
-    };
-
- function sortByField(arr, field) {
-        function byField(a, b) {
-            if (a[field] > b[field]) return 1;
-            if (a[field] < b[field]) return -1;
-        }
-        return arr.sort(byField);
-    };
-
-   function displayResult(arr, number = arr.length) {
-        return arr.slice(0, number);
-    };
-	function createNode(tag, props, ...children) {
-		const element = document.createElement(tag);
-
-		Object.keys(props).forEach(key => element[key] = props[key]);
-
-		children.forEach(child => {
-			if (typeof child === 'string') {
-				child = document.createTextNode(child);
+			for (let i = 1; i < resultsTable.length; i++) {
+				resultsTable[i].remove();
 			}
 
-			element.appendChild(child);
-		});
+			if (displayed.length === 0) {
+				const result = createNode('p', {}, 'Будь первым!');
+				resultsTableContainer.firstElementChild.appendChild(result);
+			}
 
-		return element;
-	};
+			for (let i = 0; i < displayed.length && i < 10; i++) {
+				const name = displayed[i].name;
+				const date = (displayed[i].date).toLocaleDateString();
+				const score = displayed[i].score;
+
+				const td1 = createNode('td', {
+					className: 'table-name'
+				}, `${name}`);
+				const td2 = createNode('td', {}, `${date}`);
+				const td3 = createNode('td', {}, `${score}`);
+
+				const tr = createNode('tr', {}, td1, td2, td3);
+				resultsTableContainer.firstElementChild.appendChild(tr);
+			}
+
+
+		};
+
+		function filterByField(arr, field, value) {
+			return arr.filter(elem => {
+				if (elem[field] === value) {
+					return elem;
+				}
+			});
+		};
+
+		function sortByField(arr, field) {
+			function sorted(a, b) {
+				return b[field] - a[field];
+			}
+
+			return arr.sort(sorted);
+		};
+
+		function displayResult(arr, number = arr.length) {
+			return arr.slice(0, number);
+		};
+
+		function createNode(tag, props, ...children) {
+			const element = document.createElement(tag);
+
+			Object.keys(props).forEach(key => element[key] = props[key]);
+
+			children.forEach(child => {
+				if (typeof child === 'string') {
+					child = document.createTextNode(child);
+				}
+
+				element.appendChild(child);
+			});
+
+			return element;
+		};
+
 	</script>
-	
+
 </body>
-		
-	
+
+
 </html>

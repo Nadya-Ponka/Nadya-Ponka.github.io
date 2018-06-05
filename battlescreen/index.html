@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
 
-<body > <!--onload="load()"--> 
+<body> <!--onload="load()"--> 
 	
 	<section class="landing">
 		<div class="win">
@@ -25,11 +25,11 @@
 				</div>
 				<div>
 					<label for="lastName">Твоя фамилия:<br /></label>
-					<input type="text" maxlength="30" id="lastName" placeholder="Фамилия *" required="required">
+					<input type="text" maxlength="30" id="lastName" placeholder="Фамилия">
 				</div>
 				<div>
 					<label for="email">Email:<br /></label>
-					<input type="email" id="email" required="required" placeholder="Твой email *">
+					<input type="email" id="email" placeholder="Твой email">
 				</div>
 
 			</FORM>
@@ -186,7 +186,6 @@
   <section class="gameOver">
 		<p class="winner">Ты проиграл :(
 					<br />Попробуй еще раз.
-					<!--<span id="score" class="timer"></span>-->
 				</p>
 
 				<div class="leaderBoard">
@@ -197,7 +196,7 @@
 							<tr>
 								<th class="table-name">Имя</th>
 								<th>Дата</th>
-								<th>Очки</th>
+								<th>Побежденные монстры</th>
 							</tr>
 						</table>
 					</div>
@@ -207,12 +206,9 @@
   </section>
   
   <section class="nextRaund">
-		<p class="winner">Ты выиграл! :)
-					<br />Попробуй победить следующего монстра.
-					<br /> Раунд <!--<span id="score" class="timer"></span>-->
+		<p class="winner">
 		</p>
 
-		<!--<button class="startNewGame" onclick=''>Начать рауинд</button>-->
   </section>
   
 </main>

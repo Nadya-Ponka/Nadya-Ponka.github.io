@@ -1,7 +1,7 @@
 function closeScore() {
-  document.querySelector('.modal-dialog').style.display = 'none'; 
+    document.querySelector('.modal-dialog').style.display = 'none';
 }
 
 function dialog() {
-  document.querySelector('.modal-dialog').style.display = 'block'; 
+    document.querySelector('.modal-dialog').style.display = 'block';
 }
