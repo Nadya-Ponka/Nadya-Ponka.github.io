@@ -3,6 +3,7 @@ import createWaterfall from './waterfall';
 import canvasLightning from './lightning';
 import explosion from './explosion';
 import health from './health-animation';
+
 export function makeMagic(n, div1, div2, div3, div4) {	
 	switch (n) {
 		case 1:
@@ -18,7 +19,7 @@ export function makeMagic(n, div1, div2, div3, div4) {
 			createWaterfall(div1, div2);
 			break;
 	}
-}
+};
 
 export function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLife, classAboutMonster, idMonsterLife, whoMakeTurn) {
 	let temp = document.querySelector('.points');
