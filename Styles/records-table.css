@@ -71,6 +71,8 @@
 
 table {
 	border: 0;
+		text-align: center;
+
 }
 
 th,
@@ -81,7 +83,7 @@ input {
 }
 
 th {
-	text-align: left;
+	text-align: center;
 }
 
 table tr:nth-child(even) {

@@ -23,20 +23,21 @@
   },
   "homepage": "https://github.com/Nadya-Ponka/Nadya-Ponka.github.io#readme",
   "dependencies": {
-    "cli-table": "^0.3.1",
     "cli-spinners": "^0.1.2",
-    "clone": "^1.0.4",
+    "cli-table": "^0.3.1",
     "cli-width": "^2.2.0",
+    "clone": "^1.0.4",
+    "jshint-loader": "^0.8.4",
     "parse-glob": "^3.0.4",
     "parse-json": "^4.0.0",
     "parse-passwd": "^1.0.0",
-    "path-browserify": "^0.0.0",
     "pascalcase": "^0.1.1",
-    "path-exists": "^3.0.0",
+    "path-browserify": "^0.0.0",
     "path-dirname": "^1.0.2",
+    "path-exists": "^3.0.0",
     "path-is-absolute": "^1.0.1",
     "path-key": "^2.0.1",
-    "path-type": "^3.0.0",
-    "path-parse": "^1.0.5"
+    "path-parse": "^1.0.5",
+    "path-type": "^3.0.0"
   }
 }
