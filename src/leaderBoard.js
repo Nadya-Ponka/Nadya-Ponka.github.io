@@ -1,6 +1,7 @@
-import {totalScore, showtask} from './task-screen';
+import showtask from './task-screen';
 import {getRandomArbitrary, drawLife, createNode} from './utils';
-
+//import totalScore from './youTurn';
+import {level, Game} from './game';
 
 export function saveInLocalStorage() {
 
@@ -13,7 +14,7 @@ export function saveInLocalStorage() {
                     lastName: document.querySelector('#lastName').value,
                     email: document.querySelector('#email').value,
                     date: date,
-                    score: totalScore,
+                    score: (level/.25-4),
                     tab: 0
                 };
 

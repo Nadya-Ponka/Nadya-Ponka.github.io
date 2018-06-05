@@ -8,9 +8,7 @@ import {saveInLocalStorage, leaderBoard} from './leaderBoard';
 import {level, Game} from './game';
 import {makeMagic, makeTurn} from './youTurn';
 
-
-export let totalScore;
-export function showTask(param, player1, player2) {
+export default function showTask(param, player1, player2) {
   
   document.querySelector('.task').style.display = 'block';
   document.querySelector('.field').style.display = 'none';

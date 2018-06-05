@@ -1,5 +1,5 @@
 import Person from './personClass';
-import {totalScore, showTask} from './task-screen';
+import showTask from './task-screen';
 import {getRandomArbitrary, drawLife, createNode} from './utils';
 import showTaskTranslation from './task-translate';
 import showTaskPicture from './task-picture';
@@ -102,13 +102,13 @@ export function Game() {
 		<p>Выберите заклинание:</p>\
 		<div class=\"spell\">\
 			<img id=\"1\" src=\"../Images/Atack.png\" alt=\"\">\
-			<p>Удар радуги</p>\
+			<p>Магия воды</p>\
 			<img id=\"2\" src=\"../Images/Lightning.png\" alt=\"\">\
 			<p>Магия молнии</p>\
 			<img id=\"3\" src=\"../Images/Health.png\" alt=\"\">\
 			<p>Лечить себя</p>\
 			<img id=\"4\" src=\"../Images/Question.png\" alt=\"\">\
-			<p>Магия воды</p>\
+			<p>Удар радуги</p>\
 		</div>\
 	</div>\
 	<button class=\"buttonStart\" id=\"start\">Выберите магию</button>';

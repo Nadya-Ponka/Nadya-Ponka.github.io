@@ -3,11 +3,12 @@ import createWaterfall from './waterfall';
 import canvasLightning from './lightning';
 import explosion from './explosion';
 import health from './health-animation';
+import {saveInLocalStorage, leaderBoard} from './leaderBoard';
 
 export function makeMagic(n, div1, div2, div3, div4) {	
 	switch (n) {
 		case 1:
-			explosion(div1, div2);
+			createWaterfall(div1, div2);
 			break;
 		case 2:
 			canvasLightning(div1, div2);
@@ -16,7 +17,7 @@ export function makeMagic(n, div1, div2, div3, div4) {
 			health(div3, div4);
 			break;
 		case 4:
-			createWaterfall(div1, div2);
+			explosion(div1, div2);
 			break;
 	}
 };
@@ -57,7 +58,7 @@ export function makeTurn(magic, points, player1, player2, classAboutPlayer, idPl
 							
 							setTimeout(function() {
 								temp.className += ' animated fadeOutDown';
-								totalScore = level/.25-3//player1['score'];
+								//totalScore = level/.25-3//player1['score'];
 								
 								setTimeout(function() {
 									document.querySelector('.field').style.display = 'none';
