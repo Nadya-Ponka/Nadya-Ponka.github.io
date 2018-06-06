@@ -142,7 +142,15 @@ let timeOut = setInterval(function() {
   pushBalls(randBetween(10, 20), origin.x + randBetween(-50,50), origin.y + randBetween(-50,50));
 }, 200);
 
+setTimeout(function() { makeExplosionSound(); }, 2000);
+
 setTimeout(function() { document.querySelector(`${div1}`).innerHTML = ''; }, 5000);
 
 }
 };
+
+function makeExplosionSound() {
+  let audio = new Audio(); // Создаём новый элемент Audio
+  audio.src = '../sound/Thunder.mp3'; // Указываем путь к звуку "клика"
+  audio.autoplay = true; // Автоматически запускаем
+}

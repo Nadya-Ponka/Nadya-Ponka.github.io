@@ -233,9 +233,18 @@ export default function canvasLightning(div1, div2) {
 
         setupRAF();
         cl.init();
+		setTimeout(function () {
+			makeThunderSound();
+        }, 2000);
         setTimeout(function () {
             document.querySelector(`${div1}`).innerHTML = '';
         }, 5000);
 
     };
 };
+
+function makeThunderSound() {
+  let audio = new Audio(); // Создаём новый элемент Audio
+  audio.src = '../sound/Thunder.mp3'; // Указываем путь к звуку "клика"
+  audio.autoplay = true; // Автоматически запускаем
+}

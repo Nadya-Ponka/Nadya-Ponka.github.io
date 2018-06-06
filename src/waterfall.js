@@ -166,7 +166,10 @@ export default function createWaterFall(div1, div2) {
         var waterfall = new waterfallCanvas(c, cw, ch);
         setupRAF();
         waterfall.init();
-        //setTimeout(function() { ctx.clearRect(0, 0, cw, ch); return;}, 5000);
+		setTimeout(function () {
+			makeWaterfallSound();
+        }, 2000);
+
         setTimeout(function () {
             document.querySelector(`${div1}`).innerHTML = '';
         }, 5000);
@@ -176,4 +179,8 @@ export default function createWaterFall(div1, div2) {
 
 };
 
-//createWaterFall();
+function makeWaterfallSound() {
+  let audio = new Audio(); // Создаём новый элемент Audio
+  audio.src = '../sound/Running_Water.mp3'; // Указываем путь к звуку "клика"
+  audio.autoplay = true; // Автоматически запускаем
+}
