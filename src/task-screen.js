@@ -3,7 +3,7 @@ import createWaterfall from './waterfall';
 import canvasLightning from './lightning';
 import explosion from './explosion';
 import health from './health-animation';
-import {getRandomArbitrary, drawLife, createNode} from './utils';
+import {getRandomArbitrary, drawLife, createNode, makeSounds, isCanvasSupported} from './utils';
 import {saveInLocalStorage, leaderBoard} from './leaderBoard';
 import {level, Game} from './game';
 import {makeMagic, makeTurn} from './youTurn';

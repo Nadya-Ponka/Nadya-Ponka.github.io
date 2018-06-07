@@ -1,15 +1,17 @@
+import {
+    getRandomArbitrary,
+    drawLife,
+    createNode,
+    makeSounds,
+	isCanvasSupported
+} from './utils';
+
 var Lightning = function (c, cw, ch) {
 
-    /*=============================================================================*/
-    /* Initialize
-    /*=============================================================================*/
     this.init = function () {
         this.loop();
     };
 
-    /*=============================================================================*/
-    /* Variables
-    /*=============================================================================*/
     var _this = this;
     this.c = c;
     this.ctx = c.getContext('2d');
@@ -22,9 +24,6 @@ var Lightning = function (c, cw, ch) {
     this.lightTimeCurrent = 0;
     this.lightTimeTotal = 50;
 
-    /*=============================================================================*/
-    /* Utility Functions
-    /*=============================================================================*/
     this.rand = function (rMi, rMa) {
         return ~~((Math.random() * (rMa - rMi + 1)) + rMi);
     };
@@ -32,9 +31,6 @@ var Lightning = function (c, cw, ch) {
         return !(x1 + w1 < x2 || x2 + w2 < x1 || y1 + h1 < y2 || y2 + h2 < y1);
     };
 
-    /*=============================================================================*/
-    /* Create Lightning
-    /*=============================================================================*/
     this.createL = function (x, y, canSpawn) {
         this.lightning.push({
             x: x,
@@ -51,9 +47,6 @@ var Lightning = function (c, cw, ch) {
         });
     };
 
-    /*=============================================================================*/
-    /* Update Lightning
-    /*=============================================================================*/
     this.updateL = function () {
         var i = this.lightning.length;
         while (i--) {
@@ -72,9 +65,6 @@ var Lightning = function (c, cw, ch) {
         };
     };
 
-    /*=============================================================================*/
-    /* Render Lightning
-    /*=============================================================================*/
     this.renderL = function () {
         var i = this.lightning.length;
         while (i--) {
@@ -128,9 +118,6 @@ var Lightning = function (c, cw, ch) {
         };
     };
 
-    /*=============================================================================*/
-    /* Lightning Timer
-    /*=============================================================================*/
     this.lightningTimer = function () {
         this.lightTimeCurrent++;
         if (this.lightTimeCurrent >= this.lightTimeTotal) {
@@ -145,9 +132,6 @@ var Lightning = function (c, cw, ch) {
         }
     }
 
-    /*=============================================================================*/
-    /* Clear Canvas
-    /*=============================================================================*/
     this.clearCanvas = function () {
         this.ctx.globalCompositeOperation = 'destination-out';
         this.ctx.fillStyle = 'rgba(0,0,0,' + this.rand(1, 30) / 100 + ')';
@@ -155,17 +139,11 @@ var Lightning = function (c, cw, ch) {
         this.ctx.globalCompositeOperation = 'source-over';
     };
 
-    /*=============================================================================*/
-    /* Resize on Canvas on Window Resize
-    /*=============================================================================*/
     $(window).on('resize', function () {
         _this.cw = _this.c.width = window.innerWidth;
         _this.ch = _this.c.height = window.innerHeight;
     });
 
-    /*=============================================================================*/
-    /* Animation Loop
-    /*=============================================================================*/
     this.loop = function () {
         var loopIt = function () {
             requestAnimationFrame(loopIt, _this.c);
@@ -180,17 +158,7 @@ var Lightning = function (c, cw, ch) {
 };
 
 export default function canvasLightning(div1, div2) {
-    /*=============================================================================*/
-    /* Check Canvas Support
-    /*=============================================================================*/
-    var isCanvasSupported = function () {
-        var elem = document.createElement('canvas');
-        return !!(elem.getContext && elem.getContext('2d'));
-    };
 
-    /*=============================================================================*/
-    /* Setup requestAnimationFrame
-    /*=============================================================================*/
     var setupRAF = function () {
         var lastTime = 0;
         var vendors = ['ms', 'moz', 'webkit', 'o'];
@@ -218,9 +186,6 @@ export default function canvasLightning(div1, div2) {
         };
     };
 
-    /*=============================================================================*/
-    /* Define Canvas and Initialize
-    /*=============================================================================*/
     if (isCanvasSupported) {
         document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
 					<canvas id=' + `${div2}` + '>\
@@ -233,8 +198,8 @@ export default function canvasLightning(div1, div2) {
 
         setupRAF();
         cl.init();
-		setTimeout(function () {
-			makeThunderSound();
+        setTimeout(function () {
+            makeSounds('../sound/Thunder.mp3');
         }, 2000);
         setTimeout(function () {
             document.querySelector(`${div1}`).innerHTML = '';
@@ -242,9 +207,3 @@ export default function canvasLightning(div1, div2) {
 
     };
 };
-
-function makeThunderSound() {
-  let audio = new Audio(); // Создаём новый элемент Audio
-  audio.src = '../sound/Thunder.mp3'; // Указываем путь к звуку "клика"
-  audio.autoplay = true; // Автоматически запускаем
-}
