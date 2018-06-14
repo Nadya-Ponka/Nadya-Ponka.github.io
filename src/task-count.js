@@ -10,61 +10,63 @@ import {randomInteger, soundClickGreat, soundClickLosing, compareRandom} from '.
 
 export let totalScore;
 
-export default function showTaskTranslation(param, player1, player2) {
+export default function showTaskCount(param, player1, player2) {
   
-  let myDictionary = require('./dictionary');
-  let dictionary = myDictionary.dictionary;
-
-  document.querySelector('.task-translation').style.display = 'block';
+    
+  document.querySelector('.task-count').style.display = 'block';
   document.querySelector('.field').style.display = 'none';
  
   
+    
+  let points = 0;
+  let count = randomInteger(1, 90);
 
-  let object = dictionary[randomInteger(0, 39)];
-  let englishWord = object.name;
-  let fields = Object.keys(object);
   
 
-  document.querySelector('.english-word-translation').innerHTML = englishWord;
+  for (let i=1; i<=count; i++) {
+    let div = document.createElement('div');
+    div.innerHTML = `<img src='../Images/ball.png' alt="">`;
+    document.querySelector('.picture-count').appendChild(div);
+  }
+
+
+
+  
+
+  
+  
+ 
     
-  function taskTranslate() {
-    if (document.querySelector('.grate-translation')) {
-      document.querySelector('.task-translation').removeChild(document.querySelector('.grate-translation'));
+  function taskCount() {
+    if (document.querySelector('.grate-count')) {
+      document.querySelector('.task-count').removeChild(document.querySelector('.grate-count'));
     }
 
-    let points = 0;
-    let coincidence = 0;
+    let answerForm = document.querySelector('.input-count').value;
     let grate = document.createElement('div');
-    let answerForm = document.querySelector('.input-translation').value.toLowerCase();
-    console.log(answerForm);
     if (answerForm.length == 0) {
       alert ('Вы не ввели свой перевод в форму!');
-    } else {
-        for(let i = 1; i < fields.length; i++ ) {
-          console.log(object[Object.keys(object)[i]]);
-          if (answerForm == object[Object.keys(object)[i]]) {
+    } else if (answerForm==count) {
             
-            document.querySelector('.task-window-translation').style.display = 'none';
-            document.querySelector('.task-translation').appendChild(grate);
-            grate.classList.add('grate-translation');
+            document.querySelector('.task-window-count').style.display = 'none';
+            document.querySelector('.task-count').appendChild(grate);
+            grate.classList.add('grate-count');
             soundClickGreat();
             grate.innerHTML = '<p>Ура! Вы правильно решили - магия применилась!</p>';
             closeTask();
-            coincidence++;
             points = getRandomArbitrary(10,20);
 		
 		        setTimeout(function() { 
 		          makeMagic(param, '.monsters-container .magic', 'monsters-magic', '.player-container .magic', '.player-container .health');
 		        	makeTurn(param, points, player1, player2, '.aboutPlayer', '#playerLife', '.aboutMonster', '#monsterLife', 'Ты');
 		        }, 1000);
-            break;
-          } 
-        }
-        if (coincidence==0) {
-          console.log('Нет');
-          document.querySelector('.task-window-translation').style.display = 'none';
-          document.querySelector('.task-translation').appendChild(grate);
-          grate.classList.add('grate-translation');
+           
+          
+        } else {
+          
+          document.querySelector('.task-window-count').style.display = 'none';
+          document.querySelector('.task-count').appendChild(grate);
+          grate.classList.add('grate-count');
           soundClickLosing();
           grate.innerHTML = '<p>Результат не верен - магия не применилась!</p>\
           <p>Теперь ходит противник.</p>';     
@@ -76,19 +78,21 @@ export default function showTaskTranslation(param, player1, player2) {
             makeTurn(param, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');
           }, 1000);
         }
-      }
+      
   }
 
-  document.querySelector('.button-translation').addEventListener('click', taskTranslate);
+  
+
+  document.querySelector('.button-count').addEventListener('click', taskCount);
 
   function closeTask() {
     setTimeout(function() { 
-      document.querySelector('.task-translation').removeChild(document.querySelector('.grate-translation'));
-      document.querySelector('.task-translation').style.display = 'none'; 
+      document.querySelector('.task-count').removeChild(document.querySelector('.grate-count'));
+      document.querySelector('.task-count').style.display = 'none'; 
       closeScore();
-      document.querySelector('.task-window-translation').style.display = 'block';
-      document.querySelector('.input-translation').value='';
-      document.querySelector('.button-translation').removeEventListener('click', taskTranslate);
+      document.querySelector('.task-window-count').style.display = 'block';
+      document.querySelector('.input-count').value='';
+      document.querySelector('.button-count').removeEventListener('click', taskCount);
       document.querySelector('.field').style.display = 'grid';
     }, 2000);
   }

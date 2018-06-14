@@ -6,7 +6,7 @@ import {getRandomArbitrary, drawLife, createNode} from './utils';
 import {saveInLocalStorage, leaderBoard} from './leaderBoard';
 import {level, Game} from './game';
 import {makeMagic, makeTurn} from './youTurn';
-
+import {randomInteger, soundClickGreat, soundClickLosing, compareRandom} from './functions-task';
 
 export let totalScore;
 export default function showTaskAudio(param, player1, player2) {
@@ -17,30 +17,12 @@ export default function showTaskAudio(param, player1, player2) {
   
   document.querySelector('.task-audio').style.display = 'block';
   document.querySelector('.field').style.display = 'none';
- 
-  function randomInteger(min, max) {
-    var rand = min - 0.5 + Math.random() * (max - min + 1)
-    rand = Math.round(rand);
-    return rand;
-  }
-
-  function soundClickGreat() {
-    let audio = new Audio(); // Создаём новый элемент Audio
-    audio.src = '../sound/great.mp3'; // Указываем путь к звуку "клика"
-    audio.autoplay = true; // Автоматически запускаем
-  }
-  
-  function soundClickLosing() {
-    let audio = new Audio(); // Создаём новый элемент Audio
-    audio.src = '../sound/losing.mp3'; // Указываем путь к звуку "клика"
-    audio.autoplay = true; // Автоматически запускаем
-  }
-
+   
   let points = 0;
   
   let object = dictionary[randomInteger(0, 39)];
   let englishWord = object.name;
-  console.log(englishWord);
+  
 
   document.querySelector('.audio').onclick = function () {
     speak(`${englishWord}`);

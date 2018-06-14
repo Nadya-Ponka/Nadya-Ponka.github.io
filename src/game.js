@@ -8,6 +8,18 @@ import {
 import showTaskTranslation from './task-translate';
 import showTaskPicture from './task-picture';
 import showTaskAudio from './task-audio';
+import showTaskCompare from './task-compare';
+import showTaskСonsonants from './task-consonants';
+import showTaskCount from './task-count';
+import showTaskFigure from './task-figure';
+import showTaskPoem from './task-poem';
+import showTaskSequence from './task-sequence';
+import showTaskSpace from './task-space';
+import showTaskSyllable from './task-syllable';
+import showTaskTime from './task-time';
+import showTaskVowels from './task-vowels';
+import showTaskWord from './task-word';
+
 
 export let level = .75;
 
@@ -79,6 +91,39 @@ export function Game() {
             case '4':
                 showTaskAudio(4, player, monster);
                 break;
+            case '5':
+                showTaskCompare(5, player, monster);
+                break;
+            case '6':
+                showTaskWord(6, player, monster);
+                break;
+            case '7':
+                showTaskСonsonants(7, player, monster);
+                break;
+            case '8':
+                showTaskCount(8, player, monster);
+                break;
+            case '9':
+                showTaskFigure(9, player, monster);
+                break;
+            case '10':
+                showTaskPoem(10, player, monster);
+                break;
+            case '11':
+                showTaskSequence(11, player, monster);
+                break;
+            case '12':
+                showTaskSpace(12, player, monster);
+                break;
+            case '13':
+                showTaskSyllable(13, player, monster);
+                break;
+            case '14':
+                showTaskTime(14, player, monster);
+                break;
+            case '15':
+                showTaskVowels(15, player, monster);
+                break;
         }
 
         document.querySelector('.spell').removeEventListener('click', selectMagic);
@@ -100,11 +145,33 @@ export function Game() {
 		<div class=\"spell\">\
 			<img id=\"1\" src=\"../Images/Atack.png\" alt=\"\">\
 			<p>Магия воды</p>\
-			<img id=\"2\" src=\"../Images/Lightning.png\" alt=\"\">\
+            <img id=\"2\" src=\"../Images/Lightning.png\" alt=\"\">\
 			<p>Магия молнии</p>\
-			<img id=\"3\" src=\"../Images/Health.png\" alt=\"\">\
+            <img id=\"3\" src=\"../Images/Health.png\" alt=\"\">\
 			<p>Лечить себя</p>\
-			<img id=\"4\" src=\"../Images/Question.png\" alt=\"\">\
+            <img id=\"4\" src=\"../Images/Question.png\" alt=\"\">\
+            <p>Удар радуги</p>\
+            <img id=\"5\" src=\"../Images/Atack1.png\" alt=\"\">\
+			<p>Магия воды</p>\
+            <img id=\"6\" src=\"../Images/Lightning1.png\" alt=\"\">\
+			<p>Магия молнии</p>\
+            <img id=\"7\" src=\"../Images/Health1.png\" alt=\"\">\
+			<p>Лечить себя</p>\
+            <img id=\"8\" src=\"../Images/Question1.png\" alt=\"\">\
+            <p>Удар радуги</p>\
+            <img id=\"9\" src=\"../Images/Atack2.png\" alt=\"\">\
+			<p>Магия воды</p>\
+            <img id=\"10\" src=\"../Images/Lightning2.png\" alt=\"\">\
+			<p>Магия молнии</p>\
+            <img id=\"11\" src=\"../Images/Health2.png\" alt=\"\">\
+			<p>Лечить себя</p>\
+            <img id=\"12\" src=\"../Images/Question2.png\" alt=\"\">\
+            <p>Удар радуги</p>\
+            <img id=\"13\" src=\"../Images/Atack3.png\" alt=\"\">\
+			<p>Магия воды</p>\
+            <img id=\"14\" src=\"../Images/Health3.png\" alt=\"\">\
+			<p>Лечить себя</p>\
+            <img id=\"15\" src=\"../Images/Question3.png\" alt=\"\">\
 			<p>Удар радуги</p>\
 		</div>\
 	</div>\

@@ -23,6 +23,7 @@ export function createNode(tag, props, ...children) {
     return element;
 };
 
+<<<<<<< HEAD
 export function makeSounds(path) {
     let audio = new Audio(); // Создаём новый элемент Audio
     audio.src = path; // Указываем путь к звуку "клика"
@@ -33,3 +34,5 @@ export  let isCanvasSupported = function () {
         let elem = document.createElement('canvas');
         return !!(elem.getContext && elem.getContext('2d'));
 };
+=======
+>>>>>>> 77effb3d993dada189ea1eae344388b36a4a961a

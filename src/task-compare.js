@@ -1,0 +1,98 @@
+import createWaterfall from './waterfall';
+import canvasLightning from './lightning';
+import explosion from './explosion';
+import health from './health-animation';
+import {getRandomArbitrary, drawLife, createNode} from './utils';
+import {saveInLocalStorage, leaderBoard} from './leaderBoard';
+import {level, Game} from './game';
+import {makeMagic, makeTurn} from './youTurn';
+import {randomInteger, soundClickGreat, soundClickLosing, compareRandom} from './functions-task';
+
+export let totalScore;
+
+export default function showTaskCompare(param, player1, player2) {
+  
+  
+  document.querySelector('.task-compare').style.display = 'block';
+  document.querySelector('.field').style.display = 'none';
+ 
+  
+
+  let points = 0;
+  let array = [];
+  
+
+  while (array.length !== 7) {
+    let result = randomInteger(10, 99);
+    if (array.indexOf(result) == -1) 
+      array.push(result);
+  }
+
+  for(let i=0; i<7; i++) {
+    $('#sortable-compare').append(`<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>${array[i]}</li>`)
+  }
+
+  $( function() {
+    $( "#sortable-compare" ).sortable();
+    $( "#sortable-compare" ).disableSelection();
+  } );
+    
+  function taskCompare() {
+    if (document.querySelector('.grate-compare')) {
+      document.querySelector('.task-compare').removeChild(document.querySelector('.grate-compare'));
+    }
+    
+    let answerArray = [];
+
+    for (let i=0; i<7; i++) {
+      answerArray.push(+$('.ui-state-default')[i].innerHTML.match(/\d{2}/)[0]);
+    }
+   
+    let grate = document.createElement('div');
+       
+    if ((answerArray[0] < answerArray[1]) && (answerArray[1] < answerArray[2]) && (answerArray[2] < answerArray[3]) && (answerArray[3] < answerArray[4]) && (answerArray[4] < answerArray[5]) && (answerArray[5] < answerArray[6])) {
+      document.querySelector('.task-window-compare').style.display = 'none';
+      document.querySelector('.task-compare').appendChild(grate);
+      grate.classList.add('grate-compare');
+      soundClickGreat();
+      grate.innerHTML = '<p>Ура! Вы правильно решили - магия применилась!</p>';
+      closeTask();
+      points = getRandomArbitrary(10,20);
+		
+		  setTimeout(function() { 
+		    makeMagic(param, '.monsters-container .magic', 'monsters-magic', '.player-container .magic', '.player-container .health');
+		    makeTurn(param, points, player1, player2, '.aboutPlayer', '#playerLife', '.aboutMonster', '#monsterLife', 'Ты');
+		  }, 1000);
+           
+    } else {
+      document.querySelector('.task-window-compare').style.display = 'none';
+      document.querySelector('.task-compare').appendChild(grate);
+      grate.classList.add('grate-compare');
+      soundClickLosing();
+      grate.innerHTML = '<p>Результат не верен - магия не применилась!</p>\
+      <p>Теперь ходит противник.</p>';     
+      closeTask();
+      points = Math.floor(getRandomArbitrary(10,20)*level);
+      param = getRandomArbitrary(1, 3);
+
+      setTimeout(function() { 
+        makeMagic(param, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
+        makeTurn(param, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');
+      }, 1000);
+    }
+  }
+  
+
+  document.querySelector('.button-compare').addEventListener('click', taskCompare);
+
+  function closeTask() {
+    setTimeout(function() { 
+      document.querySelector('.task-compare').removeChild(document.querySelector('.grate-compare'));
+      document.querySelector('.task-compare').style.display = 'none'; 
+      closeScore();
+      document.querySelector('.task-window-compare').style.display = 'block';
+      document.querySelector('.button-compare').removeEventListener('click', taskCompare);
+      document.querySelector('.field').style.display = 'grid';
+    }, 2000);
+  }
+};

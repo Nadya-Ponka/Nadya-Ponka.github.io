@@ -11,6 +11,14 @@
 	<link rel="shortcut icon" href="../Images/favicon.png" type="image/png">
 	
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </head>
 
 <body> <!--onload="load()"--> 
@@ -182,7 +190,173 @@
 		</div>
     
   </section>
-  
+	
+	<section class="task-word">
+		<div class="task-window-word">
+				<div class="greeting-word">
+						<p>Мой друг, для успешного применения магии тебе необходимо составить правильно слово по-английски</p>
+				</div>
+				<div class="forma-word">
+				  <ul id="sortable"></ul>
+				</div>
+				<div class="button-word">
+					<p>Применить магию</p>
+				</div>   
+		</div>
+	</section>
+
+	<section class="task-vowels">
+		<div class="task-window-vowels">
+				<div class="greeting-vowels">
+						<p>Мой друг, для успешного применения магии тебе необходимо посчитать количество гласных букв в слове</p>
+				</div>
+				<div class="forma-vowels">
+				    <p class="vowels"></p>
+				    <div class="answer-vowels"><input id ='input' class="input-vowels" type="text"></div>
+				</div>
+				<div class="button-vowels">
+					<p>Применить магию</p>
+				</div>   
+		</div>
+	</section>
+	
+	<section class="task-space">
+		<div class="task-window-space">
+				<div class="greeting-space">
+						<p>Мой друг, для успешного применения магии тебе необходимо решить задачу, посчитав площадь участка</p>
+				</div>
+				<div class="forma-space">
+				    <p class="space"></p>
+				    <div class="answer-space"><input id ='input' class="input-space" type="text"></div>
+				</div>
+				<div class="button-space">
+					<p>Применить магию</p>
+				</div>   
+		</div> 
+	</section>
+
+	<section class="task-sequence">
+		<div class="task-window-sequence">
+				<div class="greeting-sequence">
+						<p>Мой друг, для успешного применения магии тебе необходимо определить число, которое должно быть следующим</p>
+				</div>
+				<div class="forma-sequence">
+				    <p class="number"></p>
+				    <div class="answer-sequence"><input id ='input' class="input-sequence" type="text"></div>
+				</div>
+				<div class="button-sequence">
+					<p>Применить магию</p>
+				</div>   
+		</div> 
+	</section>
+
+	<section class="task-syllable">
+		<div class="task-window-syllable">
+				<div class="greeting-syllable">
+						<p>Мой друг, для успешного применения магии тебе необходимо разбить слово на слоги, например оборона = о-бо-ро-на</p>
+				</div>
+				<div class="forma-syllable">
+				    <p class="syllable"></p>
+				    <div class="answer-syllable"><input id ='input' class="input-syllable" type="text"></div>
+				</div>
+				<div class="button-syllable">
+					<p>Применить магию</p>
+				</div>   
+		</div>
+	</section>
+	
+	<section class="task-consonants">
+		<div class="task-window-consonants">
+				<div class="greeting-consonants">
+						<p>Мой друг, для успешного применения магии тебе необходимо посчитать количество согласных букв в слове</p>
+				</div>
+				<div class="forma-consonants">
+				    <p class="consonants"></p>
+				    <div class="answer-consonants"><input id ='input' class="input-consonants" type="text"></div>
+				</div>
+				<div class="button-consonants">
+					<p>Применить магию</p>
+				</div>   
+		</div>
+	</section>
+	
+	<section class="task-compare">
+		<div class="task-window-compare">
+				<div class="greeting-compare">
+						<p>Мой друг, для успешного применения магии тебе необходимо расположить числа в порядке возрастания</p>
+				</div>
+				<div class="forma-compare">
+				  <ul id="sortable-compare"></ul>
+				</div>
+				<div class="button-compare">
+					<p>Применить магию</p>
+				</div>   
+		</div>
+	</section>
+
+	<section class="task-poem">
+		<div class="task-window-poem">
+				<div class="greeting-poem">
+						<p>Мой друг, для успешного применения магии тебе необходимо решить стихотворную задачу</p>
+				</div>
+				<div class="forma-poem">
+				    <p class="poem"></p>
+				    <div class="answer-poem"><input id ='input' class="input-poem" type="text"></div>
+				</div>
+				<div class="button-poem">
+					<p>Применить магию</p>
+				</div>   
+		</div>
+	</section>
+	
+	<section class="task-count">
+		<div class="task-window-count">
+				<div class="greeting-count">
+						<p>Мой друг, для успешного применения магии тебе необходимо посчитать количество мячиков</p>
+				</div>
+				<div class="forma-count">
+				    <div class="picture-count">
+							
+						</div>
+				    <div class="answer-count"><input id ='input' class="input-count" type="text"></div>
+				</div>
+				<div class="button-count">
+					<p>Применить магию</p>
+				</div>   
+		</div>
+	</section>
+	
+	<section class="task-figure">
+		<div class="task-window-figure">
+				<div class="greeting-figure">
+						<p>Мой друг, для успешного применения магии тебе необходимо посчитать количество углов на картинке</p>
+				</div>
+				<div class="forma-figure">
+				    <div class="figure"></div>
+				    <div class="answer-figure"><input id ='input' class="input-figure" type="text"></div>
+				</div>
+				<div class="button-figure">
+					<p>Применить магию</p>
+				</div>   
+		</div>
+	</section>
+	
+	<section class="task-time">
+		<div class="task-window-time">
+				<div class="greeting-time">
+						<p>Мой друг, для успешного применения магии тебе необходимо ответить правильно на вопрос</p>
+				</div>
+				<div class="forma-time">
+				    <p class="time"></p>
+				    <div class="answer-time"><input id ='input' class="input-time" type="text"></div>
+				</div>
+				<div class="button-time">
+					<p>Применить магию</p>
+				</div>   
+		</div>
+  </section>
+	
+	
   <section class="gameOver">
 		<p class="winner">Ты проиграл :(
 					<br />Попробуй еще раз.

@@ -12,15 +12,17 @@
 .modal-dialog {
   padding:5px 20px;
   position: absolute;
-  margin: -330px -84px;
+  margin: -360px -300px;
   display: none;
   background-color: #5ABE1A;
-  width: 400px;
-  height: 420px;
+  width: 870px;
+  height: 480px;
   border: 5px solid #D5D424;
   border-radius: 15px;
   font-family: Adigiana-2, sans-serif;
   font-size: 22px;
+  z-index: 99;
+  text-align: center;
 }
 
 .modal-dialog p+p {
@@ -31,7 +33,8 @@
 }
 
 .close {
-	text-align:right;
+  margin-left: 800px;
+	/* text-align:right; */
   font-size: 35px;
 }
 
@@ -41,6 +44,10 @@
   -webkit-transition: color 0.3s ease-out 0.1s;
   -moz-transition: color 0.3s ease-out 0.1s;
   transition: color 0.3s ease-out 0.1s;
+}
+
+.spell {
+  width: 800px;
 }
 
 .spell p {

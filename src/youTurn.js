@@ -25,6 +25,39 @@ export function makeMagic(n, div1, div2, div3, div4) {
         case 4:
             explosion(div1, div2);
             break;
+        case 5:
+            createWaterfall(div1, div2);
+            break;
+        case 6:
+            canvasLightning(div1, div2);
+            break;
+        case 7:
+            health(div3, div4);
+            break;
+        case 8:
+            explosion(div1, div2);
+            break;
+        case 9:
+            createWaterfall(div1, div2);
+            break;
+        case 10:
+            canvasLightning(div1, div2);
+            break;
+        case 11:
+            health(div3, div4);
+            break;
+        case 12:
+            explosion(div1, div2);
+            break;
+        case 13:
+            createWaterfall(div1, div2);
+            break;
+        case 14:
+            health(div3, div4);
+            break;
+        case 15:
+            explosion(div1, div2);
+            break;
     }
 };
 
@@ -34,7 +67,7 @@ export function makeTurn(magic, points, player1, player2, classAboutPlayer, idPl
     setTimeout(function () {
         temp.className = 'points';
 
-        if (magic == 3) {
+        if (magic == 3 || magic == 7 || magic == 11 || magic == 14) {
             player1['score'] = player1['score'] + points;
             temp.innerHTML = `${whoMakeTurn}` + ' прибавил<br />к своему здоровью<br />' + points + ' пунктов!';
             if (player1['score'] > 100 * (level + .25)) {
