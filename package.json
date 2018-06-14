@@ -10,7 +10,7 @@
   "author": "Nadya Ponkratova",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.10.2",
+    "webpack": "^4.12.0",
     "webpack-cli": "^2.1.5"
   },
   "main": "index.js",

@@ -7,6 +7,7 @@ import {getRandomArbitrary, drawLife, createNode} from './utils';
 import {saveInLocalStorage, leaderBoard} from './leaderBoard';
 import {level, Game} from './game';
 import {makeMagic, makeTurn} from './youTurn';
+import {randomInteger, soundClickGreat, soundClickLosing, compareRandom} from './functions-task';
 
 export default function showTask(param, player1, player2) {
   
@@ -15,24 +16,7 @@ export default function showTask(param, player1, player2) {
 
   let arrayOperators = ['+', '-', ':', '*'];
 
-  function randomInteger(min, max) {
-    let rand = min - 0.5 + Math.random() * (max - min + 1)
-    rand = Math.round(rand);
-    return rand;
-  }
-
-  function soundClickGreat() {
-    let audio = new Audio(); // Создаём новый элемент Audio
-    audio.src = '../sound/great.mp3'; // Указываем путь к звуку "клика"
-    audio.autoplay = true; // Автоматически запускаем
-  }
   
-  function soundClickLosing() {
-    let audio = new Audio(); // Создаём новый элемент Audio
-    audio.src = '../sound/losing.mp3'; // Указываем путь к звуку "клика"
-    audio.autoplay = true; // Автоматически запускаем
-  }
-
   let points = 0;
   
   let argumentOne, argumentTwo, result;
