@@ -1,0 +1,154 @@
+* {
+	margin: 0;
+	padding: 0;
+  text-decoration: none;
+ }
+ 
+ @font-face {
+  font-family: Adigiana-2; 
+  src: url(../Fonts/Adigiana-2.ttf); 
+ }
+
+
+#sortable { 
+  list-style-type: none; 
+  margin: 0 0 20px 135px;
+  padding: 0;
+  width: 75%; 
+}
+
+#sortable li {
+  margin: 0 3px 3px 3px;
+  padding: 0.45em; 
+  padding-left: 1.5em; 
+  font-size: 2em; 
+  height: 50px; 
+  font-family: Adigiana-2, sans-serif;
+  color: red; 
+  text-shadow: 1px 1px 2px black;
+}
+
+#sortable li span { 
+  position: absolute; 
+  margin-left: -1.3em;
+}
+
+
+
+
+ .task-word {
+  max-width:1266px;
+	height:668px;
+	margin:0 auto;
+	padding:45px 80px 50px;
+  /*margin: -580px 0 0 310px; */
+  display: none;
+  /*width: 700px;
+  height: 500px;*/
+  
+  /*border-radius: 10px;
+  border: 10px solid red;*/
+  	background-size: cover;
+	background-repeat: no-repeat;
+
+  background-position: bottom center;
+	border:solid red 4px;
+	border-radius:20px;
+	z-index:20;
+  background-image: url("../Images/fone-word.jpg");
+  
+ } 
+
+ /* .animal-picture img {
+   width: 300px;
+   height: 200px;
+   border-radius: 20px;
+   border: 3px solid chartreuse;
+ } */
+.greeting-word {
+  width: 800px;
+  margin: 28px auto 20px;
+}
+
+.greeting-word p {
+  text-align: center;
+  font-family: Adigiana-2, sans-serif;
+  font-size: 42px;
+  color: rgb(13, 175, 49);
+  text-shadow: 1px 1px 2px black;
+}
+
+.forma-word p {
+  display: inline-block;
+}
+.forma-word {
+  text-align: center;
+  margin-left: 90px;
+  width: 60%;
+  display: inline-block;
+}
+/* .answer-word {
+  display: inline-block;
+  /* width: 320px;
+  margin: 40px 0 0 180px; */
+
+
+/* } */ 
+/* .animal-picture { */
+  /* display: inline-block; */
+  /* font-size: 60px;
+  font-family: Adigiana-2, sans-serif;
+  margin: 0 10px;
+ 
+ 
+} */
+
+/* .equally {
+  color: black;
+}
+.result {
+  position:relative;
+  margin: -56px 0 0 320px;
+} */
+
+/* .input-picture {
+  width: 300px;
+  height: 40px;
+  font-size: 30px;
+  border-radius: 5px;
+  
+} */
+
+.button-word {
+  position: absolute;
+  display: inline-block;
+  background-color: #0FB5B7;
+  width: 120px;
+  height: 60px;
+  border-radius: 20px;
+  margin-left: 70px;
+}
+
+.button-word p {
+  text-align: center;
+  font-size: 25px;
+  color:blue;
+  font-family: Adigiana-2, sans-serif;
+}
+
+.button-word:hover {
+  cursor: pointer;
+  background: red;
+}
+
+.grate-word {
+  width: 385px;
+  height: 100px;
+  background-color: yellowgreen;
+  border-radius: 10px;
+  text-align: center;
+  font-family: Adigiana-2, sans-serif;
+  font-size: 30px;
+  color: #86561E;
+  margin: 250px auto 0;
+}

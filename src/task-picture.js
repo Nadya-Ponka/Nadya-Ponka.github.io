@@ -6,7 +6,7 @@ import {getRandomArbitrary, drawLife, createNode} from './utils';
 import {saveInLocalStorage, leaderBoard} from './leaderBoard';
 import {level, Game} from './game';
 import {makeMagic, makeTurn} from './youTurn';
-
+import {randomInteger, soundClickGreat, soundClickLosing, compareRandom} from './functions-task';
 
 export let totalScore;
 
@@ -20,25 +20,7 @@ export default function showTaskPicture(param, player1, player2) {
   document.querySelector('.task-picture').style.display = 'block';
   document.querySelector('.field').style.display = 'none';
 
-  function randomInteger(min, max) {
-    var rand = min - 0.5 + Math.random() * (max - min + 1)
-    rand = Math.round(rand);
-    return rand;
-  }
-
-  function soundClickGreat() {
-    let audio = new Audio(); // Создаём новый элемент Audio
-    audio.src = '../sound/great.mp3'; // Указываем путь к звуку "клика"
-    audio.autoplay = true; // Автоматически запускаем
-  }
-  
-  function soundClickLosing() {
-    let audio = new Audio(); // Создаём новый элемент Audio
-    audio.src = '../sound/losing.mp3'; // Указываем путь к звуку "клика"
-    audio.autoplay = true; // Автоматически запускаем
-  }
-  
-  
+    
   let points = 0;
 
   let object = dictionary[randomInteger(0, 39)];
@@ -56,7 +38,7 @@ export default function showTaskPicture(param, player1, player2) {
    
     let grate = document.createElement('div');
     let answerForm = document.querySelector('.input-picture').value.toLowerCase();
-    console.log(answerForm);
+   
     if (answerForm.length == 0) {
       alert ('Вы не ввели свое название в форму!');
     } else if (answerForm==englishWord) {
