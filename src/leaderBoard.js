@@ -2,7 +2,8 @@ import showtask from './task-screen';
 import {
     getRandomArbitrary,
     drawLife,
-    createNode
+    createNode,
+    makeSounds
 } from './utils';
 import {
     level,
@@ -54,7 +55,6 @@ export function saveInLocalStorage() {
     };
 };
 
-//leaderBoard
 export function leaderBoard() {
 
     let localStorageDB = saveInLocalStorage().getData('tab', parseInt('0', 10));
@@ -89,7 +89,6 @@ export function leaderBoard() {
         const tr = createNode('tr', {}, td1, td2, td3);
         resultsTableContainer.firstElementChild.appendChild(tr);
     }
-
 
 };
 

@@ -1,3 +1,11 @@
+import {
+    getRandomArbitrary,
+    drawLife,
+    createNode,
+    makeSounds,
+	isCanvasSupported
+} from './utils';
+
 var waterfallCanvas = function (c, cw, ch) {
 
     var _this = this;
@@ -121,11 +129,6 @@ var waterfallCanvas = function (c, cw, ch) {
 
 export default function createWaterFall(div1, div2) {
 
-    var isCanvasSupported = function () {
-        var elem = document.createElement('canvas');
-        return !!(elem.getContext && elem.getContext('2d'));
-    };
-
     var setupRAF = function () {
         var lastTime = 0;
         var vendors = ['ms', 'moz', 'webkit', 'o'];
@@ -153,34 +156,23 @@ export default function createWaterFall(div1, div2) {
         };
     };
 
-    if (isCanvasSupported()) {
         document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
 					<canvas id=' + `${div2}` + '>\
 					</canvas>';
         document.querySelector(`${div1}`).style.display = 'block';
         var c = document.getElementById(`${div2}`);
-        //console.log(c);
         var ctx = c.getContext("2d");
         var cw = c.width = 220;
         var ch = c.height = 500;
         var waterfall = new waterfallCanvas(c, cw, ch);
-        setupRAF();
         waterfall.init();
-		setTimeout(function () {
-			makeWaterfallSound();
+        setTimeout(function () {
+            makeSounds('../sound/Running_Water.mp3');
         }, 2000);
 
         setTimeout(function () {
             document.querySelector(`${div1}`).innerHTML = '';
         }, 5000);
 
-    }
-
 
 };
-
-function makeWaterfallSound() {
-  let audio = new Audio(); // Создаём новый элемент Audio
-  audio.src = '../sound/Running_Water.mp3'; // Указываем путь к звуку "клика"
-  audio.autoplay = true; // Автоматически запускаем
-}

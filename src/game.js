@@ -3,7 +3,7 @@ import showTask from './task-screen';
 import {
     getRandomArbitrary,
     drawLife,
-    createNode
+    createNode,
 } from './utils';
 import showTaskTranslation from './task-translate';
 import showTaskPicture from './task-picture';
@@ -21,12 +21,11 @@ import showTaskVowels from './task-vowels';
 import showTaskWord from './task-word';
 
 
+export let level = 0.75;
 
-export let level = .75;
-
-let nameAdjectiveMonster = ["Ужасный", "Злобный", "Сопливый"];
-let whichMonster = ["Огр", "Гном", "Гоблин"];
-let nameMonster = ["Том", "Макс", "Дима"];
+const nameAdjectiveMonster = ['Ужасный', 'Злобный', 'Сопливый'];
+const whichMonster = ['Огр', 'Гном', 'Гоблин'];
+const nameMonster = ['Том', 'Макс', 'Дима'];
 
 export function Game() {
     level += 0.25;
@@ -40,12 +39,12 @@ export function Game() {
         document.querySelector('.base-surfase').style.display = 'block';
     }
 
-    let player = new Person("Крош", 1);
-    drawLife("player", player.score)
+    let player = new Person('Крош', 1);
+    drawLife('player', player.score)
     document.querySelector('#playerLife').style.width = `${player.score*2.5+'px'}`;
 
     let monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), level);
-    drawLife("monster", monster.score)
+    drawLife('monster', monster.score)
     document.querySelector('#monsterLife').style.width = `${monster.score*2.5+'px'}`;
 
     document.querySelector('#playerLife').title = player.score;
@@ -159,7 +158,7 @@ export function Game() {
             <img id=\"7\" src=\"../Images/Health1.png\" alt=\"\">\
 			<p>Лечить себя</p>\
             <img id=\"8\" src=\"../Images/Question1.png\" alt=\"\">\
-            <p>Удар радуги</p>\
+            <p>Магия огня</p>\
             <img id=\"9\" src=\"../Images/Atack2.png\" alt=\"\">\
 			<p>Магия воды</p>\
             <img id=\"10\" src=\"../Images/Lightning2.png\" alt=\"\">\
@@ -167,11 +166,11 @@ export function Game() {
             <img id=\"11\" src=\"../Images/Health2.png\" alt=\"\">\
 			<p>Лечить себя</p>\
             <img id=\"12\" src=\"../Images/Question2.png\" alt=\"\">\
-            <p>Удар радуги</p>\
+            <p>Магия огня</p>\
             <img id=\"13\" src=\"../Images/Atack3.png\" alt=\"\">\
 			<p>Магия воды</p>\
             <img id=\"14\" src=\"../Images/Health3.png\" alt=\"\">\
-			<p>Лечить себя</p>\
+			<p>Магия огня</p>\
             <img id=\"15\" src=\"../Images/Question3.png\" alt=\"\">\
 			<p>Удар радуги</p>\
 		</div>\
@@ -183,9 +182,9 @@ export function Game() {
         mainMonster.className = 'monster';
         buildPerson(mainMonster, getRandomArbitrary(2, 4), getRandomArbitrary(2, 4), getRandomArbitrary(2, 4));
 
-        let movement = document.querySelectorAll(".head");
+        let movement = document.querySelectorAll('.head');
         personMove(movement, 25);
-        personMove(document.querySelectorAll(".weapon"), 75);
+        personMove(document.querySelectorAll('.weapon'), 75);
 
 
         function buildPerson(element, number1, number2, number3) {
