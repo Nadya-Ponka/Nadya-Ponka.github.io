@@ -21,6 +21,7 @@ import showTaskVowels from './task-vowels';
 import showTaskWord from './task-word';
 
 
+
 export let level = .75;
 
 let nameAdjectiveMonster = ["Ужасный", "Злобный", "Сопливый"];

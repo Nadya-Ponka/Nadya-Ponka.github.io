@@ -5,3 +5,6 @@ function closeScore() {
 function dialog() {
     document.querySelector('.modal-dialog').style.display = 'block';
 }
+
+dialog();
+closeScore();
