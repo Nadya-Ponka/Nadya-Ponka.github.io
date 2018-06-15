@@ -64,7 +64,7 @@ export default function showTask(param, player1, player2) {
             grate.innerHTML = '<p>Результат не верен - магия не применилась!</p><p>Теперь ходит противник.</p>';
             closeTask();
             points = Math.floor(getRandomArbitrary(10, 20) * level);
-            param = getRandomArbitrary(1, 3);
+            param = getRandomArbitrary(1, 5);
             setTimeout(() => {
                 makeMagic(param, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
                 makeTurn(param, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');
@@ -83,50 +83,7 @@ export default function showTask(param, player1, player2) {
             }, 1000);
         }
     }
-     else if(resultForm != result) {
-      document.querySelector('.task-window').style.display = 'none';
-      document.querySelector('.task').appendChild(grate);
-      grate.classList.add('grate');
-      soundClickLosing();
-      grate.innerHTML = '<p>Результат не верен - магия не применилась!</p>\
-	  <p>Теперь ходит противник.</p>';     
-      closeTask();
-	  points = Math.floor(getRandomArbitrary(10,20)*level);
-	  const tempParam = getRandomArbitrary(1, 5);
-		setTimeout(() => {
-			makeMagic(tempParam, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
-			makeTurn(tempParam, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');
-		}, 1000);
-    } 
-    else  if(resultForm == result) {
-        document.querySelector('.task-window').style.display = 'none';
-        document.querySelector('.task').appendChild(grate);
-        grate.classList.add('grate');
-        soundClickGreat();
-        grate.innerHTML = '<p>Ура! Вы правильно решили - магия применилась!</p>';
-		closeTask();
-		points = getRandomArbitrary(10,20);
-		
-		setTimeout(function() { 
-			makeMagic(param, '.monsters-container .magic', 'monsters-magic', '.player-container .magic', '.player-container .health');
-			makeTurn(param, points, player1, player2, '.aboutPlayer', '#playerLife', '.aboutMonster', '#monsterLife', 'Ты');
-		}, 1000);
-		
-		
-    } 
-  }
-	
-  document.querySelector('.button').addEventListener('click', Task);
-
-  function closeTask() {
-    setTimeout(function() { 
-      document.querySelector('.task').removeChild(document.querySelector('.grate'));
-      document.querySelector('.task').style.display = 'none'; 
-      closeScore();
-      document.querySelector('.task-window').style.display = 'block';
-      document.querySelector('#input').value='';
-      document.querySelector('.button').removeEventListener('click', Task);
-      document.querySelector('.field').style.display = 'grid';
+    document.querySelector('.button').addEventListener('click', Task);
 
     function closeTask() {
         setTimeout(() => {

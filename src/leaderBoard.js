@@ -1,20 +1,11 @@
 import showtask from './task-screen';
-import {
-    getRandomArbitrary,
-    drawLife,
-    createNode,
-    makeSounds
-} from './utils';
-import {
-    level,
-    Game
-} from './game';
+import { createNode } from './utils';
+import { level } from './game';
 
 export function saveInLocalStorage() {
 
     return {
         saveData: function () {
-
             const date = new Date();
             const userData = {
                 name: document.querySelector('#firstName').value,
@@ -53,14 +44,11 @@ export function saveInLocalStorage() {
             return filterByField(dataBase, field, value);
         }
     };
-};
+}
 
 export function leaderBoard() {
-
     let localStorageDB = saveInLocalStorage().getData('tab', parseInt('0', 10));
-
     let sorted = sortByField(localStorageDB, 'score');
-
     let displayed = displayResult(sorted);
 
     const resultsTableContainer = document.querySelector('.leaderBoard-results-table');
@@ -89,25 +77,23 @@ export function leaderBoard() {
         const tr = createNode('tr', {}, td1, td2, td3);
         resultsTableContainer.firstElementChild.appendChild(tr);
     }
-
-};
+}
 
 function filterByField(arr, field, value) {
-    return arr.filter(elem => {
+    return arr.filter((elem) => {
         if (elem[field] === value) {
             return elem;
         }
     });
-};
+}
 
 function sortByField(arr, field) {
     function sorted(a, b) {
         return b[field] - a[field];
     }
-
     return arr.sort(sorted);
-};
+}
 
 function displayResult(arr, number = arr.length) {
     return arr.slice(0, number);
-};
+}

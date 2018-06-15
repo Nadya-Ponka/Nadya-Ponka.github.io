@@ -1,17 +1,11 @@
-import {
-    getRandomArbitrary,
-    drawLife,
-    createNode,
-    makeSounds
-} from './utils';
+import { makeSounds } from './utils';
 
-var Lightning = function (c, cw, ch) {
-
+const Lightning = function (c, cw, ch) {
     this.init = function () {
         this.loop();
     };
 
-    var _this = this;
+    let _this = this;
     this.c = c;
     this.ctx = c.getContext('2d');
     this.cw = cw;
@@ -24,7 +18,7 @@ var Lightning = function (c, cw, ch) {
     this.lightTimeTotal = 50;
 
     this.rand = function (rMi, rMa) {
-        return ~~((Math.random() * (rMa - rMi + 1)) + rMi);
+        return Math.floor(((Math.random() * (rMa - rMi + 1)) + rMi));
     };
     this.hitTest = function (x1, y1, w1, h1, x2, y2, w2, h2) {
         return !(x1 + w1 < x2 || x2 + w2 < x1 || y1 + h1 < y2 || y2 + h2 < y1);
@@ -42,61 +36,60 @@ var Lightning = function (c, cw, ch) {
             }],
             pathLimit: this.rand(10, 35),
             canSpawn: canSpawn,
-            hasFired: false
+            hasFired: false,
         });
     };
 
     this.updateL = function () {
-        var i = this.lightning.length;
+        let i = this.lightning.length;
         while (i--) {
-            var light = this.lightning[i];
-
+            const light = this.lightning[i];
 
             light.path.push({
                 x: light.path[light.path.length - 1].x + (this.rand(0, light.xRange) - (light.xRange / 2)),
-                y: light.path[light.path.length - 1].y + (this.rand(0, light.yRange))
+                y: light.path[light.path.length - 1].y + (this.rand(0, light.yRange)),
             });
 
             if (light.path.length > light.pathLimit) {
                 this.lightning.splice(i, 1)
             }
             light.hasFired = true;
-        };
+        }
     };
 
     this.renderL = function () {
-        var i = this.lightning.length;
+        let i = this.lightning.length;
         while (i--) {
-            var light = this.lightning[i];
+            let light = this.lightning[i];
 
             this.ctx.strokeStyle = 'hsla(0, 100%, 100%, ' + this.rand(10, 100) / 100 + ')';
             this.ctx.lineWidth = 25;
-            if (this.rand(0, 30) == 0) {
+            if (this.rand(0, 30) === 0) {
                 this.ctx.lineWidth = 20;
             }
-            if (this.rand(0, 60) == 0) {
+            if (this.rand(0, 60) === 0) {
                 this.ctx.lineWidth = 30;
             }
-            if (this.rand(0, 90) == 0) {
+            if (this.rand(0, 90) === 0) {
                 this.ctx.lineWidth = 40;
             }
-            if (this.rand(0, 120) == 0) {
+            if (this.rand(0, 120) === 0) {
                 this.ctx.lineWidth = 50;
             }
-            if (this.rand(0, 150) == 0) {
+            if (this.rand(0, 150) === 0) {
                 this.ctx.lineWidth = 60;
             }
 
             this.ctx.beginPath();
 
-            var pathCount = light.path.length;
+            const pathCount = light.path.length;
             this.ctx.moveTo(light.x, light.y);
-            for (var pc = 0; pc < pathCount; pc++) {
+            for (let pc = 0; pc < pathCount; pc++) {
 
                 this.ctx.lineTo(light.path[pc].x, light.path[pc].y);
 
                 if (light.canSpawn) {
-                    if (this.rand(0, 100) == 0) {
+                    if (this.rand(0, 100) === 0) {
                         light.canSpawn = false;
                         this.createL(light.path[pc].x, 0, false);
                     }
@@ -108,21 +101,21 @@ var Lightning = function (c, cw, ch) {
                 this.ctx.fillRect(0, 0, this.cw, this.ch);
             }
 
-            if (this.rand(0, 30) == 0) {
+            if (this.rand(0, 30) === 0) {
                 this.ctx.fillStyle = 'rgba(255, 255, 255, ' + this.rand(1, 3) / 100 + ')';
                 this.ctx.fillRect(0, 0, this.cw, this.ch);
             }
 
             this.ctx.stroke();
-        };
+        }
     };
 
     this.lightningTimer = function () {
         this.lightTimeCurrent++;
         if (this.lightTimeCurrent >= this.lightTimeTotal) {
-            var newX = this.rand(100, cw - 100);
-            var newY = this.rand(0, ch / 2);
-            var createCount = this.rand(1, 3);
+            const newX = this.rand(100, cw - 100);
+            const newY = this.rand(0, ch / 2);
+            let createCount = this.rand(1, 3);
             while (createCount--) {
                 this.createL(newX, newY, true);
             }
@@ -138,13 +131,8 @@ var Lightning = function (c, cw, ch) {
         this.ctx.globalCompositeOperation = 'source-over';
     };
 
-    $(window).on('resize', function () {
-        _this.cw = _this.c.width = window.innerWidth;
-        _this.ch = _this.c.height = window.innerHeight;
-    });
-
     this.loop = function () {
-        var loopIt = function () {
+        const loopIt = function () {
             requestAnimationFrame(loopIt, _this.c);
             _this.clearCanvas();
             _this.updateL();
@@ -153,53 +141,22 @@ var Lightning = function (c, cw, ch) {
         };
         loopIt();
     };
-
 };
 
 export default function canvasLightning(div1, div2) {
+    document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
+	<canvas id=' + `${div2}` + '></canvas>';
+    document.querySelector(`${div1}`).style.display = 'block';
+    const c = document.getElementById(`${div2}`);
+    const cw = c.width = window.innerWidth;
+    const ch = c.height = window.innerHeight;
+    const cl = new Lightning(c, cw, ch);
 
-    var setupRAF = function () {
-        var lastTime = 0;
-        var vendors = ['ms', 'moz', 'webkit', 'o'];
-        for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-            window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-            window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
-        };
-
-        if (!window.requestAnimationFrame) {
-            window.requestAnimationFrame = function (callback, element) {
-                var currTime = new Date().getTime();
-                var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-                var id = window.setTimeout(function () {
-                    callback(currTime + timeToCall);
-                }, timeToCall);
-                lastTime = currTime + timeToCall;
-                return id;
-            };
-        };
-
-        if (!window.cancelAnimationFrame) {
-            window.cancelAnimationFrame = function (id) {
-                clearTimeout(id);
-            };
-        };
-    };
-
-        document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
-					<canvas id=' + `${div2}` + '>\
-					</canvas>';
-        document.querySelector(`${div1}`).style.display = 'block';
-        var c = document.getElementById(`${div2}`);
-        var cw = c.width = window.innerWidth;
-        var ch = c.height = window.innerHeight;
-        var cl = new Lightning(c, cw, ch);
-
-        setupRAF();
-        cl.init();
-        setTimeout(function () {
-            makeSounds('../sound/Thunder.mp3');
-        }, 2000);
-        setTimeout(function () {
-            document.querySelector(`${div1}`).innerHTML = '';
-        }, 5000);
+    cl.init();
+    setTimeout(() => {
+        makeSounds('../sound/Thunder.mp3');
+    }, 2000);
+    setTimeout(() => {
+        document.querySelector(`${div1}`).innerHTML = '';
+    }, 5000);
 };

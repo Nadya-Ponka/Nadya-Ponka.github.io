@@ -26,11 +26,11 @@ export default function fire(div1, div2) {
             colourGradient: new ColorAnimation(),
             sizeGradient: new Animation(),
             animateParticles() {
-                let deltaTime = Date.now() - this.time,
-                    i = 0,
-                    p = this.particles,
-                    l = p ? p.length : 0,
-                    position = this.position;
+                let deltaTime = Date.now() - this.time;
+                let i = 0;
+                let p = this.particles;
+                let l = p ? p.length : 0;
+                let position = this.position;
                 for (i = 0; i < l; ++i) {
                     p[i].render(position, deltaTime);
                 }

@@ -1,14 +1,7 @@
-import {
-    getRandomArbitrary,
-    drawLife,
-    createNode,
-    makeSounds,
-	isCanvasSupported
-} from './utils';
+import { makeSounds } from './utils';
 
-var waterfallCanvas = function (c, cw, ch) {
-
-    var _this = this;
+const WaterfallCanvas = function (c, cw, ch) {
+    let _this = this;
     this.c = c;
     this.ctx = c.getContext('2d');
     this.cw = cw;
@@ -16,8 +9,7 @@ var waterfallCanvas = function (c, cw, ch) {
 
     this.particles = [];
     this.particleRate = 6;
-    this.gravity = .15;
-
+    this.gravity = 0.15;
 
     this.init = function () {
         this.loop();
@@ -29,13 +21,12 @@ var waterfallCanvas = function (c, cw, ch) {
     };
 
     this.rand = function (rMi, rMa) {
-        return ~~((Math.random() * (rMa - rMi + 1)) + rMi);
+        return Math.floor(((Math.random() * (rMa - rMi + 1)) + rMi));
     };
 
-
     this.Particle = function () {
-        var newWidth = _this.rand(1, 20);
-        var newHeight = _this.rand(1, 45);
+        const newWidth = _this.rand(1, 20);
+        const newHeight = _this.rand(1, 45);
         this.x = _this.rand(10 + (newWidth / 2), _this.cw - 10 - (newWidth / 2));
         this.y = -newHeight;
         this.vx = 0;
@@ -73,16 +64,16 @@ var waterfallCanvas = function (c, cw, ch) {
     };
 
     this.createParticles = function () {
-        var i = this.particleRate;
+        let i = this.particleRate;
         while (i--) {
             this.particles.push(new this.Particle());
         }
     };
 
     this.removeParticles = function () {
-        var i = this.particleRate;
+        let i = this.particleRate;
         while (i--) {
-            var p = this.particles[i];
+            const p = this.particles[i];
             if (p.y > _this.ch - 20 - p.height) {
                 p.renderBubble();
                 _this.particles.splice(i, 1);
@@ -91,19 +82,19 @@ var waterfallCanvas = function (c, cw, ch) {
     };
 
     this.updateParticles = function () {
-        var i = this.particles.length;
+        let i = this.particles.length;
         while (i--) {
-            var p = this.particles[i];
+            const p = this.particles[i];
             p.update(i);
-        };
+        }
     };
 
     this.renderParticles = function () {
-        var i = this.particles.length;
+        let i = this.particles.length;
         while (i--) {
-            var p = this.particles[i];
+            const p = this.particles[i];
             p.render();
-        };
+        }
     };
 
     this.clearCanvas = function () {
@@ -114,7 +105,7 @@ var waterfallCanvas = function (c, cw, ch) {
     };
 
     this.loop = function () {
-        var loopIt = function () {
+        const loopIt = function () {
             requestAnimationFrame(loopIt, _this.c);
             _this.clearCanvas();
             _this.createParticles();
@@ -128,51 +119,20 @@ var waterfallCanvas = function (c, cw, ch) {
 };
 
 export default function createWaterFall(div1, div2) {
+    document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
+					<canvas id=' + `${div2}` + '></canvas>';
+    document.querySelector(`${div1}`).style.display = 'block';
+    const c = document.getElementById(`${div2}`);
+    const ctx = c.getContext('2d');
+    const cw = c.width = 220;
+    const ch = c.height = 500;
+    const waterfall = new WaterfallCanvas(c, cw, ch);
+    waterfall.init();
+    setTimeout(() => {
+        makeSounds('../sound/Running_Water.mp3');
+    }, 2000);
 
-    var setupRAF = function () {
-        var lastTime = 0;
-        var vendors = ['ms', 'moz', 'webkit', 'o'];
-        for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-            window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-            window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
-        };
-
-        if (!window.requestAnimationFrame) {
-            window.requestAnimationFrame = function (callback, element) {
-                var currTime = new Date().getTime();
-                var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-                var id = window.setTimeout(function () {
-                    callback(currTime + timeToCall);
-                }, timeToCall);
-                lastTime = currTime + timeToCall;
-                return id;
-            };
-        };
-
-        if (!window.cancelAnimationFrame) {
-            window.cancelAnimationFrame = function (id) {
-                clearTimeout(id);
-            };
-        };
-    };
-
-        document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
-					<canvas id=' + `${div2}` + '>\
-					</canvas>';
-        document.querySelector(`${div1}`).style.display = 'block';
-        var c = document.getElementById(`${div2}`);
-        var ctx = c.getContext("2d");
-        var cw = c.width = 220;
-        var ch = c.height = 500;
-        var waterfall = new waterfallCanvas(c, cw, ch);
-        waterfall.init();
-        setTimeout(function () {
-            makeSounds('../sound/Running_Water.mp3');
-        }, 2000);
-
-        setTimeout(function () {
-            document.querySelector(`${div1}`).innerHTML = '';
-        }, 5000);
-
-
-};
+    setTimeout(() => {
+        document.querySelector(`${div1}`).innerHTML = '';
+    }, 5000);
+}

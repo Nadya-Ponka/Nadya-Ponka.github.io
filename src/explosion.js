@@ -14,15 +14,14 @@ export default function explosion(div1, div2) {
     canvas.height = 500;
     canvas.style.width = `${280}px`;
     canvas.style.height = `${500}px`;
-    // ctx.scale(2, 2);
 
     const origin = {
         x: canvas.width / 2,
-        y: canvas.height / 2
+        y: canvas.height / 2,
     };
     const normal = {
         x: canvas.width / 2,
-        y: canvas.height / 2
+        y: canvas.height / 2,
     };
 
     class Ball {

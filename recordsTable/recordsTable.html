@@ -15,7 +15,6 @@
 	<main class="landing">
 
 		<section class="gameOver" style="height:550px;">
-
 			<div class="leaderBoard">
 				<h1>Таблица рекордов:</h1>
 				<div class="leaderBoard-tabs"></div>
@@ -29,7 +28,6 @@
 					</table>
 				</div>
 			</div>
-
 			<button class="startNewGame" onclick='location.href="../battlescreen/index.html"'>Играть</button>
 		</section>
 	</main>
@@ -37,10 +35,8 @@
 
 	<script>
 		function saveInLocalStorage() {
-
 			return {
 				saveData: function () {
-
 					const date = new Date();
 					const userData = {
 						name: document.querySelector('#firstName').value,
@@ -48,7 +44,7 @@
 						email: document.querySelector('#email').value,
 						date: date,
 						score: totalScore,
-						tab: 0
+						tab: 0,
 					};
 
 					let serialObj = JSON.stringify(userData);
@@ -79,10 +75,9 @@
 					return filterByField(dataBase, field, value);
 				}
 			};
-		};
+		}
 
 		function leaderBoard() {
-
 			let localStorageDB = saveInLocalStorage().getData('tab', parseInt('0', 10));
 
 			let sorted = sortByField(localStorageDB, 'score');
@@ -115,28 +110,26 @@
 				const tr = createNode('tr', {}, td1, td2, td3);
 				resultsTableContainer.firstElementChild.appendChild(tr);
 			}
-
-
-		};
+		}
 
 		function filterByField(arr, field, value) {
-			return arr.filter(elem => {
+			return arr.filter((elem) => {
 				if (elem[field] === value) {
 					return elem;
 				}
 			});
-		};
+		}
 
 		function sortByField(arr, field) {
 			function sorted(a, b) {
 				return b[field] - a[field];
 			}
 			return arr.sort(sorted);
-		};
+		}
 
 		function displayResult(arr, number = arr.length) {
 			return arr.slice(0, number);
-		};
+		}
 
 		function createNode(tag, props, ...children) {
 			const element = document.createElement(tag);
@@ -150,10 +143,8 @@
 
 				element.appendChild(child);
 			});
-
 			return element;
 		};
-
 	</script>
 
 </body>
