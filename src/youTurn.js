@@ -6,6 +6,8 @@ import createWaterfall from './waterfall';
 import canvasLightning from './lightning';
 import explosion from './explosion';
 import health from './health-animation';
+import fire from './fire-animation';
+
 import {
     saveInLocalStorage,
     leaderBoard
@@ -14,7 +16,7 @@ import {
 export function makeMagic(n, div1, div2, div3, div4) {
     switch (n) {
         case 1:
-            createWaterfall(div1, div2);
+            fire(div1, div2);
             break;
         case 2:
             canvasLightning(div1, div2);

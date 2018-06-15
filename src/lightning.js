@@ -2,8 +2,7 @@ import {
     getRandomArbitrary,
     drawLife,
     createNode,
-    makeSounds,
-	isCanvasSupported
+    makeSounds
 } from './utils';
 
 var Lightning = function (c, cw, ch) {
@@ -186,7 +185,6 @@ export default function canvasLightning(div1, div2) {
         };
     };
 
-    if (isCanvasSupported) {
         document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
 					<canvas id=' + `${div2}` + '>\
 					</canvas>';
@@ -204,6 +202,4 @@ export default function canvasLightning(div1, div2) {
         setTimeout(function () {
             document.querySelector(`${div1}`).innerHTML = '';
         }, 5000);
-
-    };
 };

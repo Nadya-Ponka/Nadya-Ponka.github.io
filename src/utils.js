@@ -1,18 +1,18 @@
 export function getRandomArbitrary(min, max) {
     return Math.round(Math.random() * (max - min) + min);
-};
+}
 
 export function drawLife(personId, n) {
-    document.querySelector(`#${personId}`).style.width = `${n*3+'px'}`;
+    document.querySelector(`#${personId}`).style.width = `${`${n * 3}px`}`;
     return n;
-};
+}
 
 export function createNode(tag, props, ...children) {
     const element = document.createElement(tag);
 
-    Object.keys(props).forEach(key => element[key] = props[key]);
+    Object.keys(props).forEach((key) => { element[key] = props[key]; });
 
-    children.forEach(child => {
+    children.forEach((child) => {
         if (typeof child === 'string') {
             child = document.createTextNode(child);
         }
@@ -21,18 +21,10 @@ export function createNode(tag, props, ...children) {
     });
 
     return element;
-};
+}
 
-<<<<<<< HEAD
 export function makeSounds(path) {
-    let audio = new Audio(); // Создаём новый элемент Audio
+    const audio = new Audio(); // Создаём новый элемент Audio
     audio.src = path; // Указываем путь к звуку "клика"
     audio.autoplay = true; // Автоматически запускаем
-};
-
-export  let isCanvasSupported = function () {
-        let elem = document.createElement('canvas');
-        return !!(elem.getContext && elem.getContext('2d'));
-};
-=======
->>>>>>> 77effb3d993dada189ea1eae344388b36a4a961a
+}

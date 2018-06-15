@@ -156,7 +156,6 @@ export default function createWaterFall(div1, div2) {
         };
     };
 
-    if (isCanvasSupported()) {
         document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
 					<canvas id=' + `${div2}` + '>\
 					</canvas>';
@@ -166,7 +165,6 @@ export default function createWaterFall(div1, div2) {
         var cw = c.width = 220;
         var ch = c.height = 500;
         var waterfall = new waterfallCanvas(c, cw, ch);
-        setupRAF();
         waterfall.init();
         setTimeout(function () {
             makeSounds('../sound/Running_Water.mp3');
@@ -176,6 +174,5 @@ export default function createWaterFall(div1, div2) {
             document.querySelector(`${div1}`).innerHTML = '';
         }, 5000);
 
-    }
 
 };
