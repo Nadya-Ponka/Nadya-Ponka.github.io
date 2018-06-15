@@ -9,35 +9,21 @@ export default function explosion(div1, div2) {
     const colours = ['#F73859', '#14FFEC', '#00E0FF', '#FF99FE', '#FAF15D'];
 
     const balls = [];
-    const pressed = false;
-    const longPressed = false;
-    let longPress;
-    let multiplier = 0;
-    let width, 
-height;
-    let origin;
-    let normal;
 
-    function updateSize() {
-        canvas.width = 280;
-        canvas.height = 500;
-        canvas.style.width = `${280  }px`;
-        canvas.style.height = `${500  }px`;
-        ctx.scale(2, 2);
+    canvas.width = 280;
+    canvas.height = 500;
+    canvas.style.width = `${280}px`;
+    canvas.style.height = `${500}px`;
+    // ctx.scale(2, 2);
 
-        width = (canvas.width = 280);
-        height = (canvas.height = 500);
-        origin = {
-            x: width / 2,
-            y: height / 2,
-        };
-        normal = {
-            x: width / 2,
-            y: height / 2,
-        };
-    }
-
-    updateSize();
+    const origin = {
+        x: canvas.width / 2,
+        y: canvas.height / 2
+    };
+    const normal = {
+        x: canvas.width / 2,
+        y: canvas.height / 2
+    };
 
     class Ball {
         constructor(x = origin.x, y = origin.y) {
@@ -45,11 +31,7 @@ height;
             this.y = y;
             this.angle = Math.PI * 2 * Math.random();
 
-            if (longPressed == true) {
-                this.multiplier = randBetween(14 + multiplier, 15 + multiplier);
-            } else {
-                this.multiplier = randBetween(3, 6);
-            }
+            this.multiplier = randBetween(3, 6);
 
             this.vx = (this.multiplier + Math.random() * 0.5) * Math.cos(this.angle);
             this.vy = (this.multiplier + Math.random() * 0.5) * Math.sin(this.angle);
@@ -86,7 +68,6 @@ height;
     function loop() {
         ctx.fillStyle = 'rgba(20, 24, 41, 0)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        // ctx.globalCompositeOperation = 'luminosity';
 
 
         for (let i = 0; i < balls.length; i++) {
@@ -102,12 +83,6 @@ height;
             b.update();
         }
 
-        if (longPressed == true) {
-            multiplier += 0.2;
-        } else if (!longPressed && multiplier >= 0) {
-            multiplier -= 0.4;
-        }
-
         removeBall();
         requestAnimationFrame(loop);
     }
@@ -117,10 +92,10 @@ height;
             const b = balls[i];
             if (
                 b.x + b.r < 0 ||
-                    b.x - b.r > width ||
-                    b.y + b.r < 0 ||
-                    b.y - b.r > height ||
-                    b.r < 0
+                b.x - b.r > canvas.width ||
+                b.y + b.r < 0 ||
+                b.y - b.r > canvas.height ||
+                b.r < 0
             ) {
                 balls.splice(i, 1);
             }
@@ -128,14 +103,14 @@ height;
     }
 
     const timeOut = setInterval(() => {
-            pushBalls(randBetween(10, 20), origin.x + randBetween(-50, 50), origin.y + randBetween(-50, 50));
-        }, 200);
+        pushBalls(randBetween(10, 20), origin.x + randBetween(-50, 50), origin.y + randBetween(-50, 50));
+    }, 200);
 
     setTimeout(() => {
-            makeSounds('../sound/Thunder.mp3');
-        }, 2000);
+        makeSounds('../sound/Thunder.mp3');
+    }, 2000);
 
     setTimeout(() => {
-            document.querySelector(`${div1}`).innerHTML = '';
-        }, 5000);
+        document.querySelector(`${div1}`).innerHTML = '';
+    }, 5000);
 }

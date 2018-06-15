@@ -81,10 +81,10 @@ export default function showTask(param, player1, player2) {
 	  <p>Теперь ходит противник.</p>';     
       closeTask();
 	  points = Math.floor(getRandomArbitrary(10,20)*level);
-	  param = getRandomArbitrary(1, 3);
-		setTimeout(function() { 
-			makeMagic(param, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
-			makeTurn(param, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');
+	  const tempParam = getRandomArbitrary(1, 5);
+		setTimeout(() => {
+			makeMagic(tempParam, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
+			makeTurn(tempParam, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');
 		}, 1000);
     } 
     else  if(resultForm == result) {
