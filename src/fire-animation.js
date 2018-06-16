@@ -180,7 +180,6 @@ export default function fire(div1, div2) {
 
     canvas.width = 280;
     canvas.height = 500;
-
     const ps = new ParticleSystem();
 
     ps.colourGradient.addFrame(0, '#d5000000');
