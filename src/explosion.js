@@ -31,7 +31,6 @@ export default function explosion(div1, div2) {
             this.angle = Math.PI * 2 * Math.random();
 
             this.multiplier = randBetween(3, 6);
-
             this.vx = (this.multiplier + Math.random() * 0.5) * Math.cos(this.angle);
             this.vy = (this.multiplier + Math.random() * 0.5) * Math.sin(this.angle);
             this.r = randBetween(8, 12) + 3 * Math.random();
@@ -81,7 +80,6 @@ export default function explosion(div1, div2) {
 
             b.update();
         }
-
         removeBall();
         requestAnimationFrame(loop);
     }
