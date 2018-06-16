@@ -166,10 +166,10 @@ export default function fire(div1, div2) {
                 this.a.addFrame(time, rgb.a);
             },
             getValueAtTime(time, interpolate) {
-                const r = Math.round(this.r.getValueAtTime(time, interpolate)).toString(16),
-                    g = Math.round(this.g.getValueAtTime(time, interpolate)).toString(16),
-                    b = Math.round(this.b.getValueAtTime(time, interpolate)).toString(16),
-                    a = this.a.getValueAtTime(time, interpolate);
+                const r = Math.round(this.r.getValueAtTime(time, interpolate)).toString(16);
+                const g = Math.round(this.g.getValueAtTime(time, interpolate)).toString(16);
+                const b = Math.round(this.b.getValueAtTime(time, interpolate)).toString(16);
+                const a = this.a.getValueAtTime(time, interpolate);
                 ctx.globalAlpha = a;
                 return `#${r.length > 1 ? r : `0${r}`}${g.length > 1 ? g : `0${g}`}${b.length > 1 ? b : `0${b}`}`;
             },
