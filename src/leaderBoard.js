@@ -1,9 +1,7 @@
-import showtask from './task-screen';
 import { createNode } from './utils';
 import { level } from './game';
 
 export function saveInLocalStorage() {
-
     return {
         saveData: function () {
             const date = new Date();
@@ -12,8 +10,8 @@ export function saveInLocalStorage() {
                 lastName: document.querySelector('#lastName').value,
                 email: document.querySelector('#email').value,
                 date: date,
-                score: (level / .25 - 4),
-                tab: 0
+                score: (level / 0.25 - 4),
+                tab: 0,
             };
 
             let serialObj = JSON.stringify(userData);
@@ -69,7 +67,7 @@ export function leaderBoard() {
         const score = displayed[i].score;
 
         const td1 = createNode('td', {
-            className: 'table-name'
+            className: 'table-name',
         }, `${name}`);
         const td2 = createNode('td', {}, `${date}`);
         const td3 = createNode('td', {}, `${score}`);

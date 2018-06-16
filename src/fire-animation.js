@@ -26,11 +26,11 @@ export default function fire(div1, div2) {
             colourGradient: new ColorAnimation(),
             sizeGradient: new Animation(),
             animateParticles() {
-                let deltaTime = Date.now() - this.time;
+                const deltaTime = Date.now() - this.time;
                 let i = 0;
-                let p = this.particles;
-                let l = p ? p.length : 0;
-                let position = this.position;
+                const p = this.particles;
+                const l = p ? p.length : 0;
+                const position = this.position;
                 for (i = 0; i < l; ++i) {
                     p[i].render(position, deltaTime);
                 }
@@ -126,10 +126,10 @@ export default function fire(div1, div2) {
                 let prevFrame,
                     nextFrame,
                     prevFrameTime,
-                    delta,
-                    keys = [];
-                for (let k in this.frames) {
-                    keys.push(parseFloat(k));
+                    keys = [],
+                    k;
+                for (let j in this.frames) {
+                    keys.push(parseFloat(j));
                 }
                 keys.sort();
                 for (let i = 0, l = keys.length; i < l; ++i) {
@@ -166,7 +166,7 @@ export default function fire(div1, div2) {
                 this.a.addFrame(time, rgb.a);
             },
             getValueAtTime(time, interpolate) {
-                let r = Math.round(this.r.getValueAtTime(time, interpolate)).toString(16),
+                const r = Math.round(this.r.getValueAtTime(time, interpolate)).toString(16),
                     g = Math.round(this.g.getValueAtTime(time, interpolate)).toString(16),
                     b = Math.round(this.b.getValueAtTime(time, interpolate)).toString(16),
                     a = this.a.getValueAtTime(time, interpolate);

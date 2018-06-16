@@ -136,8 +136,8 @@ export function Game() {
         modalWindow.style.alignSelf = 'end';
         modalWindow.style.justifySelf = 'center';
         modalWindow.innerHTML = '<div class="modal-dialog"><p class="close" onclick="closeScore()">&#215;</p>\
-		<p>Выберите заклинание:</p><div class="spell">\
-			<img id="1" src="../Images/Atack.png" alt=""><p>Магия воды</p>\
+<p>Выберите заклинание:</p><div class="spell">\
+<img id="1" src="../Images/Atack.png" alt=""><p>Магия воды</p>\
             <img id="2" src="../Images/Lightning.png" alt=""><p>Магия молнии</p>\
             <img id="3" src="../Images/Health.png" alt=""><p>Лечить себя</p>\
             <img id="4" src="../Images/Question.png" alt=""><p>Удар радуги</p>\
@@ -152,7 +152,7 @@ export function Game() {
             <img id="13" src="../Images/Atack3.png" alt=""><p>Огненные шары</p>\
             <img id="14" src="../Images/Health3.png" alt=""><p>Магия огня</p>\
             <img id="15" src="../Images/Question3.png" alt=""><p>Удар радуги</p>\
-		</div></div><button class=\"buttonStart\" id=\"start\">Выберите магию</button>';
+</div></div><button class="buttonStart" id="start">Выберите магию</button>';
         mainField.appendChild(modalWindow);
 
         const mainMonster = document.createElement('div');

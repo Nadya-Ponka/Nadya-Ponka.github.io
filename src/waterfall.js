@@ -1,7 +1,7 @@
 import { makeSounds } from './utils';
 
 const WaterfallCanvas = function (c, cw, ch) {
-    let _this = this;
+    const _this = this;
     this.c = c;
     this.ctx = c.getContext('2d');
     this.cw = cw;
@@ -38,7 +38,7 @@ const WaterfallCanvas = function (c, cw, ch) {
         this.lightness = _this.rand(30, 60);
     };
 
-    this.Particle.prototype.update = function (i) {
+    this.Particle.prototype.update = function () {
         this.vx += this.vx;
         this.vy += _this.gravity;
         this.x += this.vx;
@@ -115,15 +115,12 @@ const WaterfallCanvas = function (c, cw, ch) {
         };
         loopIt();
     };
-
 };
 
 export default function createWaterFall(div1, div2) {
-    document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
-					<canvas id=' + `${div2}` + '></canvas>';
+    document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" /><canvas id=' + `${div2}` + '></canvas>';
     document.querySelector(`${div1}`).style.display = 'block';
     const c = document.getElementById(`${div2}`);
-    const ctx = c.getContext('2d');
     const cw = c.width = 220;
     const ch = c.height = 500;
     const waterfall = new WaterfallCanvas(c, cw, ch);

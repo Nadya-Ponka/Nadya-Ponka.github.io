@@ -5,7 +5,7 @@ const Lightning = function (c, cw, ch) {
         this.loop();
     };
 
-    let _this = this;
+    const _this = this;
     this.c = c;
     this.ctx = c.getContext('2d');
     this.cw = cw;
@@ -32,7 +32,7 @@ const Lightning = function (c, cw, ch) {
             yRange: this.rand(5, 100),
             path: [{
                 x: x,
-                y: y
+                y: y,
             }],
             pathLimit: this.rand(10, 35),
             canSpawn: canSpawn,
@@ -51,7 +51,7 @@ const Lightning = function (c, cw, ch) {
             });
 
             if (light.path.length > light.pathLimit) {
-                this.lightning.splice(i, 1)
+                this.lightning.splice(i, 1);
             }
             light.hasFired = true;
         }
@@ -60,7 +60,7 @@ const Lightning = function (c, cw, ch) {
     this.renderL = function () {
         let i = this.lightning.length;
         while (i--) {
-            let light = this.lightning[i];
+            const light = this.lightning[i];
 
             this.ctx.strokeStyle = 'hsla(0, 100%, 100%, ' + this.rand(10, 100) / 100 + ')';
             this.ctx.lineWidth = 25;
@@ -85,7 +85,6 @@ const Lightning = function (c, cw, ch) {
             const pathCount = light.path.length;
             this.ctx.moveTo(light.x, light.y);
             for (let pc = 0; pc < pathCount; pc++) {
-
                 this.ctx.lineTo(light.path[pc].x, light.path[pc].y);
 
                 if (light.canSpawn) {
@@ -122,7 +121,7 @@ const Lightning = function (c, cw, ch) {
             this.lightTimeCurrent = 0;
             this.lightTimeTotal = this.rand(30, 60); // can be 100
         }
-    }
+    };
 
     this.clearCanvas = function () {
         this.ctx.globalCompositeOperation = 'destination-out';
@@ -144,8 +143,7 @@ const Lightning = function (c, cw, ch) {
 };
 
 export default function canvasLightning(div1, div2) {
-    document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" />\
-	<canvas id=' + `${div2}` + '></canvas>';
+    document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" /><canvas id=' + `${div2}` + '></canvas>';
     document.querySelector(`${div1}`).style.display = 'block';
     const c = document.getElementById(`${div2}`);
     const cw = c.width = window.innerWidth;
@@ -159,4 +157,4 @@ export default function canvasLightning(div1, div2) {
     setTimeout(() => {
         document.querySelector(`${div1}`).innerHTML = '';
     }, 5000);
-};
+}

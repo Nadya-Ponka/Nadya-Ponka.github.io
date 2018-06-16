@@ -69,29 +69,31 @@ export function makeMagic(n, div1, div2, div3, div4) {
 
 export function makeTurn(magic, points, player1, player2, classAboutPlayer, idPlayerLife, classAboutMonster, idMonsterLife, whoMakeTurn) {
     const temp = document.querySelector('.points');
+    const pl1 = player1;
+    const pl2 = player2;
 
     setTimeout(() => {
         temp.className = 'points';
 
         if (magic === 3 || magic === 7 || magic === 11) {
-            player1.score += points;
+            pl1.score += points;
             temp.innerHTML = `${whoMakeTurn} прибавил<br />к своему здоровью<br />${points} пунктов!`;
-            if (player1.score > 100 * (level + 0.25)) {
-                player1.score = Math.floor(100 * (level + 0.25));
+            if (pl1.score > 100 * (level + 0.25)) {
+                pl1.score = Math.floor(100 * (level + 0.25));
                 temp.innerHTML = `${whoMakeTurn} уже очень здоров! :) <br />Пора ходить!`;
             }
-            document.querySelector(`${classAboutPlayer}`).lastChild.innerHTML = player1.score;
+            document.querySelector(`${classAboutPlayer}`).lastChild.innerHTML = pl1.score;
             temp.className += ' appear';
-            document.querySelector(`${idPlayerLife}`).style.width = `${`${player1.score * 2.5}px`}`;
+            document.querySelector(`${idPlayerLife}`).style.width = `${`${pl1.score * 2.5}px`}`;
             document.querySelector(`${idPlayerLife}`).style.transition = 'width 0.7s ease-in-out';
-            document.querySelector(`${idPlayerLife}`).title = player1.score;
+            document.querySelector(`${idPlayerLife}`).title = pl1.score;
             setTimeout(() => {
                 temp.className += ' animated fadeOutDown';
             }, 3000);
         } else {
-            player2.score -= points;
+            pl2.score -= points;
 
-            if (player2.score <= 0) {
+            if (pl2.score <= 0) {
                 document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = 0;
                 temp.innerHTML = `${whoMakeTurn} нанес <br />сокрушительный урон<br />в ${points} пунктов!`;
                 temp.className += ' appear';
@@ -102,7 +104,7 @@ export function makeTurn(magic, points, player1, player2, classAboutPlayer, idPl
                 setTimeout(() => {
                     temp.className += ' animated fadeOutDown';
 
-                    if (player2.name === 'Крош') {
+                    if (pl2.name === 'Крош') {
                         document.querySelector('.field').style.display = 'none';
                         document.querySelector('.gameOver').style.display = 'block';
                         saveInLocalStorage().saveData();
@@ -129,14 +131,13 @@ export function makeTurn(magic, points, player1, player2, classAboutPlayer, idPl
                         const nextRaund = new Game();
                     }
                 }, 3000);
-
             } else {
-                document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = player2.score;
+                document.querySelector(`${classAboutMonster}`).lastChild.innerHTML = pl2.score;
                 temp.innerHTML = `${whoMakeTurn} нанес <br />сокрушительный урон<br />в ${points} пунктов!`;
                 temp.className += ' appear';
-                document.querySelector(`${idMonsterLife}`).style.width = `${`${player2.score * 2.5}px`}`;
+                document.querySelector(`${idMonsterLife}`).style.width = `${`${pl2.score * 2.5}px`}`;
                 document.querySelector(`${idMonsterLife}`).style.transition = 'width 0.7s ease-in-out';
-                document.querySelector(`${idMonsterLife}`).title = player2.score;
+                document.querySelector(`${idMonsterLife}`).title = pl2.score;
                 setTimeout(() => {
                     temp.className += ' animated fadeOutDown';
                 }, 3000);
