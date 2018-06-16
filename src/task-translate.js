@@ -52,7 +52,7 @@ export default function showTaskTranslation(param, player1, player2) {
                 grate.innerHTML = '<p>Результат не верен - магия не применилась!</p><p>Теперь ходит противник.</p>';
                 closeTask();
                 points = Math.floor(getRandomArbitrary(10, 20) * level);
-                param = getRandomArbitrary(1, 5);
+                param = getRandomArbitrary(1, 6);
                 setTimeout(() => {
                     makeMagic(param, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
                     makeTurn(param, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');

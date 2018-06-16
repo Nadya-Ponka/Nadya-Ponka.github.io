@@ -7,6 +7,8 @@ import canvasLightning from './lightning';
 import explosion from './explosion';
 import health from './health-animation';
 import fire from './fire-animation';
+import fireballs from './fireballs';
+
 
 import {
     saveInLocalStorage,
@@ -31,7 +33,7 @@ export function makeMagic(n, div1, div2, div3, div4) {
         fire(div1, div2);
         break;
     case 6:
-        canvasLightning(div1, div2);
+        fireballs(div1, div2);
         break;
     case 7:
         health(div3, div4);

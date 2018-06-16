@@ -28,7 +28,6 @@ const nameMonster = ['Том', 'Макс', 'Дима'];
 
 export function Game() {
     level += 0.25;
-    // перенести в файл index.js?
     document.querySelector('#go').addEventListener('click', startGame, false);
 
     function startGame() {
@@ -39,11 +38,11 @@ export function Game() {
     }
 
     const player = new Person('Крош', 1);
-    drawLife('player', player.score)
+    drawLife('player', player.score);
     document.querySelector('#playerLife').style.width = `${`${player.score * 2.5}px`}`;
 
     const monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), level);
-    drawLife('monster', monster.score)
+    drawLife('monster', monster.score);
     document.querySelector('#monsterLife').style.width = `${`${monster.score * 2.5}px`}`;
 
     document.querySelector('#playerLife').title = player.score;
@@ -143,7 +142,7 @@ export function Game() {
             <img id="3" src="../Images/Health.png" alt=""><p>Лечить себя</p>\
             <img id="4" src="../Images/Question.png" alt=""><p>Удар радуги</p>\
             <img id="5" src="../Images/Atack1.png" alt=""><p>Магия огня</p>\
-            <img id="6" src="../Images/Lightning1.png" alt=""><p>Магия молнии</p>\
+            <img id="6" src="../Images/Lightning1.png" alt=""><p>Огненные шары</p>\
             <img id="7" src="../Images/Health1.png" alt=""><p>Лечить себя</p>\
             <img id="8" src="../Images/Question1.png" alt=""><p>Магия воды</p>\
             <img id="9" src="../Images/Atack2.png" alt=""><p>Магия воды</p>\
