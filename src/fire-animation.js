@@ -128,7 +128,7 @@ export default function fire(div1, div2) {
                     prevFrameTime,
                     delta,
                     keys = [];
-                for (var k in this.frames) {
+                for (let k in this.frames) {
                     keys.push(parseFloat(k));
                 }
                 keys.sort();

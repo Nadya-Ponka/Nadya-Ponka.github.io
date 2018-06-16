@@ -42,7 +42,7 @@ export function makeMagic(n, div1, div2, div3, div4) {
         createWaterfall(div1, div2);
         break;
     case 9:
-        createWaterfall(div1, div2);
+        fire(div1, div2);
         break;
     case 10:
         canvasLightning(div1, div2);
@@ -54,7 +54,7 @@ export function makeMagic(n, div1, div2, div3, div4) {
         fire(div1, div2);
         break;
     case 13:
-        createWaterfall(div1, div2);
+        fireballs(div1, div2);
         break;
     case 14:
         fire(div1, div2);

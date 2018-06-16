@@ -145,11 +145,11 @@ export function Game() {
             <img id="6" src="../Images/Lightning1.png" alt=""><p>Огненные шары</p>\
             <img id="7" src="../Images/Health1.png" alt=""><p>Лечить себя</p>\
             <img id="8" src="../Images/Question1.png" alt=""><p>Магия воды</p>\
-            <img id="9" src="../Images/Atack2.png" alt=""><p>Магия воды</p>\
+            <img id="9" src="../Images/Atack2.png" alt=""><p>Магия огня</p>\
             <img id="10" src="../Images/Lightning2.png" alt=""><p>Магия молнии</p>\
             <img id="11" src="../Images/Health2.png" alt=""><p>Лечить себя</p>\
             <img id="12" src="../Images/Question2.png" alt=""><p>Магия огня</p>\
-            <img id="13" src="../Images/Atack3.png" alt=""><p>Магия воды</p>\
+            <img id="13" src="../Images/Atack3.png" alt=""><p>Огненные шары</p>\
             <img id="14" src="../Images/Health3.png" alt=""><p>Магия огня</p>\
             <img id="15" src="../Images/Question3.png" alt=""><p>Удар радуги</p>\
 		</div></div><button class=\"buttonStart\" id=\"start\">Выберите магию</button>';
