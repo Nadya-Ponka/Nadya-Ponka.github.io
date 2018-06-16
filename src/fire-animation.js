@@ -123,8 +123,8 @@ export default function fire(div1, div2) {
                 this.frames[time] = value;
             },
             getValueAtTime(time, interpolate) {
-                let prevFrame,
-                    nextFrame,
+                let prevFrame;
+                let nextFrame,
                     prevFrameTime,
                     keys = [],
                     k;
