@@ -17,11 +17,11 @@ export default function showTaskPoem(param, player1, player2) {
         if (document.querySelector('.grate-poem')) {
             document.querySelector('.task-poem').removeChild(document.querySelector('.grate-poem'));
         }
-        const answerForm = +document.querySelector('.input-poem').value;
+        const answerForm = document.querySelector('.input-poem').value;
         const grate = document.createElement('div');
         if (answerForm.length === 0) {
             alert('Вы не ввели свой ответ в форму!');
-        } else if (answerForm === solutions[num]) {
+        } else if (+answerForm === solutions[num]) {
             document.querySelector('.task-window-poem').style.display = 'none';
             document.querySelector('.task-poem').appendChild(grate);
             grate.classList.add('grate-poem');

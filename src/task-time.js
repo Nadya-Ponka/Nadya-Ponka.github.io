@@ -13,11 +13,11 @@ export default function showTaskTime(param, player1, player2) {
         if (document.querySelector('.grate-time')) {
             document.querySelector('.task-time').removeChild(document.querySelector('.grate-time'));
         }
-        const answerForm = +document.querySelector('.input-time').value;
+        const answerForm = document.querySelector('.input-time').value;
         const grate = document.createElement('div');
         if (answerForm.length === 0) {
             alert('Вы не ввели свой ответ в форму!');
-        } else if (answerForm === (num * 60)) {
+        } else if (+answerForm === (num * 60)) {
             document.querySelector('.task-window-time').style.display = 'none';
             document.querySelector('.task-time').appendChild(grate);
             grate.classList.add('grate-time');

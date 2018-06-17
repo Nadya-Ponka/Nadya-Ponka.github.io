@@ -1,7 +1,9 @@
 import { makeSounds } from './utils';
 
 export default function fire(div1, div2) {
-    document.querySelector(`${div1}`).innerHTML = '<canvas id=' + `${div2}` + '></canvas>';
+    document.querySelector(`${div1}`).innerHTML = '<canvas id=' +
+                                                               `${div2}` +
+                                                               '></canvas>';
     document.querySelector(`${div1}`).style.display = 'block';
 
 
@@ -77,10 +79,10 @@ export default function fire(div1, div2) {
                 ctx.fill();
             },
             randomize() {
-                this.lifeTime *= Math.random() * 0.4 + 0.8;
-                this.position.x += Math.random() * 40 - 20;
-                this.position.y += Math.random() * 10 - 5;
-                this.speed.y += Math.random() * 10 - 5;
+                this.lifeTime *= (Math.random() * 0.4) + 0.8;
+                this.position.x += (Math.random() * 40) - 20;
+                this.position.y += (Math.random() * 10) - 5;
+                this.speed.y += (Math.random() * 10) - 5;
             },
         };
 

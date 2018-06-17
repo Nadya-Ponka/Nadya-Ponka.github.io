@@ -1,15 +1,3 @@
-* {
-	margin: 0;
-	padding: 0;
-  text-decoration: none;
- }
- 
- @font-face {
-  font-family: Adigiana-2; 
-  src: url(../Fonts/Adigiana-2.ttf); 
- }
-
-
 #sortable-compare { 
   list-style-type: none; 
   margin: 0 0 20px 135px;
@@ -33,31 +21,20 @@
   margin-left: -1.3em;
 }
 
-
-
-
 .task-compare {
   max-width:1266px;
 	height:668px;
 	margin:0 auto;
 	padding:45px 80px 50px;
-  /*margin: -580px 0 0 310px; */
   display: none;
-  /*width: 700px;
-  height: 500px;*/
-  
-  /*border-radius: 10px;
-  border: 10px solid red;*/
   background-size: cover;
 	background-repeat: no-repeat;
-
   background-position: bottom center;
 	border:solid red 4px;
 	border-radius:20px;
 	z-index:20;
   background-image: url("../Images/fone-compare.jpg");
-  
- } 
+} 
 
 .greeting-compare {
   width: 800px;
@@ -75,6 +52,7 @@
 .forma-compare p {
   display: inline-block;
 }
+
 .forma-compare {
   text-align: center;
   margin-left: 90px;

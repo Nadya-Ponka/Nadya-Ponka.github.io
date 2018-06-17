@@ -24,11 +24,11 @@ export default function showTaskVowels(param, player1, player2) {
         if (document.querySelector('.grate-vowels')) {
             document.querySelector('.task-vowels').removeChild(document.querySelector('.grate-vowels'));
         }
-        const answerForm = +document.querySelector('.input-vowels').value;
+        const answerForm = document.querySelector('.input-vowels').value;
         const grate = document.createElement('div');
         if (answerForm.length === 0) {
             alert('Вы не ввели свое значение в форму!');
-        } else if (answerForm === count) {
+        } else if (+answerForm === count) {
             document.querySelector('.task-window-vowels').style.display = 'none';
             document.querySelector('.task-vowels').appendChild(grate);
             grate.classList.add('grate-vowels');

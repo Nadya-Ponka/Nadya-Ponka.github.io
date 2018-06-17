@@ -26,11 +26,11 @@ export default function showTaskСonsonants(param, player1, player2) {
             document.querySelector('.task-consonants').removeChild(document.querySelector('.grate-consonants'));
         }
 
-        const answerForm = +document.querySelector('.input-consonants').value;
+        const answerForm = document.querySelector('.input-consonants').value;
         const grate = document.createElement('div');
         if (answerForm.length === 0) {
             alert('Вы не ввели свое значение в форму!');
-        } else if (answerForm === count) {
+        } else if (+answerForm === count) {
             document.querySelector('.task-window-consonants').style.display = 'none';
             document.querySelector('.task-consonants').appendChild(grate);
             grate.classList.add('grate-consonants');

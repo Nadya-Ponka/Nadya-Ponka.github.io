@@ -1,5 +1,5 @@
 export function getRandomArbitrary(min, max) {
-    return Math.round(Math.random() * (max - min) + min);
+    return Math.round((Math.random() * (max - min)) + min);
 }
 
 export function drawLife(personId, n) {
