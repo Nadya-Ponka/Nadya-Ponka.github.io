@@ -1,7 +1,9 @@
 import { makeSounds } from './utils';
 
 export default function explosion(div1, div2) {
-    document.querySelector(`${div1}`).innerHTML = '<canvas id=' + `${div2}` + '></canvas>';
+    document.querySelector(`${div1}`).innerHTML = '<canvas id=' +
+                                                                `${div2}`
+                                                                + '></canvas>';
     document.querySelector(`${div1}`).style.display = 'block';
 
     const canvas = document.getElementById(`${div2}`);
@@ -31,9 +33,9 @@ export default function explosion(div1, div2) {
             this.angle = Math.PI * 2 * Math.random();
 
             this.multiplier = randBetween(3, 6);
-            this.vx = (this.multiplier + Math.random() * 0.5) * Math.cos(this.angle);
-            this.vy = (this.multiplier + Math.random() * 0.5) * Math.sin(this.angle);
-            this.r = randBetween(8, 12) + 3 * Math.random();
+            this.vx = (this.multiplier + (Math.random() * 0.5)) * Math.cos(this.angle);
+            this.vy = (this.multiplier + (Math.random() * 0.5)) * Math.sin(this.angle);
+            this.r = randBetween(8, 12) + (3 * Math.random());
             this.color = colours[Math.floor(Math.random() * colours.length)];
             this.direction = randBetween(-1, 1);
         }
@@ -42,8 +44,8 @@ export default function explosion(div1, div2) {
             this.x += this.vx - normal.x;
             this.y += this.vy - normal.y;
 
-            normal.x = -2 / 220 * Math.sin(this.angle);
-            normal.y = -2 / 500 * Math.cos(this.angle);
+            normal.x = (-2 / 220) * Math.sin(this.angle);
+            normal.y = (-2 / 500) * Math.cos(this.angle);
 
             this.r -= 0.3;
             this.vx *= 0.9;
@@ -52,7 +54,7 @@ export default function explosion(div1, div2) {
     }
 
     function pushBalls(count = 1, x = origin.x, y = origin.y) {
-        for (let i = 0; i < count; i++) {
+        for (let i = 0; i < count; i += 1) {
             balls.push(new Ball(x, y));
         }
     }
@@ -68,7 +70,7 @@ export default function explosion(div1, div2) {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 
-        for (let i = 0; i < balls.length; i++) {
+        for (let i = 0; i < balls.length; i += 1) {
             const b = balls[i];
 
             if (b.r < 0) continue;
@@ -85,7 +87,7 @@ export default function explosion(div1, div2) {
     }
 
     function removeBall() {
-        for (let i = 0; i < balls.length; i++) {
+        for (let i = 0; i < balls.length; i += 1) {
             const b = balls[i];
             if (
                 b.x + b.r < 0 ||
@@ -100,7 +102,8 @@ export default function explosion(div1, div2) {
     }
 
     const timeOut = setInterval(() => {
-        pushBalls(randBetween(10, 20), origin.x + randBetween(-50, 50), origin.y + randBetween(-50, 50));
+        pushBalls(randBetween(10, 20), origin.x + randBetween(-50, 50), origin.y +
+        randBetween(-50, 50));
     }, 200);
 
     setTimeout(() => {

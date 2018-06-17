@@ -33,11 +33,11 @@ export default function showTaskSequence(param, player1, player2) {
             document.querySelector('.task-sequence').removeChild(document.querySelector('.grate-sequence'));
         }
 
-        const answerForm = +document.querySelector('.input-sequence').value;
+        const answerForm = document.querySelector('.input-sequence').value;
         const grate = document.createElement('div');
         if (answerForm.length === 0) {
             alert('Вы не ввели свое значение в форму!');
-        } else if (answerForm === num6) {
+        } else if (+answerForm === num6) {
             document.querySelector('.task-window-sequence').style.display = 'none';
             document.querySelector('.task-sequence').appendChild(grate);
             grate.classList.add('grate-sequence');

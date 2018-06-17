@@ -1,7 +1,9 @@
 import { makeSounds } from './utils';
 
 export default function fireballs(div1, div2) {
-    document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" /><canvas id=' + `${div2}` + '></canvas>';
+    document.querySelector(`${div1}`).innerHTML = '<img src="../Images/cloud.png" alt="" /><canvas id=' +
+                                                                                                       `${div2}`
+                                                                                                        + '></canvas>';
     document.querySelector(`${div1}`).style.display = 'block';
 
     const c = document.getElementById(`${div2}`);
@@ -15,13 +17,13 @@ export default function fireballs(div1, div2) {
     const dots = [];
     const origins = [
         {
-            x: width * 0.5 - spacing * 4,
+            x: (width * 0.5) - (spacing * 4),
             y: height * 0.15,
             color: '#ff0000',
             alpha: 1,
         },
         {
-            x: width * 0.5 - spacing * 2,
+            x: (width * 0.5) - (spacing * 2),
             y: height * 0.15,
             color: '#ffff00',
             alpha: 1,
@@ -33,13 +35,13 @@ export default function fireballs(div1, div2) {
             alpha: 1,
         },
         {
-            x: width * 0.5 + spacing * 2,
+            x: (width * 0.5) + (spacing * 2),
             y: height * 0.15,
             color: '#ff00ff',
             alpha: 1,
         },
         {
-            x: width * 0.5 + spacing * 4,
+            x: (width * 0.5) + (spacing * 4),
             y: height * 0.15,
             color: '#00a5ff',
             alpha: 1,
@@ -55,7 +57,7 @@ export default function fireballs(div1, div2) {
 
     function start() {
         clear();
-        for (let i = 0; i < origins.length; i++) {
+        for (let i = 0; i < origins.length; i += 1) {
             dots.push({
                 x: origins[i].x,
                 y: origins[i].y,
@@ -76,7 +78,7 @@ export default function fireballs(div1, div2) {
                 alpha: temp.alpha,
             });
         }
-        for (let i = origins.length; i < dots.length; i++) {
+        for (let i = origins.length; i < dots.length; i += 1) {
             dots[i].y += dotSpeed;
             dots[i].alpha -= alphaSpeed;
             if (dots[i].alpha < 0.01) { dots.splice(i, 1); }

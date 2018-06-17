@@ -34,8 +34,7 @@
 
 .close {
   margin-left: 800px;
-	/* text-align:right; */
-  font-size: 35px;
+	font-size: 35px;
 }
 
 .close:hover {
@@ -65,23 +64,3 @@
   -ms-transform: scale(1.4);
   transform: scale(1.4);  
 }
-
-/*.button-dialog {
-  position: absolute;
-  margin: 256px 0  0 74px;
-  width: 75px;
-  height: 48px;
-  background-color: yellow;
-  border-radius: 10px;
-  text-align: center;
-  font-family: Adigiana-2, sans-serif;
-  font-size: 16px;
-  -webkit-transition: background-color 0.7s ease-out 0.2s;
-  -moz-transition: background-color 0.7s ease-out 0.2s;
-  transition: background-color 0.7s ease-out 0.2s;
-}
-
-.button-dialog:hover {
-  background-color: #7D7D06;
-  cursor: pointer;  
-}*/

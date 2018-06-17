@@ -1,45 +1,18 @@
-* {
-	margin: 0;
-	padding: 0;
-  text-decoration: none;
- }
- 
- @font-face {
-  font-family: Adigiana-2; 
-  src: url(../Fonts/Adigiana-2.ttf); 
- }
-
-
-
- .task-vowels {
+.task-vowels {
   max-width:1266px;
 	height:668px;
 	margin:0 auto;
 	padding:45px 80px 50px;
-  /*margin: -580px 0 0 310px; */
   display: none;
-  /*width: 700px;
-  height: 500px;*/
-  
-  /*border-radius: 10px;
-  border: 10px solid red;*/
-  	background-size: cover;
+  background-size: cover;
 	background-repeat: no-repeat;
-
   background-position: bottom center;
 	border:solid red 4px;
 	border-radius:20px;
 	z-index:20;
   background-image: url("../Images/fone-vowels.jpg");
-  
- } 
+} 
 
- /* .animal-picture img {
-   width: 300px;
-   height: 200px;
-   border-radius: 20px;
-   border: 3px solid chartreuse;
- } */
 .greeting-vowels {
   width: 800px;
   margin: 28px auto 20px;
@@ -53,58 +26,28 @@
   text-shadow: 1px 1px 2px black;
 }
 
-
 .forma-vowels {
   text-align: center;
   margin: 0 auto;
   width: 700px;
-  /* display: inline-block; */
   font-family: Adigiana-2, sans-serif;
   font-size: 84px;
   color: rgb(245, 241, 12);
   text-shadow: 1px 1px 2px black;
 }
+
 .input-vowels {
-  /* text-align: center; */
   display: inline-block;
   width: 100px;
   height: 40px;
   font-size: 30px;
   border-radius: 5px;
-  /* width: 320px;
-  margin: 40px 0 0 180px; */
 } 
 
-/* .picture-count img { 
-  display: inline-block;
-  font-size: 60px;
-  font-family: Adigiana-2, sans-serif;
-  margin: 0 10px; 
- 
- 
-} */
 .answer-vowels {
   text-align: center;
   margin-top: 25px;
 }
-/* .picture-sequence div {
-  display: inline-block;
-} */
-/* .equally {
-  color: black;
-}
-.result {
-  position:relative;
-  margin: -56px 0 0 320px;
-} */
-
-/* .input-picture {
-  width: 300px;
-  height: 40px;
-  font-size: 30px;
-  border-radius: 5px;
-  
-} */
 
 .button-vowels {
   background-color: #0FB5B7;

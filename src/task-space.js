@@ -15,11 +15,11 @@ export default function showTaskSpace(param, player1, player2) {
             document.querySelector('.task-space').removeChild(document.querySelector('.grate-space'));
         }
 
-        const answerForm = +document.querySelector('.input-space').value;
+        const answerForm = document.querySelector('.input-space').value;
         const grate = document.createElement('div');
         if (answerForm.length === 0) {
             alert('Вы не ввели свое значение в форму!');
-        } else if (answerForm === (num1 * num2)) {
+        } else if (+answerForm === (num1 * num2)) {
             document.querySelector('.task-window-space').style.display = 'none';
             document.querySelector('.task-space').appendChild(grate);
             grate.classList.add('grate-space');

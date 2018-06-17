@@ -53,10 +53,10 @@ export default function showTask(param, player1, player2) {
             document.querySelector('.task').removeChild(document.querySelector('.grate'));
         }
         const grate = document.createElement('div');
-        const resultForm = +document.querySelector('#input').value;
+        const resultForm = document.querySelector('#input').value;
         if (resultForm.length === 0) {
             alert('Вы не ввели свое решение в форму!');
-        } else if (resultForm !== result) {
+        } else if (+resultForm !== result) {
             document.querySelector('.task-window').style.display = 'none';
             document.querySelector('.task').appendChild(grate);
             grate.classList.add('grate');
@@ -69,7 +69,7 @@ export default function showTask(param, player1, player2) {
                 makeMagic(param, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
                 makeTurn(param, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');
             }, 1000);
-        } else if (resultForm === result) {
+        } else if (+resultForm === result) {
             document.querySelector('.task-window').style.display = 'none';
             document.querySelector('.task').appendChild(grate);
             grate.classList.add('grate');

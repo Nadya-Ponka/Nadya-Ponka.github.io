@@ -1,34 +1,17 @@
-* {
-	margin: 0;
-	padding: 0;
-  text-decoration: none;
- }
- 
- @font-face {
-  font-family: Adigiana-2; 
-  src: url(../Fonts/Adigiana-2.ttf); 
- }
-
- .task {
+.task {
  	max-width:1266px;
 	height:668px;
 	margin:0 auto;
 	padding:45px 80px 50px;
-  /*margin: -580px 0 0 310px; */
   display: none;
-  /*width: 700px;
-  height: 500px;*/
   background-image: url("../Images/Fone-math.jpg");
-  /*border-radius: 10px;
-  border: 10px solid red;*/
-  	background-size: cover;
+ 	background-size: cover;
 	background-repeat: no-repeat;
-
   background-position: bottom center;
 	border:solid red 4px;
 	border-radius:20px;
 	z-index:20;
- }
+}
  
 .greeting {
   width: 800px;
@@ -46,16 +29,14 @@
 .math {
   width: 320px;
   margin: 40px 0 0 300px;
-
-
 }
+
 .argument-one, .operator, .argument-two, .equally {
-  /* display: inline-block; */
   font-size: 60px;
   font-family: Adigiana-2, sans-serif;
   margin: 0 10px;
-  /* text-align: center; */
 }
+
 .argument-one {
   color: yellow;
   text-shadow: 1px 1px 2px black;
@@ -65,6 +46,7 @@
   color: red;
   text-shadow: 1px 1px 2px black;
 }
+
 .argument-two {
   color: blue;
   text-shadow: 1px 1px 2px black;
@@ -74,6 +56,7 @@
   color: black;
   text-shadow: 1px 1px 2px black;
 }
+
 .result {
   position:relative;
   margin: -56px 0 0 285px;

@@ -1,36 +1,18 @@
-* {
-	margin: 0;
-	padding: 0;
-  text-decoration: none;
- }
- 
- @font-face {
-  font-family: Adigiana-2; 
-  src: url(../Fonts/Adigiana-2.ttf); 
- }
-
- .task-audio {
+.task-audio {
   max-width:1266px;
 	height:668px;
 	margin:0 auto;
 	padding:45px 80px 50px;
-  /*margin: -580px 0 0 310px; */
   display: none;
-  /*width: 700px;
-  height: 500px;*/
-  
-  /*border-radius: 10px;
-  border: 10px solid red;*/
-  	background-size: cover;
+  background-size: cover;
 	background-repeat: no-repeat;
-
   background-position: bottom center;
 	border:solid red 4px;
 	border-radius:20px;
 	z-index:20;
   background-image: url("../Images/fone-audio.jpg");
-  
- } 
+} 
+
 .audio p {
   background-color: red;
   width: 160px;
@@ -46,12 +28,7 @@
   cursor: pointer;
   background: orange;
 }
- /* .animal-picture img {
-   width: 300px;
-   height: 200px;
-   border-radius: 20px;
-   border: 3px solid chartreuse;
- } */
+ 
 .greeting-audio {
   width: 800px;
   margin: 85px auto 20px;
@@ -73,20 +50,7 @@
 }
 .answer-audio {
   display: inline-block;
-  /* width: 320px;
-  margin: 40px 0 0 180px; */
-
-
 }
-
-
-/* .equally {
-  color: black;
-}
-.result {
-  position:relative;
-  margin: -56px 0 0 320px;
-} */
 
 .input-audio {
   margin-top: 30px;
@@ -94,7 +58,6 @@
   height: 40px;
   font-size: 30px;
   border-radius: 5px;
-  
 }
 
 .button-audio {

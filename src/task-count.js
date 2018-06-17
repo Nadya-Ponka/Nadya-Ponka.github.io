@@ -18,11 +18,11 @@ export default function showTaskCount(param, player1, player2) {
             document.querySelector('.task-count').removeChild(document.querySelector('.grate-count'));
         }
 
-        const answerForm = +document.querySelector('.input-count').value;
+        const answerForm = document.querySelector('.input-count').value;
         const grate = document.createElement('div');
         if (answerForm.length === 0) {
             alert('Вы не ввели свой перевод в форму!');
-        } else if (answerForm === count) {
+        } else if (+answerForm === count) {
             document.querySelector('.task-window-count').style.display = 'none';
             document.querySelector('.task-count').appendChild(grate);
             grate.classList.add('grate-count');

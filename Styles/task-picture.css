@@ -1,43 +1,25 @@
-* {
-	margin: 0;
-	padding: 0;
-  text-decoration: none;
- }
- 
- @font-face {
-  font-family: Adigiana-2; 
-  src: url(../Fonts/Adigiana-2.ttf); 
- }
-
- .task-picture {
+.task-picture {
   max-width:1266px;
 	height:668px;
 	margin:0 auto;
 	padding:45px 80px 50px;
-  /*margin: -580px 0 0 310px; */
   display: none;
-  /*width: 700px;
-  height: 500px;*/
-  
-  /*border-radius: 10px;
-  border: 10px solid red;*/
-  	background-size: cover;
+  background-size: cover;
 	background-repeat: no-repeat;
-
   background-position: bottom center;
 	border:solid red 4px;
 	border-radius:20px;
 	z-index:20;
   background-image: url("../Images/fone-picture.jpg");
-  
- } 
+} 
 
- .animal-picture img {
-   width: 300px;
-   height: 200px;
-   border-radius: 20px;
-   border: 3px solid chartreuse;
- }
+.animal-picture img {
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  border: 3px solid chartreuse;
+}
+
 .greeting-picture {
   width: 800px;
   margin: 28px auto 20px;
@@ -54,39 +36,26 @@
 .forma-picture p {
   display: inline-block;
 }
+
 .forma-picture {
   text-align: center;
 }
+
 .answer-picture {
   display: inline-block;
-  /* width: 320px;
-  margin: 40px 0 0 180px; */
-
-
 }
+
 .animal-picture {
-  /* display: inline-block; */
   font-size: 60px;
   font-family: Adigiana-2, sans-serif;
   margin: 0 10px;
- 
- 
 }
-
-/* .equally {
-  color: black;
-}
-.result {
-  position:relative;
-  margin: -56px 0 0 320px;
-} */
 
 .input-picture {
   width: 300px;
   height: 40px;
   font-size: 30px;
   border-radius: 5px;
-  
 }
 
 .button-picture {

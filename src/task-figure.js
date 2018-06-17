@@ -14,11 +14,11 @@ export default function showTaskFigure(param, player1, player2) {
         if (document.querySelector('.grate-figure')) {
             document.querySelector('.task-figure').removeChild(document.querySelector('.grate-figure'));
         }
-        const answerForm = +document.querySelector('.input-figure').value;
+        const answerForm = document.querySelector('.input-figure').value;
         const grate = document.createElement('div');
         if (answerForm.length === 0) {
             alert('Вы не ввели свое значение в форму!');
-        } else if (answerForm === countAngles[num]) {
+        } else if (+answerForm === countAngles[num]) {
             document.querySelector('.task-window-figure').style.display = 'none';
             document.querySelector('.task-figure').appendChild(grate);
             grate.classList.add('grate-figure');
