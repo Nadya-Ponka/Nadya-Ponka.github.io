@@ -1,4 +1,2 @@
-node_modules/
 .vscode/
-.eslintrc
-webpack.config.js
+node_modules/

@@ -6,7 +6,6 @@ export default function fire(div1, div2) {
                                                                '></canvas>';
     document.querySelector(`${div1}`).style.display = 'block';
 
-
     const canvas = document.getElementById(`${div2}`);
     const ctx = canvas.getContext('2d');
     const ParticleSystem = function (opts) {
