@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Hacktrain by Nadya Ponkratova</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="Styles/main.css" type="text/css">
+  <link rel="shortcut icon" href="Images/favicon.png" type="image/png">
+</head>
+
+<body>
+  <header></header>
+
+  <main>
+
+    <section class="first-screen">
+      <section class="info">
+        <div class="logotype">
+          <a href="https://imaguru.by" target="_blank">
+            <img src="Images/Imaguru.png" alt="Imaguru-logotype" />
+          </a>
+        </div>
+        <div>
+          <h1>Imaguru Hackathon on Train
+            <br />
+          </h1>
+          <h2>[ Minsk - Riga ]
+            <span>&#8226;</span> [ August 30 - September 1, 2018 ]
+          </h2>
+          <button class="buttonStart">Register</button>
+        </div>
+        <div class="logotype logo">
+          <a href="http://www.liaa.gov.lv/en" target="_blank">
+            <img src="Images/LIAA.jpg" alt="LIAA-logotype" />
+          </a>
+        </div>
+        <div class="logotype"></div>
+        <div class="train">
+          <img class="spinner" src="Images/train.png" alt="Minsk-Riga landscape" />
+        </div>
+        <div class="logotype"></div>
+      </section>
+
+      <section class="landscape">
+        <div>
+          <img src="Images/kollage.png" alt="Minsk-Riga landscape" />
+        </div>
+
+        <div id="wrapper">
+          <svg id="sky">
+
+          </svg>
+          <svg id="clouds" viewBox="0 0 1500 300" preserveAspectRatio="xMidYMid meet">
+
+          </svg>
+          <svg id="trees" viewBox="0 0 1500 300" preserveAspectRatio="xMidYMax meet">
+            <defs>
+              <g id="tree">
+                <polygon id="leftLeaf" stroke-linejoin="round" points="0,250 50,0 50,250" />
+                <polygon id="rightLeaf" stroke-linejoin="round" points="50,250 50,0 100,250" />
+                <line id="trunk" x1="50" y1="250" x2="50" y2="300" />
+              </g>
+              <g id="roundTree">
+                <clipPath id="rightLeafOff">
+                  <rect x="-50" y="0" width="100" height="250" />
+                </clipPath>
+                <circle id="rightLeaf" cx="50" cy="150" r="100" />
+                <circle id="leftLeaf" cx="50" cy="150" r="100" clip-path="url(#rightLeafOff)" />
+                <line id="trunk" x1="50" y1="250" x2="50" y2="300" />
+              </g>
+              <g id="treesRow">
+                <use xlink:href="#tree" id="tree1" />
+                <use xlink:href="#tree" id="tree3" />
+                <use xlink:href="#tree" id="tree2" />
+                <use xlink:href="#roundTree" id="tree4" />
+                <use xlink:href="#tree" id="tree5" />
+                <use xlink:href="#tree" id="tree6" />
+                <use xlink:href="#roundTree" id="tree7" />
+              </g>
+            </defs>
+            <use xlink:href="#treesRow" id="firstTrees" />
+            <use xlink:href="#treesRow" id="secondTrees" />
+            <use xlink:href="#treesRow" id="thirdTrees" />
+            <use xlink:href="#treesRow" id="fourTrees" />
+          </svg>
+          <svg id="grass"></svg>
+          <svg id="ground"></svg>
+          <svg id="water"></svg>
+        </div>
+      </section>
+    </section>
+
+    <section class="about">
+      <div class="logo-for-small-screen">
+        <a href="https://imaguru.by" target="_blank">
+          <img src="Images/Imaguru.png" alt="Imaguru-logotype" />
+        </a>
+        <a href="http://www.liaa.gov.lv/en" target="_blank">
+          <img src="Images/LIAA.jpg" alt="LIAA-logotype" />
+        </a>
+      </div>
+
+      <h3>For the first time in Belarus.
+        <br /> Starting at Imaguru on August 30th, continuing on a train in Riga, finishing after our arrival in Riga and ending
+        at ///.
+        <br />The now legendary Hackatrain attracts developers, designers and entrepreneurs from all over the world, all hoping
+        to strike it big, hackathon-style. This isn’t your typical hackathon. Say goodbye to boring venues and hello to travelling
+        around with more than 50 fellow hackers competing across mobility challenges.
+        <br />Are you ready for Hackathon on Train Minsk-Riga?
+      </h3>
+
+      <article>
+        <div class="in-article">
+          <h3>Aug 30</h3>
+          <p>17:00 - 17:30 Registration
+            <br /> 18:00 - 18:30 Opening Ceremony
+            <br /> 18:30 - 20:00 Pitching in Minsk / Hackathon Starts</p>
+
+          <h3>Aug 31</h3>
+          <p>09:00 - 11:00 Breakfast / Check-point
+            <br /> 11:00 Mentoring Session
+            <br /> 13:00 - 14:00 Lunch
+            <br /> 14:00 Mentoring Session
+            <br /> 18:00 - Dinner / Departure for train
+            <br /> 20:15 - Train departures
+            <br /> 20:15 - … Hacking</p>
+
+          <h3>Sept 1</h3>
+          <p>08:00 - Train Arrives to Riga
+            <br /> 09:00 - 11:00 Breakfast / Check-point
+            <br /> 11:00 Mentoring Session
+            <br /> 13:00 - 14:00 Lunch
+            <br /> 14:00 - 18:00 Final Preparation
+            <br /> 18:00 - 19:30 Final Stage
+            <br /> 19:30 - 21:00 Award Ceremony. Party</p>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h3>Meet the team</h3>
+      <div class="meet-the-team">
+        <figure>
+          <figcaption>
+            <span>Hoof</span> - Lead Designer</figcaption>
+          <img src="Images/icon-person-8.jpg" />
+          <p class="Small-text">Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof -
+            Lead Designer </p>
+        </figure>
+
+        <figure>
+          <figcaption>
+            <span>Nibs</span> - CEO/Director</figcaption>
+          <img src="Images/icon-person-8.jpg" />
+          <p class="Small-text">Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof -
+            Lead Designer </p>
+        </figure>
+
+        <figure>
+          <figcaption>
+            <span>Squawk</span> - Developer</figcaption>
+          <img src="Images/icon-person-8.jpg" />
+          <p class="Small-text">Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof -
+            Lead Designer </p>
+        </figure>
+
+        <figure>
+          <figcaption>
+            <span>Squawk</span> - Developer</figcaption>
+          <img src="Images/icon-person-8.jpg" />
+          <p class="Small-text">Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof - Lead Designer Hoof -
+            Lead Designer </p>
+        </figure>
+      </div>
+    </section>
+    
+    <h3>Our photos</h3>
+
+    <section class="photos">
+        <img src="Images/IMG_2090.jpg" alt="Imaguru-photos" />
+        <img src="Images/IMG_2093.jpg" alt="Imaguru-photos" />
+        <img src="Images/IMG_2091.jpg" alt="Imaguru-photos" />
+        <img src="Images/IMG_2096.jpg" alt="Imaguru-photos" />
+        <img src="Images/IMG_2097.jpg" alt="Imaguru-photos" />
+        <img src="Images/IMG_2098.jpg" alt="Imaguru-photos" />
+        <img src="Images/IMG_2100.jpg" alt="Imaguru-photos" />
+        <img src="Images/IMG_2157.jpg" alt="Imaguru-photos" />
+      </section>
+
+      <h4><b>How do I get my train ticket?</b><br />
+          The check-in for participants will be organized at Restaurant 1e Klas, located at platform 2B, Amsterdam Central Station.
+          <br /><br /><hr><br />
+          <b>From where is the Hackatrain departing?</b><br />
+          The check-in for participants will be organized at Restaurant 1e Klas, located at platform 2B, Amsterdam Central Station.
+          <br /><br /><hr><br />
+          <b> What time is the Hackatrain departing?</b><br />
+          The check-in for participants will be organized at Restaurant 1e Klas, located at platform 2B, Amsterdam Central Station.
+          <br /><br /><hr><br />
+          <b> What about the return trip?</b><br />
+          The check-in for participants will be organized at Restaurant 1e Klas, located at platform 2B, Amsterdam Central Station.<br /></h4>
+  </main>
+
+  <!--<embed src="./sound/muzyka.mp3" autostart="true" hidden="true" loop="true"></embed>-->
+  <embed src="./sound/Positive.mp3" autostart="true" hidden="true" loop="true"></embed>
+  <script>
+    let spin = document.querySelector('.spinner');
+    setTimeout(() => {
+      spin.style.animation = 'spin 4s linear infinite';
+    }, 6000);
+  </script>
+</body>
+
+</html>

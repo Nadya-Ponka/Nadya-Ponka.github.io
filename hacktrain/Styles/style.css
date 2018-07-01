@@ -1,0 +1,248 @@
+@font-face {
+	font-family: "YesevaOne";
+	src: url('../Fonts/yesevaone-regular_v2-webfont.woff2') format('woff2'), url('../Fonts/yesevaone-regular_v2-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "OpenSans";
+	src: url('../Fonts/OpenSans-Regular.ttf') format('truetype'), url('../Fonts/OpenSans-bold.ttf') format('truetype'), url('../Fonts/OpenSans-Italic.ttf') format('truetype'), url('../Fonts/opensans-bold-webfont.woff2') format('woff2'), url('../Fonts/opensans-bold-webfont.woff') format('woff'), url('../Fonts/opensans-italic-webfont.woff2') format('woff2'), url('../Fonts/opensans-italic-webfont.woff') format('woff'), url('../Fonts/opensans-regular-webfont.woff2') format('woff2'), url('../Fonts/opensans-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	margin: 0;
+}
+
+html {
+	height: 100%;
+}
+
+html:after {
+	background: radial-gradient(circle at 100% 150%, limegreen 24%, #2ebb2e 25%, #2ebb2e 28%, limegreen 29%, limegreen 36%, #2ebb2e 36%, #2ebb2e 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, limegreen 24%, #2ebb2e 25%, #2ebb2e 28%, limegreen 29%, limegreen 36%, #2ebb2e 36%, #2ebb2e 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, #2ebb2e 10%, limegreen 11%, limegreen 23%, #2ebb2e 24%, #2ebb2e 30%, limegreen 31%, limegreen 43%, #2ebb2e 44%, #2ebb2e 50%, limegreen 51%, limegreen 63%, #2ebb2e 64%, #2ebb2e 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, #2ebb2e 5%, limegreen 6%, limegreen 15%, #2ebb2e 16%, #2ebb2e 20%, limegreen 21%, limegreen 30%, #2ebb2e 31%, #2ebb2e 35%, limegreen 36%, limegreen 45%, #2ebb2e 46%, #2ebb2e 49%, transparent 50%, transparent), radial-gradient(circle at 0 50%, #2ebb2e 5%, limegreen 6%, limegreen 15%, #2ebb2e 16%, #2ebb2e 20%, limegreen 21%, limegreen 30%, #2ebb2e 31%, #2ebb2e 35%, limegreen 36%, limegreen 45%, #2ebb2e 46%, #2ebb2e 49%, transparent 50%, transparent);
+	background-size: 100px 50px;
+	background-color: limegreen;
+	content: "";
+	opacity: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+body,
+main {
+	margin: 0 auto;
+	height: 100%;
+}
+
+.first-screen {
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 100%;
+}
+
+.info {
+	display: grid;
+	grid-template-columns: 1fr 700px 1fr;
+	grid-template-rows: max-content 400px;
+	padding: 20px;
+	justify-content: center;
+	align-content: center;
+	margin: 0;
+}
+
+.logo {
+	text-align: right;
+}
+
+.logo-for-small-screen {
+	display: none;
+}
+
+.info a {
+	margin-right: 20px;
+	margin: 10px;
+}
+
+h1,
+h2 {
+	margin-top: 10px;
+	font-family: "YesevaOne", serif;
+	font-weight: 300;
+	text-align: center;
+	font-size: 40px;
+	line-height: 1;
+	color: white;
+	text-shadow: 1px 1px 2px black, 0 0 1em rgb(0, 68, 0);
+}
+
+h2 {
+	font-size: 27px;
+	line-height: 1.4;
+}
+
+h2 span {
+	color: red;
+	font-weight: 900;
+}
+
+h2 {
+	font-size: 27px;
+}
+
+h3, h4 {
+	font-family: "OpenSans", sans-serif;
+	font-size: 25px;
+	text-align: center;
+	font-weight: normal;
+	margin: 10px 75px;
+}
+
+h4 {
+	font-size: 20px;
+}
+.buttonStart {
+	display: block;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 10px;
+	width: 200px;
+	height: 80px;
+	line-height: 50px;
+	font-size: 1.5em;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px rgba(255, 255, 255, .2), 0 -1px rgba(0, 0, 0, .8);
+	outline: none;
+	border: none;
+	border-radius: 100px;
+	background: red radial-gradient(150% 100% at 50% 5px, rgba(255, 255, 255, .2), rgba(0, 0, 0, 0));
+	box-shadow: inset rgba(0, 0, 0, .6) 0 -2px 5px, inset rgba(252, 255, 255, .7) 0 2px 5px, rgba(0, 0, 0, .8) 0 2px 5px -1px;
+	color: #fff;
+	user-select: none;
+	text-transform: uppercase;
+	justify-self: center;
+}
+
+.buttonStart:hover {
+	color: rgb(0, 59, 66);
+	cursor: pointer;
+}
+
+.buttonStart:active {
+	padding-bottom: 1px;
+	box-shadow: inset rgba(0, 0, 0, 1) 0 1px 3px, inset rgba(0, 0, 0, .6) 0 -2px 5px, inset rgba(252, 255, 255, .7) 0 2px 5px, 0 1px rgba(255, 255, 255, .08);
+	color: rgb(128, 207, 214);
+}
+
+.train {
+	display: grid;
+	align-content: center;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+.train img {
+	max-width: 400px;
+	/*-webkit-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;*/
+}
+
+@-webkit-keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+.landscape {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+.landscape img {
+	width: 100%;
+	position: absolute;
+	bottom: 10%;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	bottom: 0;
+	width: 100%;
+	background-color: #000;
+	color: #2ebb2e;
+	align-items: start;
+	justify-content: space-around;
+}
+
+.about {
+	box-sizing: border-box;
+	padding-top: 30px;
+}
+
+.meet-the-team {
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 20px;
+	padding: 0 20px;
+}
+
+figure {
+	/*font-family: "Calibri";*/
+	font-family: "OpenSans", sans-serif;
+	text-align: center;
+	box-sizing: border-box;
+	font-size: 22px;
+}
+
+figure figcaption {
+	color: red;
+	margin: 20px 0 28px 0;
+	text-align: center;
+}
+
+figure figcaption span {
+	color: black;
+}
+
+figure img {
+	max-width: 100%;
+}
+
+.Small-text {
+	width: 60%;
+	margin: 14px auto;
+	font-size: 15px;
+	font-family: "Calibri";
+	text-align: left;
+	line-height: 1.5;
+	padding-bottom: 25px;
+}
+
+.photos {
+	padding:20px;
+	display:grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 20px;
+
+}
+
+.photos img {width: 100%;}

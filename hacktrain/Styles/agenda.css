@@ -1,0 +1,35 @@
+article {
+    box-sizing: border-box;
+    background-color: #2ecc71;
+    text-align: center;
+    margin:50px 0;
+}
+
+.in-article {
+    max-width:480px;
+    margin:0 auto;
+    padding:20px;
+    display:grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 20px;
+}
+
+article p {
+    font-size:16px;
+    font-family: "OpenSans", sans-serif;
+    font-weight: 600;
+    text-align: left;
+}
+
+article h4 {
+	position:relative;
+	padding: 0 5px;
+}
+
+article h3 {
+    margin:0;
+    font-weight: 700;
+    color:white;
+}
+
