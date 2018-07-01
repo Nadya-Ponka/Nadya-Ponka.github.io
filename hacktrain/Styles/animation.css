@@ -1,8 +1,3 @@
-/*
-  * Trees
-  * ----
-  */
- 
   #wrapper {
 	width: 100%;
 	height: 100%;
@@ -27,16 +22,17 @@
 	  #trunk { stroke: #8F6F40; stroke-width: 20px; }
   
 	  /* Specific */
-	  #tree1 { -webkit-transform: translateX(0px); transform: translateX(0px); }
-	  #tree2 { -webkit-transform: translateX(50px); transform: translateX(50px); }
-	  #tree3 { -webkit-transform: translateX(100px); transform: translateX(100px); }
-	  #tree4 { -webkit-transform: translateX(700px); transform: translateX(700px); }
-	  #tree5 { -webkit-transform: translateX(1100px); transform: translateX(1100px); }
-	  #tree6 { -webkit-transform: translateX(1200px); transform: translateX(1200px); }
-	  #tree7 { -webkit-transform: translateX(1400px); transform: translateX(1400px); }
+	  #tree1 { -webkit-transform: translateX(0px); -moz-transform: translateX(0px); transform: translateX(0px); }
+	  #tree2 { -webkit-transform: translateX(50px); -moz-transform: translateX(50px); transform: translateX(50px); }
+	  #tree3 { -webkit-transform: translateX(100px); -moz-transform: translateX(100px); transform: translateX(100px); }
+	  #tree4 { -webkit-transform: translateX(700px); -moz-transform: translateX(700px); transform: translateX(700px); }
+	  #tree5 { -webkit-transform: translateX(1100px); -moz-transform: translateX(1100px); transform: translateX(1100px); }
+	  #tree6 { -webkit-transform: translateX(1200px); -moz-transform: translateX(1200px); transform: translateX(1200px); }
+	  #tree7 { -webkit-transform: translateX(1400px); -moz-transform: translateX(1400px); transform: translateX(1400px); }
   
 	  #firstTrees {
 		-webkit-animation: first-trees-moving 12s linear 0s infinite both;
+		-moz-animation: first-trees-moving 12s linear 0s infinite both;
 				animation: first-trees-moving 12s linear 0s infinite both;
 	  }
   
@@ -45,6 +41,11 @@
 		to { -webkit-transform: translateX(-2500px); transform: translateX(-2500px); };
 	  }
   
+      @-moz-keyframes first-trees-moving {
+		from { -moz-transform: translateX(2500px); transform: translateX(2500px); }
+		to { -moz-transform: translateX(-2500px); transform: translateX(-2500px); };
+	  }
+
 	  @keyframes first-trees-moving {
 		from { -webkit-transform: translateX(2500px); transform: translateX(2500px); }
 		to { -webkit-transform: translateX(-2500px); transform: translateX(-2500px); };
@@ -52,12 +53,19 @@
   
 	  #secondTrees {
 		-webkit-animation: second-trees-showing 12s linear 0.5s 1 both, 
+                   second-trees-moving 12s linear 1s infinite both;
+        -moz-animation: second-trees-showing 12s linear 0.5s 1 both, 
 				   second-trees-moving 12s linear 1s infinite both;
 				animation: second-trees-showing 12s linear 0.5s 1 both, 
 				   second-trees-moving 12s linear 1s infinite both;
 	  }
   
 	  @-webkit-keyframes second-trees-showing {
+		from, 99% { opacity: 0; }
+		to { opacity: 1; };
+      }
+      
+      @-moz-keyframes second-trees-showing {
 		from, 99% { opacity: 0; }
 		to { opacity: 1; };
 	  }
@@ -72,6 +80,11 @@
 		to { -webkit-transform: translateX(-2500px); transform: translateX(-2500px); };
 	  }
   
+      @-moz-keyframes second-trees-moving {
+		from { -moz-transform: translateX(2500px); transform: translateX(2500px); }
+		to { -moz-transform: translateX(-2500px); transform: translateX(-2500px); };
+	  }
+
 	  @keyframes second-trees-moving {
 		from { -webkit-transform: translateX(2500px); transform: translateX(2500px); }
 		to { -webkit-transform: translateX(-2500px); transform: translateX(-2500px); };
@@ -79,6 +92,8 @@
   
 	  #thirdTrees {
 		-webkit-animation: third-trees-showing 12s linear 1s 1 both, 
+		third-trees-moving 12s linear 4.5s infinite both;
+		-moz-animation: third-trees-showing 12s linear 1s 1 both, 
 		third-trees-moving 12s linear 4.5s infinite both;
 				animation: third-trees-showing 12s linear 4s 1 both, 
 				third-trees-moving 12s linear 4.5s infinite both;
@@ -88,7 +103,12 @@
 		from, 99% { opacity: 0; }
 		to { opacity: 1; };
 	  }
-  
+
+      @-moz-keyframes third-trees-showing {
+		from, 99% { opacity: 0; }
+		to { opacity: 1; };
+	  }
+
 	  @keyframes third-trees-showing {
 		from, 99% { opacity: 0; }
 		to { opacity: 1; };
@@ -99,6 +119,11 @@
 		to { -webkit-transform: translateX(-2500px); transform: translateX(-2500px); };
 	  }
   
+      @-moz-keyframes third-trees-moving {
+		from { -moz-transform: translateX(2500px); transform: translateX(2500px); }
+		to { -moz-transform: translateX(-2500px); transform: translateX(-2500px); };
+	  }
+
 	  @keyframes third-trees-moving {
 		from { -webkit-transform: translateX(2500px); transform: translateX(2500px); }
 		to { -webkit-transform: translateX(-2500px); transform: translateX(-2500px); };
@@ -106,6 +131,8 @@
 
 	  #fourTrees {
 		-webkit-animation: four-trees-showing 12s linear 0s 1 both, 
+		four-trees-moving 12s linear 1s infinite both;
+		-moz-animation: four-trees-showing 12s linear 0s 1 both, 
 		four-trees-moving 12s linear 1s infinite both;
 				animation: four-trees-showing 12s linear 0s 1 both, 
 				four-trees-moving 12s linear 1s infinite both;
@@ -116,6 +143,11 @@
 		to { opacity: 1; };
 	  }
   
+      @-moz-keyframes four-trees-showing {
+		from, 99% { opacity: 0; }
+		to { opacity: 1; };
+	  }
+
 	  @keyframes four-trees-showing {
 		from, 99% { opacity: 0; }
 		to { opacity: 1; };
@@ -126,6 +158,11 @@
 		to { -webkit-transform: translateX(-2500px); transform: translateX(-2500px); };
 	  }
   
+      @-moz-keyframes four-trees-moving {
+		from { -moz-transform: translateX(2500px); transform: translateX(2500px); }
+		to { -moz-transform: translateX(-2500px); transform: translateX(-2500px); };
+	  }
+
 	  @keyframes four-trees-moving {
 		from { -webkit-transform: translateX(2500px); transform: translateX(2500px); }
 		to { -webkit-transform: translateX(-2500px); transform: translateX(-2500px); };

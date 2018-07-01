@@ -22,14 +22,8 @@ article p {
     text-align: left;
 }
 
-article h4 {
-	position:relative;
-	padding: 0 5px;
-}
-
 article h3 {
     margin:0;
     font-weight: 700;
     color:white;
 }
-

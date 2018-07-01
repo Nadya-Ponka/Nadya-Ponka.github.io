@@ -12,9 +12,8 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-
     .logo-for-small-screen {
-        display:grid;
+        display: grid;
         grid-template-columns: 50% 50%;
         justify-items: center;
         margin-bottom: 20px;
@@ -26,24 +25,20 @@
     article {
         padding: 20px;
     }
-   
     .info {
         grid-template-columns: auto;
     }
-
     .photos {
         grid-template-columns: repeat(3, 1fr);
     }
-
     h2 {
         font-size: .8em;
     }
-
     h3 {
         font-size: 1em;
     }
     .buttonStart {
-    	width: 140px;
+        width: 140px;
         height: 50px;
         font-size: 0.8em;
     }
@@ -52,23 +47,14 @@
 @media screen and (max-width:560px) {
     .train img {
         width: 300px;
-        /*-webkit-animation:spin 4s linear infinite;
-        animation:spin 4s linear infinite;*/
     }
-
     .train {
-        align-content:start;
+        align-content: start;
     }
-
     .photos {
         grid-template-columns: repeat(2, 1fr);
     }
-
     .meet-the-team {
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: 30px;
         padding: 0 30px;
     }
 }
