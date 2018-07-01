@@ -34,6 +34,19 @@
     .photos {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    h2 {
+        font-size: .8em;
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+    .buttonStart {
+    	width: 120px;
+        height: 40px;
+        font-size: 0.7em;
+    }
 }
 
 @media screen and (max-width:560px) {
@@ -50,4 +63,5 @@
     .photos {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
