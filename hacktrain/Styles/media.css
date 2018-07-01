@@ -51,7 +51,7 @@
 
 @media screen and (max-width:560px) {
     .train img {
-        width: 350px;
+        width: 300px;
         /*-webkit-animation:spin 4s linear infinite;
         animation:spin 4s linear infinite;*/
     }
@@ -64,4 +64,11 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .meet-the-team {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 30px;
+        padding: 0 30px;
+    }
 }
