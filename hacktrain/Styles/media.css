@@ -43,15 +43,15 @@
         font-size: 1em;
     }
     .buttonStart {
-    	width: 120px;
-        height: 40px;
-        font-size: 0.7em;
+    	width: 140px;
+        height: 50px;
+        font-size: 0.8em;
     }
 }
 
 @media screen and (max-width:560px) {
     .train img {
-        width: 250px;
+        width: 350px;
         /*-webkit-animation:spin 4s linear infinite;
         animation:spin 4s linear infinite;*/
     }
