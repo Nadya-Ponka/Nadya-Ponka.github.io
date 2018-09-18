@@ -1,4 +1,4 @@
-.task {
+.task-arithmetic {
  	max-width:1266px;
 	height:668px;
 	margin:0 auto;
@@ -13,12 +13,12 @@
 	z-index:20;
 }
  
-.greeting {
+.greeting-arithmetic {
   width: 800px;
   margin: 120px auto 0;
 }
 
-.greeting p {
+.greeting-arithmetic p {
   text-align: center;
   font-family: Adigiana-2, sans-serif;
   font-size: 42px;
@@ -62,14 +62,14 @@
   margin: -56px 0 0 285px;
 }
 
-input {
+#input-arithmetic {
   width: 130px;
   height: 40px;
   font-size: 30px;
   border-radius: 5px;
 }
 
-.button {
+.button-arithmetic {
   background-color: #0FB5B7;
   width: 120px;
   height: 60px;
@@ -77,19 +77,19 @@ input {
   margin: 50px auto;
 }
 
-.button p {
+.button-arithmetic p {
   text-align: center;
   font-size: 25px;
   color:blue;
   font-family: Adigiana-2, sans-serif;
 }
 
-.button:hover {
+.button-arithmetic:hover {
   cursor: pointer;
   background: red;
 }
 
-.grate {
+.grate-arithmetic {
   width: 385px;
   height: 100px;
   background-color: yellowgreen;

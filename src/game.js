@@ -1,7 +1,7 @@
 import Person from './personClass';
 import showTask from './task-screen';
 import {
-    getRandomArbitrary,
+    randomInteger,
     drawLife,
     createNode,
 } from './utils';
@@ -41,7 +41,7 @@ export function Game() {
     drawLife('player', player.score);
     document.querySelector('#playerLife').style.width = `${`${player.score * 2.5}px`}`;
 
-    const monster = new Person(String(nameAdjectiveMonster[getRandomArbitrary(0, 2)] + ' ' + whichMonster[getRandomArbitrary(0, 2)] + ' ' + nameMonster[getRandomArbitrary(0, 2)]), level);
+    const monster = new Person(String(nameAdjectiveMonster[randomInteger(0, 2)] + ' ' + whichMonster[randomInteger(0, 2)] + ' ' + nameMonster[randomInteger(0, 2)]), level);
     drawLife('monster', monster.score);
     document.querySelector('#monsterLife').style.width = `${`${monster.score * 2.5}px`}`;
 
@@ -157,7 +157,7 @@ export function Game() {
 
         const mainMonster = document.createElement('div');
         mainMonster.className = 'monster';
-        buildPerson(mainMonster, getRandomArbitrary(2, 4), getRandomArbitrary(2, 4), getRandomArbitrary(2, 4));
+        buildPerson(mainMonster, randomInteger(2, 4), randomInteger(2, 4), randomInteger(2, 4));
 
         const movement = document.querySelectorAll('.head');
         personMove(movement, 25);

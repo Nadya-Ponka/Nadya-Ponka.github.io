@@ -1,0 +1,51 @@
+.buttonStart,
+.startGame,
+.startNewGame,
+.buttonRouter {
+	display: inline-block;
+	margin: 10%;
+	width: 200px;
+	height: 100px;
+	line-height: 50px;
+	font-size: 1.5em;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px rgba(255, 255, 255, .2), 0 -1px rgba(0, 0, 0, .8);
+	outline: none;
+	border: none;
+	border-radius: 100px;
+	background: rgb(28, 107, 114) radial-gradient(150% 100% at 50% 5px, rgba(255, 255, 255, .2), rgba(0, 0, 0, 0));
+	box-shadow: inset rgba(0, 0, 0, .6) 0 -2px 5px, inset rgba(252, 255, 255, .7) 0 2px 5px, rgba(0, 0, 0, .8) 0 2px 5px -1px;
+	color: #fff;
+	user-select: none;
+	text-transform: uppercase;
+}
+
+.startNewGame {
+	margin: 20px auto;
+}
+
+.buttonRouter {
+	width: 150px;
+	height: 75px;
+	margin: 20px;
+	font-family: sans-serif;
+	padding: 13px;
+}
+
+.buttonStart:hover,
+.startGame:hover,
+.startNewGame:hover,
+.buttonRouter:hover {
+	color: rgb(0, 59, 66);
+	cursor: pointer;
+}
+
+.buttonStart:active,
+.startGame:active,
+.startNewGame:active,
+.buttonRouter:active {
+	padding-bottom: 1px;
+	box-shadow: inset rgba(0, 0, 0, 1) 0 1px 3px, inset rgba(0, 0, 0, .6) 0 -2px 5px, inset rgba(252, 255, 255, .7) 0 2px 5px, 0 1px rgba(255, 255, 255, .08);
+	color: rgb(128, 207, 214);
+}

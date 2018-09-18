@@ -9,6 +9,6 @@ export default function health(div3, div4) {
             makeSounds('../sound/Music_Box.mp3');
             document.querySelector(`${div4}`).style.display = 'none';
         },
-        2000,
+        2500,
     );
 }

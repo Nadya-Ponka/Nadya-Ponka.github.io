@@ -1,0 +1,414 @@
+@font-face {
+	font-family: "YesevaOne";
+	src: url(98d7631cc9074947198582190507b268.otf) format('opentype'), url(ef9a27d11daa12a6b1f9eda275f2106e.woff2) format('woff2'), url(49ba4131358d30da7fdb784347fa7ab8.woff) format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@keyframes animate {
+	0% {
+		transform: rotate(0deg) translateY(0px);
+		opacity: 1;
+		filter: blur(1px);
+	}
+	100% {
+		transform: rotate(45deg) translateY(-600px);
+		opacity: 0;
+		filter: blur(20px);
+	}
+}
+
+.rotate {
+	transform: rotateY(180deg);
+}
+
+/*.iside .picked {
+	transform: rotateY(180deg);
+}*/
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: "YesevaOne", serif;
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+.wrapper {
+	width: 900px;
+	margin: 0 auto;
+	display: none;
+	background-color: #fff;
+	padding: 15px;
+	border-radius: 15px;
+	border: 14px solid paleturquoise;
+	height: 100%;
+}
+
+h1 {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-weight: 900;
+	font-size: 2em;
+	line-height: 1.2;
+	color: rgb(28, 107, 114);
+	clear: both;
+}
+
+.choose {
+	opacity: 0.6;
+}
+
+.active {
+	opacity: 1;
+}
+
+p {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+main {
+	opacity: 0.9;
+	background-size: 100%;
+}
+
+/*footer {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
+footer p {
+	color: rgb(28, 107, 114);
+}*/
+
+.flex-element {
+	margin: 5px;
+	text-align: center;
+	perspective: 500px;
+	position: relative;
+	z-index: 5;
+}
+
+.inside {
+	display: block;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+	transition: 1s transform;
+	width: 136px;
+	height: 200px;
+}
+
+.flex-element .front {
+	transform: rotateY(180deg);
+}
+
+.front,
+.back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.flex-container {
+	display: grid;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.flex-element img {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+/*.inside .matched .front img {
+	visibility: hidden;
+}
+
+.inside .matched .back img {
+	visibility: hidden;
+}*/
+
+.win {
+	display: none;
+	justify-items: center;
+	width: 800px;
+	height: 85%;
+	margin: 30px auto;
+	background-color: #fff;
+	padding: 15px;
+	border-radius: 15px;
+	border: 14px solid paleturquoise;
+}
+
+.win .winner {
+	font-size: 50px;
+	text-align: center;
+	font-family: "YesevaOne", serif;
+	font-weight: bold;
+	color: rgb(28, 107, 114);
+	line-height: 1.5;
+}
+
+.timer {
+	position: relative;
+	font-family: "Calibri";
+	text-align: center;
+	width: 200px;
+	margin: 20px auto;
+	background-color: grey;
+	padding: 10px 20px;
+	border-radius: 7px;
+	color: white;
+	font-size: 30px;
+	font-weight: 900;
+}
+.buttonStart,
+.startGame,
+.startNewGame,
+.buttonRouter {
+	display: inline-block;
+	margin: 10%;
+	width: 200px;
+	height: 100px;
+	line-height: 50px;
+	font-size: 1.5em;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px rgba(255, 255, 255, .2), 0 -1px rgba(0, 0, 0, .8);
+	outline: none;
+	border: none;
+	border-radius: 100px;
+	background: rgb(28, 107, 114) radial-gradient(150% 100% at 50% 5px, rgba(255, 255, 255, .2), rgba(0, 0, 0, 0));
+	box-shadow: inset rgba(0, 0, 0, .6) 0 -2px 5px, inset rgba(252, 255, 255, .7) 0 2px 5px, rgba(0, 0, 0, .8) 0 2px 5px -1px;
+	color: #fff;
+	user-select: none;
+	text-transform: uppercase;
+}
+
+.startNewGame {
+	margin: 20px auto;
+}
+
+.buttonRouter {
+	width: 150px;
+	height: 75px;
+	margin: 20px;
+	font-family: sans-serif;
+	padding: 13px;
+}
+
+.buttonStart:hover,
+.startGame:hover,
+.startNewGame:hover,
+.buttonRouter:hover {
+	color: rgb(0, 59, 66);
+	cursor: pointer;
+}
+
+.buttonStart:active,
+.startGame:active,
+.startNewGame:active,
+.buttonRouter:active {
+	padding-bottom: 1px;
+	box-shadow: inset rgba(0, 0, 0, 1) 0 1px 3px, inset rgba(0, 0, 0, .6) 0 -2px 5px, inset rgba(252, 255, 255, .7) 0 2px 5px, 0 1px rgba(255, 255, 255, .08);
+	color: rgb(128, 207, 214);
+}.greeting {
+	background-image: url(02c82234988c9237034ccfe08789f6de.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-attachment: fixed;
+	height: 100%;
+	width: auto;
+	position: relative;
+	min-height: 100%;
+	padding: 4% 15%;
+	display: block;
+}
+
+.rules {
+	max-width: 45%;
+	display: block;
+}
+
+.rules p {
+	font-size: 1.25em;
+	margin-left: 15%;
+	font-family: "YesevaOne", serif;
+	font-weight: bold;
+	color: rgb(28, 107, 114);
+	line-height: 1.5;
+}
+
+.title {
+	margin-bottom: 15%;
+}
+
+.introduction {
+	width: 450px;
+	display: none;
+}
+
+.introduction>ul {
+	padding-left: 0;
+}
+
+.form-fields {
+	justify-content: left;
+	color: rgb(28, 107, 114);
+}
+
+.form-fields input {
+	height: 35px;
+	width: 280px;
+	border-radius: 7px;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+.form-fields div {
+	text-align: left;
+}
+
+.difficulties {
+	color: rgb(28, 107, 114);
+}
+
+.difficulties label {
+	margin-right: 15px;
+}
+
+.difficulties input {
+	margin-right: 10px;
+	transform: scale(1.5);
+}
+
+li {
+	width: 28%;
+	float: left;
+	display: block;
+	margin: 5px;
+	cursor: pointer;
+}
+
+li img {
+	max-width: 100%;
+}
+
+.introduction>ul li img:hover {
+	opacity: 1;
+}
+
+.choose {
+	opacity: 0.6;
+}
+
+.active {
+	opacity: 1;
+}
+.playingField {
+	background-image: url(5e37474926172d6de7c1929fa191ac74.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-attachment: fixed;
+	width: 100%;
+	position: absolute;
+	min-height: 100%;
+	padding: 0 5%;
+	display: none;
+	left:0;
+}
+
+.cardsField {
+	align-content: space-around;
+	grid-template-columns: repeat(5, 20%);
+	justify-items: center;
+}
+
+.leaderBoard {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	display:block;
+}
+
+.leaderBoard-tabs {
+	padding-bottom: 10px;
+}
+
+.leaderBoard-tabs a {
+	font-family: "Calibri";
+	text-align: center;
+	width: 70px;
+	margin: 5px;
+	background-color: grey;
+	padding: 5px 10px;
+	border-radius: 7px;
+	color: white;
+	font-size: 16px;
+	font-weight: 900;
+	cursor: pointer;
+}
+
+.leaderBoard-tabs a:hover {
+	background-color: green;
+}
+
+.leaderBoard-results-table {
+	width: 100%;
+}
+
+table {
+	border: 0;
+}
+
+th,
+td {
+	border: 1px solid black;
+	padding: 0 10px;
+}
+
+th {
+	text-align: left;
+}
+
+table tr:nth-child(even) {
+	background-color: #eee;
+}
+
+table tr:nth-child(odd) {
+	background-color: #fff;
+}
+
+table th {
+	background-color: black;
+	color: white;
+}
+
+.table-name {
+	text-align: left;
+	margin-top: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.router {
+	display:unset;
+	min-height: 20vh;
+	text-align: center;
+}

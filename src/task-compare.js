@@ -1,12 +1,9 @@
-import { getRandomArbitrary } from './utils';
-import { level } from './game';
-import { makeMagic, makeTurn } from './youTurn';
-import { randomInteger, soundClickGreat, soundClickLosing } from './functions-task';
+import { randomInteger } from './utils';
+import { closeTask, closeAnswerWindow, wasYourAnswerWrong, wasYourAnswerRight } from './youAnswer';
 
 export default function showTaskCompare(param, player1, player2) {
     document.querySelector('.task-compare').style.display = 'block';
     document.querySelector('.field').style.display = 'none';
-    let points = 0;
     const array = [];
     while (array.length !== 7) {
         const result = randomInteger(10, 99);
@@ -33,48 +30,19 @@ export default function showTaskCompare(param, player1, player2) {
         }
         document.querySelector('#sortable-compare').innerHTML = '';
         const grate = document.createElement('div');
+        closeAnswerWindow(grate, 'compare');
+        closeTask('compare', taskCompare);
+
         if ((answerArray[0] < answerArray[1])
            && (answerArray[1] < answerArray[2])
            && (answerArray[2] < answerArray[3])
            && (answerArray[3] < answerArray[4])
            && (answerArray[4] < answerArray[5])
            && (answerArray[5] < answerArray[6])) {
-            document.querySelector('.task-window-compare').style.display = 'none';
-            document.querySelector('.task-compare').appendChild(grate);
-            grate.classList.add('grate-compare');
-            soundClickGreat();
-            grate.innerHTML = '<p>Ура! Вы правильно решили - магия применилась!</p>';
-            closeTask();
-            points = getRandomArbitrary(10, 20);
-            setTimeout(() => {
-                makeMagic(param, '.monsters-container .magic', 'monsters-magic', '.player-container .magic', '.player-container .health');
-                makeTurn(param, points, player1, player2, '.aboutPlayer', '#playerLife', '.aboutMonster', '#monsterLife', 'Ты');
-            }, 1000);
+            wasYourAnswerRight(grate, param, player2, player1);
         } else {
-            document.querySelector('.task-window-compare').style.display = 'none';
-            document.querySelector('.task-compare').appendChild(grate);
-            grate.classList.add('grate-compare');
-            soundClickLosing();
-            grate.innerHTML = '<p>Результат не верен - магия не применилась!</p><p>Теперь ходит противник.</p>';
-            closeTask();
-            points = Math.floor(getRandomArbitrary(10, 20) * level);
-            param = getRandomArbitrary(1, 6);
-            setTimeout(() => {
-                makeMagic(param, '.player-container .magic', 'player-magic', '.monsters-container .magic', '.monsters-container .health');
-                makeTurn(param, points, player2, player1, '.aboutMonster', '#monsterLife', '.aboutPlayer', '#playerLife', 'Противник');
-            }, 1000);
+            wasYourAnswerWrong(grate, player2, player1);
         }
     }
     document.querySelector('.button-compare').addEventListener('click', taskCompare);
-
-    function closeTask() {
-        setTimeout(() => {
-            document.querySelector('.task-compare').removeChild(document.querySelector('.grate-compare'));
-            document.querySelector('.task-compare').style.display = 'none';
-            document.querySelector('.modal-dialog').style.display = 'none';
-            document.querySelector('.task-window-compare').style.display = 'block';
-            document.querySelector('.button-compare').removeEventListener('click', taskCompare);
-            document.querySelector('.field').style.display = 'grid';
-        }, 2000);
-    }
 }

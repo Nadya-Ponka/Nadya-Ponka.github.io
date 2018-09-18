@@ -1,4 +1,4 @@
-export function getRandomArbitrary(min, max) {
+export function randomInteger(min, max) {
     return Math.round((Math.random() * (max - min)) + min);
 }
 
@@ -27,4 +27,16 @@ export function makeSounds(path) {
     const audio = new Audio(); // Создаём новый элемент Audio
     audio.src = path; // Указываем путь к звуку "клика"
     audio.autoplay = true; // Автоматически запускаем
+}
+
+export function soundClickGreat() {
+    makeSounds('../sound/great.mp3'); 
+}
+
+export function soundClickLosing() {
+    makeSounds('../sound/losing.mp3'); 
+}
+
+export function compareRandom() {
+    return Math.random() - 0.5;
 }

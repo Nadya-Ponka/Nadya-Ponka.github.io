@@ -9,13 +9,13 @@ const WaterfallCanvas = function (c, cw, ch) {
 
     this.particles = [];
     this.particleRate = 6;
-    this.gravity = 0.15;
+    this.gravity = 0.15; // смещение
 
     this.init = function () {
         this.loop();
     };
 
-    this.reset = function () {
+    this.reset = function () { // очистка канваса
         this.ctx.clearRect(0, 0, this.cw, this.ch);
         this.particles = [];
     };
@@ -24,7 +24,7 @@ const WaterfallCanvas = function (c, cw, ch) {
         return Math.floor(((Math.random() * (rMa - rMi + 1)) + rMi));
     };
 
-    this.Particle = function () {
+    this.Particle = function () { // создается линия
         const newWidth = _this.rand(1, 20);
         const newHeight = _this.rand(1, 45);
         this.x = _this.rand(10 + (newWidth / 2), _this.cw - 10 - (newWidth / 2));
@@ -38,24 +38,24 @@ const WaterfallCanvas = function (c, cw, ch) {
         this.lightness = _this.rand(30, 60);
     };
 
-    this.Particle.prototype.update = function () {
+    this.Particle.prototype.update = function () { // задает смещение линии дождя на параметр gravity
         this.vx += this.vx;
         this.vy += _this.gravity;
         this.x += this.vx;
         this.y += this.vy;
     };
 
-    this.Particle.prototype.render = function () {
+    this.Particle.prototype.render = function () { // рисуется линия дождя
         _this.ctx.strokeStyle = 'hsla(' + this.hue + ', ' + this.saturation + '%, ' + this.lightness + '%, .05)';
         _this.ctx.beginPath();
         _this.ctx.moveTo(this.x, this.y);
         _this.ctx.lineTo(this.x, this.y + this.height);
         _this.ctx.lineWidth = this.width / 2;
-        _this.ctx.lineCap = 'round';
+        _this.ctx.lineCap = 'round'; // Свойство lineCap задает вид конца линии
         _this.ctx.stroke();
     };
 
-    this.Particle.prototype.renderBubble = function () {
+    this.Particle.prototype.renderBubble = function () { //создается пузырек
         _this.ctx.fillStyle = 'hsla(' + this.hue + ', 40%, 40%, 1)';
         _this.ctx.fillStyle = 'hsla(' + this.hue + ', ' + this.saturation + '%, ' + this.lightness + '%, .3)';
         _this.ctx.beginPath();
@@ -63,14 +63,14 @@ const WaterfallCanvas = function (c, cw, ch) {
         _this.ctx.fill();
     };
 
-    this.createParticles = function () {
+    this.createParticles = function () { // создается массив линий дождя
         let i = this.particleRate;
         while (i--) {
             this.particles.push(new this.Particle());
         }
     };
 
-    this.removeParticles = function () {
+    this.removeParticles = function () { // удаляется линия и рисуется пузырек
         let i = this.particleRate;
         while (i--) {
             const p = this.particles[i];
@@ -81,7 +81,7 @@ const WaterfallCanvas = function (c, cw, ch) {
         }
     };
 
-    this.updateParticles = function () {
+    this.updateParticles = function () { // задает смещение всем линиям дождя
         let i = this.particles.length;
         while (i--) {
             const p = this.particles[i];
@@ -89,7 +89,7 @@ const WaterfallCanvas = function (c, cw, ch) {
         }
     };
 
-    this.renderParticles = function () {
+    this.renderParticles = function () { // перерисовывает все линии дождя
         let i = this.particles.length;
         while (i--) {
             const p = this.particles[i];
@@ -98,15 +98,21 @@ const WaterfallCanvas = function (c, cw, ch) {
     };
 
     this.clearCanvas = function () {
-        this.ctx.globalCompositeOperation = 'destination-out';
+        // Сохраняются только те фрагменты существующих фигур, которые не перекрываются новой фигурой. 
+        // Все остальное, включая новую фигуру, становится прозрачным
+        this.ctx.globalCompositeOperation = 'destination-out'; 
         this.ctx.fillStyle = 'rgba(255,255,255,.06)';
         this.ctx.fillRect(0, 0, this.cw, this.ch);
         this.ctx.globalCompositeOperation = 'lighter';
+        // Визуализируются обе фигуры, но цвет перекрывающихся путей определяется сложением цветовых значений 
     };
 
     this.loop = function () {
         const loopIt = function () {
             requestAnimationFrame(loopIt, _this.c);
+            // window.requestAnimationFrame указывает браузеру на то, что вы хотите произвести анимацию, 
+            // и просит его запланировать перерисовку на следующем кадре анимации. 
+            // В качестве параметра метод получает функцию, которая будет вызвана перед перерисовкой
             _this.clearCanvas();
             _this.createParticles();
             _this.updateParticles();
