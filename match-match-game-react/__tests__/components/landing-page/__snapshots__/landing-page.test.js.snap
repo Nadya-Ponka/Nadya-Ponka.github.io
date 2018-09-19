@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPage match snapshot 1`] = `
+<div
+  className="rules"
+>
+  <img
+    alt=""
+    className="title"
+    src="../../../Images/title.svg"
+  />
+  <p>
+    Давай найдем каждому Смешарику пару! Переворачивай любые две карточки. Если они одинаковые — пара найдена. Найди пары для всех. И поспеши!
+  </p>
+  <Button
+    className="buttonStart"
+    onClick={[Function]}
+    text="Начинай"
+  />
+</div>
+`;

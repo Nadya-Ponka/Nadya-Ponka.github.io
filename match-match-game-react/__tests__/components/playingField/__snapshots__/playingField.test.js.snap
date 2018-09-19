@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayingField match snapshot 1`] = `
+<React.Fragment>
+  <section
+    className="playingField"
+  >
+    <Connect(CardsField) />
+    <div
+      className="win"
+    >
+      <p
+        className="winner"
+      >
+        Ура! Все пары найдены!
+        <br />
+        Твое время:
+        <span
+          className="timer"
+          id="score"
+        />
+      </p>
+      <div
+        className="router"
+      >
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="buttonRouter"
+          id="resultsTable"
+          to="leader-board"
+        >
+          Топ-10
+        </NavLink>
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="buttonRouter"
+          to="smth-else"
+        >
+          Info
+        </NavLink>
+        <Route
+          component={[Function]}
+          path="/leader-board"
+        />
+        <Route
+          component={[Function]}
+          path="/smth-else"
+        />
+      </div>
+      <Button
+        className="buttonStart"
+        onClick={[Function]}
+        text="Играть еще"
+      />
+    </div>
+  </section>
+</React.Fragment>
+`;
